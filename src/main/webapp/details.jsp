@@ -87,7 +87,7 @@ function palla(){
     <input name="residenza" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Residenza" value="${residenza}" readonly>
     
     <label for="exampleFormControlInput1" class="form-label">Numero di telefono</label>
-    <input name="telefono" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Numero di telefono" value="${telefono}" readonly>
+    <input name="telefono" type="tel" class="form-control" id="exampleFormControlInput1" placeholder="Numero di telefono" value="${telefono}" readonly>
     
     <label for="exampleFormControlInput1" class="form-label">Email</label>
     <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"value="${email}" readonly>
@@ -96,7 +96,7 @@ function palla(){
     <input name="titolo_studio" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Titolo di studio" value="${titolo_studio}" readonly>
     
     <label for="exampleFormControlInput1" class="form-label">Voto</label>
-    <input name="voto" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Voto" value="${voto}" readonly>
+    <input name="voto" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Voto" value="${voto}" readonly>
     
     <label for="exampleFormControlInput1" class="form-label">Formazione</label>
     <input name="formazione" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Formazione" value="${formazione}" readonly>
@@ -114,12 +114,12 @@ function palla(){
 </div>
 <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">Esito colloquio</label>
-  <input name="esito" type="hidden" class="form-control" id="esito" rows="3" value="${esito}" readonly>
+  <input name="esito" type="hidden" class="form-control" id="esito" value="${esito}" readonly>
   <br>
   <span class="dot" id="esitoPalla"></span>
   <br>
   <label for="exampleFormControlTextarea1" class="form-label">Note</label>
-  <input name="note" class="form-control" id="exampleFormControlTextarea1" rows="3"  value="${note}" readonly>
+  <input name="note" class="form-control" id="exampleFormControlTextarea1" value="${note}" readonly>
 </div>
 <button type="submit" class="btn btn-primary">Modifica</button>
 </div>
