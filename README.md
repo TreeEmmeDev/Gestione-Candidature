@@ -10,4 +10,4 @@ App creata con servlet e jsp per la gestione delle candidature in modo dettaglia
 > File > Open project from file system > Selezionare la cartella > Finish
 
 ## Database Utilizzato
-[Download](https:google.com) 
+[![Download](https://custom-icon-badges.herokuapp.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download")](https://github.com)
