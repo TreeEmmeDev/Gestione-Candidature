@@ -23,7 +23,6 @@ public class Insert extends HttpServlet {
   }
   
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    int result = 0;
     
     LocalDate data_candidaturaC = null;
     LocalDate data_colloquioC = null;

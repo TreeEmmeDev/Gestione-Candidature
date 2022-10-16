@@ -72,54 +72,54 @@ function palla(){
   <div class="alert alert-dark">
     <div class="mb-3">
     
-    <input name="id" type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="Nome" value="${id}" readonly>
+    <input name="id" type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="Nome" value="${c.id}" readonly>
     
     <label for="exampleFormControlInput1" class="form-label">Nome</label>
-    <input name="nome" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nome" value="${nome}" readonly>
+    <input name="nome" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nome" value="${c.nome}" readonly>
     
     <label for="exampleFormControlInput1" class="form-label">Cognome</label>
-    <input name="cognome" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Cognome" value="${cognome}" readonly>
+    <input name="cognome" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Cognome" value="${c.cognome}" readonly>
     
     <label for="exampleFormControlInput1" class="form-label">Data di nascita</label>
-    <input name="anno_nascita" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di nascita" value="${anno_nascita}" readonly>
+    <input name="anno_nascita" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di nascita" value="${c.anno_nascita}" readonly>
     
     <label for="exampleFormControlInput1" class="form-label">Residenza</label>
-    <input name="residenza" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Residenza" value="${residenza}" readonly>
+    <input name="residenza" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Residenza" value="${c.residenza}" readonly>
     
     <label for="exampleFormControlInput1" class="form-label">Numero di telefono</label>
-    <input name="telefono" type="tel" class="form-control" id="exampleFormControlInput1" placeholder="Numero di telefono" value="${telefono}" readonly>
+    <input name="telefono" type="tel" class="form-control" id="exampleFormControlInput1" placeholder="Numero di telefono" value="${c.telefono}" readonly>
     
     <label for="exampleFormControlInput1" class="form-label">Email</label>
-    <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"value="${email}" readonly>
+    <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"value="${c.email}" readonly>
     
     <label for="exampleFormControlInput1" class="form-label">Titolo di studio</label>
-    <input name="titolo_studio" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Titolo di studio" value="${titolo_studio}" readonly>
+    <input name="titolo_studio" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Titolo di studio" value="${c.titolo_studio}" readonly>
     
     <label for="exampleFormControlInput1" class="form-label">Voto</label>
-    <input name="voto" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Voto" value="${voto}" readonly>
+    <input name="voto" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Voto" value="${c.voto}" readonly>
     
     <label for="exampleFormControlInput1" class="form-label">Formazione</label>
-    <input name="formazione" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Formazione" value="${formazione}" readonly>
+    <input name="formazione" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Formazione" value="${c.formazione}" readonly>
     
     <label for="exampleFormControlInput1" class="form-label">Data di candidatura</label>
-    <input name="data_candidatura" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di candidatura" value="${data_candidatura}" readonly>
+    <input name="data_candidatura" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di candidatura" value="${c.data_candidatura}" readonly>
     
     <label for="exampleFormControlInput1" class="form-label">Data di colloquio</label>
-    <input name="data_colloquio" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di colloquio" value="${data_colloquio}" readonly>
+    <input name="data_colloquio" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di colloquio" value="${c.data_colloquio}" readonly>
     
     <label for="exampleFormControlInput1" class="form-label">Greenpass</label>
-    <input name="greenpass" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Greenpass" value="${greenpass}" readonly>
+    <input name="greenpass" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Greenpass" value="${c.greenpass}" readonly>
     
  
 </div>
 <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">Esito colloquio</label>
-  <input name="esito" type="hidden" class="form-control" id="esito" value="${esito}" readonly>
+  <input name="esito" type="hidden" class="form-control" id="esito" value="${c.esito}" readonly>
   <br>
   <span class="dot" id="esitoPalla"></span>
   <br>
   <label for="exampleFormControlTextarea1" class="form-label">Note</label>
-  <input name="note" class="form-control" id="exampleFormControlTextarea1" value="${note}" readonly>
+  <input name="note" class="form-control" id="exampleFormControlTextarea1" value="${c.note}" readonly>
 </div>
 <button type="submit" class="btn btn-primary">Modifica</button>
 </div>

@@ -51,63 +51,63 @@
 				<div class="mb-3">
 
 					<input name="id" type="hidden" class="form-control"
-						id="exampleFormControlInput1" placeholder="Nome" value="${id}">
+						id="exampleFormControlInput1" placeholder="Nome" value="${c.id}">
 
 					<label for="exampleFormControlInput1" class="form-label">Nome</label>
 					<input name="nome" type="text" class="form-control"
-						id="exampleFormControlInput1" placeholder="Nome" value="${nome}">
+						id="exampleFormControlInput1" placeholder="Nome" value="${c.nome}">
 
 					<label for="exampleFormControlInput1" class="form-label">Cognome</label>
 					<input name="cognome" type="text" class="form-control"
 						id="exampleFormControlInput1" placeholder="Cognome"
-						value="${cognome}"> <label for="exampleFormControlInput1"
+						value="${c.cognome}"> <label for="exampleFormControlInput1"
 						class="form-label">Data di nascita</label> <input
 						name="anno_nascita" type="date" class="form-control"
 						id="exampleFormControlInput1" placeholder="Data di nascita"
-						value="${anno_nascita}"> <label
+						value="${c.anno_nascita}"> <label
 						for="exampleFormControlInput1" class="form-label">Residenza</label>
 					<input name="residenza" type="text" class="form-control"
 						id="exampleFormControlInput1" placeholder="Residenza"
-						value="${residenza}"> <label
+						value="${c.residenza}"> <label
 						for="exampleFormControlInput1" class="form-label">Numero
 						di telefono</label> <input name="telefono" type="tel" class="form-control"
 						id="exampleFormControlInput1" placeholder="Numero di telefono"
-						value="${telefono}"> <label for="exampleFormControlInput1"
+						value="${c.telefono}"> <label for="exampleFormControlInput1"
 						class="form-label">Email</label> <input name="email" type="email"
 						class="form-control" id="exampleFormControlInput1"
-						placeholder="name@example.com" value="${email}"> <label
+						placeholder="name@example.com" value="${c.email}"> <label
 						for="exampleFormControlInput1" class="form-label">Titolo
 						di studio</label> <input name="titolo_studio" type="text"
 						class="form-control" id="exampleFormControlInput1"
-						placeholder="Titolo di studio" value="${titolo_studio}"> <label
+						placeholder="Titolo di studio" value="${c.titolo_studio}"> <label
 						for="exampleFormControlInput1" class="form-label">Voto</label> <input
 						name="voto" type="number" class="form-control"
-						id="exampleFormControlInput1" placeholder="Voto" value="${voto}">
+						id="exampleFormControlInput1" placeholder="Voto" value="${c.voto}">
 
 					<label for="exampleFormControlInput1" class="form-label">Formazione</label>
 					<input name="formazione" type="text" class="form-control"
 						id="exampleFormControlInput1" placeholder="Formazione"
-						value="${formazione}"> <label
+						value="${c.formazione}"> <label
 						for="exampleFormControlInput1" class="form-label">Data di
 						candidatura</label> <input name="data_candidatura" type="date"
 						class="form-control" id="exampleFormControlInput1"
-						placeholder="Data di candidatura" value="${data_candidatura}">
+						placeholder="Data di candidatura" value="${c.data_candidatura}">
 
 					<label for="exampleFormControlInput1" class="form-label">Data
 						di colloquio</label> <input name="data_colloquio" type="date"
 						class="form-control" id="exampleFormControlInput1"
-						placeholder="Data di colloquio" value="${data_colloquio}">
+						placeholder="Data di colloquio" value="${c.data_colloquio}">
 
 					<label for="exampleFormControlInput1" class="form-label">Greenpass</label>
 					<input name="greenpass" type="text" class="form-control"
 						id="exampleFormControlInput1" placeholder="Greenpass"
-						value="${greenpass}">
+						value="${c.greenpass}">
 
 
 				</div>
 				<div class="mb-3">
 					<!--  <label for="exampleFormControlTextarea1" class="form-label">Esito colloquio</label>
-  <input name="esito" class="form-control" id="exampleFormControlTextarea1" rows="3" onclick="popup_esito()" value="${esito}"> -->
+  <input name="esito" class="form-control" id="exampleFormControlTextarea1" rows="3" onclick="popup_esito()" value="${c.esito}"> -->
 
 					<label for="esito">Esito:</label> <select name="esito" id="esito">
 						<option value="Idoneo">Idoneo</option>
@@ -117,7 +117,7 @@
 					</select> <br> <label for="exampleFormControlTextarea1"
 						class="form-label">Note</label> <input name="note"
 						class="form-control" id="exampleFormControlTextarea1"
-						onclick="popup_note()" value="${note}">
+						onclick="popup_note()" value="${c.note}">
 				</div>
 				<button type="submit" class="btn btn-primary" onclick="risultato()">Modifica</button>
 			</div>
