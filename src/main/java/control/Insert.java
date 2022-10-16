@@ -44,12 +44,12 @@ public class Insert extends HttpServlet {
 
     
     try {
-      result = cdao.insert(c);
+      cdao.insert(c);
     } catch (SQLException e) {
       e.printStackTrace();
     }
     
-    request.setAttribute("result", Integer.valueOf(result));
+
     request.getRequestDispatcher("index.jsp").forward(request, response);
   }
 }

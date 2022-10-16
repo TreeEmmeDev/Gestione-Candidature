@@ -12,9 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CandidaturaDao {
-  public int insert(Candidatura c) throws SQLException {
+	
+	
+  public void insert(Candidatura c) throws SQLException {
     Connection conn = Connessione.getConnessione();
-    String sql = "INSERT INTO candidatura (nome,cognome,anno_nascita,eta,residenza,telefono,email,titolo_studio,voto,formazione,data_candidatura,data_colloquio,note,esito,greenpass) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    String sql = "INSERT INTO candidatura (nome,cognome,anno_nascita,eta,residenza,telefono,email,titolo_studio,voto,formazione,data_candidatura,data_colloquio,note,esito,greenpass) "
+    		+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    
     PreparedStatement ps = conn.prepareStatement(sql);
     ps.setString(1, c.getNome());
     ps.setString(2, c.getCognome());
@@ -32,29 +36,33 @@ public class CandidaturaDao {
     ps.setString(8, c.getTitolo_studio());
     ps.setString(9, c.getVoto());
     ps.setString(10, c.getFormazione());
+    
     if (c.getData_candidatura() == null) {
       ps.setDate(11, null);
     } else {
       ps.setDate(11, Date.valueOf(c.getData_candidatura()));
     } 
+    
     if (c.getData_colloquio() == null) {
       ps.setDate(12, null);
     } else {
       ps.setDate(12, Date.valueOf(c.getData_colloquio()));
     } 
+    
     ps.setString(13, c.getNote());
     ps.setString(14, c.getEsito());
     ps.setString(15, c.getGreenpass());
-    int result = ps.executeUpdate();
-    return result;
+    
   }
   
   public List<Candidatura> lettura() throws SQLException {
     Connection conn = Connessione.getConnessione();
     String Sql = "SELECT * FROM candidatura";
+    
     List<Candidatura> lista = new ArrayList<>();
     PreparedStatement ps = conn.prepareStatement(Sql);
     ResultSet rs = ps.executeQuery();
+    
     while (rs.next()) {
       Candidatura p = new Candidatura();
       
@@ -66,9 +74,11 @@ public class CandidaturaDao {
       
       LocalDate data_candidaturalocal = Instant.ofEpochMilli(rs.getDate("data_candidatura").getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
       p.setData_candidatura(data_candidaturalocal);
-      Date data_colloquio = rs.getDate("data_colloquio");
-      LocalDate data_colloquiolocal = Instant.ofEpochMilli(data_colloquio.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+      
+
+      LocalDate data_colloquiolocal = Instant.ofEpochMilli(rs.getDate("data_colloquio").getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
       p.setData_colloquio(data_colloquiolocal);
+      
       p.setResidenza(rs.getString("residenza"));
       p.setTelefono(rs.getString("telefono"));
       p.setEmail(rs.getString("email"));
@@ -80,6 +90,7 @@ public class CandidaturaDao {
       p.setGreenpass(rs.getString("greenpass"));
       p.setEta(rs.getString("eta"));
       p.setId(rs.getInt("id"));
+      
       lista.add(p);
     }
     
@@ -87,9 +98,12 @@ public class CandidaturaDao {
   }
   
   public void delete(int id) throws SQLException {
+	  
     Connection conn = Connessione.getConnessione();
+    
     String Sql = "DELETE FROM candidatura WHERE id=?";
     PreparedStatement ps = conn.prepareStatement(Sql);
+    
     ps.setInt(1, id);
     ps.executeUpdate();
   }
@@ -114,6 +128,7 @@ public class CandidaturaDao {
     ps.setString(13, c.getEsito());
     ps.setString(14, c.getGreenpass());
     ps.setInt(15, c.getId());
+    
     ps.executeUpdate();
   }
 }
