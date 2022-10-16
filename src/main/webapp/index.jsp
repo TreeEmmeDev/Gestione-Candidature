@@ -13,29 +13,17 @@
 
 
 			<link href="css/bootstrap.min.css" rel="stylesheet">
-			<link rel="stylesheet" href="css/all.min.css">
-			<link rel="stylesheet" href="style.css">
+			<link rel="stylesheet" href="css/style.css">
 			<title>Gestione Candidato</title>
 
 			<script>
-				function risultato() {
-					if (document.getElementById("flaginsert").value == "1") {
-						alert("Inserimento avvenuto");
-						Swal.fire('Any fool can use a computer')
-					}
-				}
-
-				function popup_esito() {
-					document.getElementById("esito").style.display = "block";
-				}
-
 				function popup_note() {
 					document.getElementById("note").style.display = "block";
 				}
 			</script>
 		</head>
 
-		<body onload="risultato()">
+		<body>
 			<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd !important;">
 				<div class="container-fluid">
 					<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -64,8 +52,8 @@
 							<input name="residenza" type="text" class="form-control" id="exampleFormControlInput1"
 								placeholder="Residenza" required> <label for="exampleFormControlInput1"
 								class="form-label">Numero
-								di telefono</label> <input name="telefono" type="tel" class="form-control"
-								id="exampleFormControlInput1" placeholder="Numero di telefono" required>
+								di telefono</label> <input name="telefono" type="tel" placeholder="3398569667" pattern="[0-9]{10}" class="form-control"
+								id="exampleFormControlInput1" required>
 
 							<label for="exampleFormControlInput1" class="form-label">Email</label>
 							<input name="email" type="email" class="form-control" id="exampleFormControlInput1"

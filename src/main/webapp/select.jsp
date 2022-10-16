@@ -7,7 +7,6 @@
 <meta charset="ISO-8859-1">
 <title>Lista Candidati</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="css/all.min.css">
 <style>
 body {
 	font-family: Arial, Helvetica, sans-serif;

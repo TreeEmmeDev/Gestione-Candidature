@@ -10,28 +10,16 @@
 <script src="package/dist/sweetalert2.min.js"></script>
 <link rel="package/dist/stylesheet" href="sweetalert2.min.css">
 <link href="css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="css/all.min.css">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
 <title>Modifica Candidato</title>
 
 <script>
-	function risultato() {
-		if (document.getElementById("flaginsert").value == "1") {
-			alert("Inserimento avvenuto");
-			Swal.fire('Any fool can use a computer')
-		}
-	}
-
-	function popup_esito() {
-		alert("max 1000 caratteri");
-	}
-
 	function popup_note() {
-		alert("max 1000 caratteri");
+		document.getElementById("note").style.display = "block";
 	}
 </script>
 </head>
-<body onload="risultato()">
+<body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light"
 		style="background-color: #e3f2fd !important;">
 		<div class="container-fluid">
@@ -71,7 +59,7 @@
 						value="${c.residenza}" required> <label
 						for="exampleFormControlInput1" class="form-label">Numero
 						di telefono</label> <input name="telefono" type="tel" class="form-control"
-						id="exampleFormControlInput1" placeholder="Numero di telefono"
+						id="exampleFormControlInput1" placeholder="3398569667" pattern="[0-9]{10}"
 						value="${c.telefono}" required> <label for="exampleFormControlInput1"
 						class="form-label">Email</label> <input name="email" type="email"
 						class="form-control" id="exampleFormControlInput1"
@@ -91,7 +79,7 @@
 						for="exampleFormControlInput1" class="form-label">Data di
 						candidatura</label> <input name="data_candidatura" type="date"
 						class="form-control" id="exampleFormControlInput1"
-						placeholder="Data di candidatura" value="${c.data_candidatura} required">
+						placeholder="Data di candidatura" value="${c.data_candidatura}" required>
 
 					<label for="exampleFormControlInput1" class="form-label">Data
 						di colloquio</label> <input name="data_colloquio" type="date"
@@ -118,6 +106,8 @@
 						class="form-label">Note</label> <input name="note"
 						class="form-control" id="exampleFormControlTextarea1"
 						onclick="popup_note()" value="${c.note}" required>
+					<p style="display: none; color: blue;" id="note">Lunghezza
+								massima 1000</p>
 				</div>
 				<button type="submit" class="btn btn-primary" onclick="risultato()">Modifica</button>
 			</div>

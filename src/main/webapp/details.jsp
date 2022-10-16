@@ -9,18 +9,11 @@
     <script src="package/dist/sweetalert2.min.js"></script>
     <link rel="package/dist/stylesheet" href="sweetalert2.min.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Modifica Candidato</title>
     
 <script>
-function risultato(){
-	  if (document.getElementById("flaginsert").value == "1") {
-		  alert("Inserimento avvenuto");
-		  Swal.fire('Any fool can use a computer')
-	  }	  
-}
-	  	  
+  
 function popup_esito(){
 	alert("max 1000 caratteri");
 }
