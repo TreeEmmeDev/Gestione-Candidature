@@ -53,12 +53,9 @@ public class Update extends HttpServlet {
     Candidatura c = new Candidatura(request.getParameter("nome"), request.getParameter("cognome"), anno_nascitaC ,request.getParameter("residenza"),  request.getParameter("telefono"), 
     		request.getParameter("email"), request.getParameter("titolo_studio"), request.getParameter("voto"), request.getParameter("formazione"), 
     		data_candidaturaC, data_colloquioC, request.getParameter("note"), request.getParameter("esito"), request.getParameter("greenpass"));
+    c.setId(idC);
     
     CandidaturaDao cdao = new CandidaturaDao();
-    
-      c.setId(idC);
-    
-    System.out.println(c);
     
     try {
       cdao.update(c);
