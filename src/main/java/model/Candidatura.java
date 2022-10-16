@@ -190,6 +190,11 @@ public class Candidatura {
 		this.esito = esito;
 		this.greenpass = greenpass;
 	}
+
+	public Candidatura() {
+		super();
+	}
+	
 	
 	
 	
