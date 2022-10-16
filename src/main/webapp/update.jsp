@@ -55,53 +55,53 @@
 
 					<label for="exampleFormControlInput1" class="form-label">Nome</label>
 					<input name="nome" type="text" class="form-control"
-						id="exampleFormControlInput1" placeholder="Nome" value="${c.nome}">
+						id="exampleFormControlInput1" placeholder="Nome" value="${c.nome}" required>
 
 					<label for="exampleFormControlInput1" class="form-label">Cognome</label>
 					<input name="cognome" type="text" class="form-control"
 						id="exampleFormControlInput1" placeholder="Cognome"
-						value="${c.cognome}"> <label for="exampleFormControlInput1"
+						value="${c.cognome}" required> <label for="exampleFormControlInput1"
 						class="form-label">Data di nascita</label> <input
 						name="anno_nascita" type="date" class="form-control"
 						id="exampleFormControlInput1" placeholder="Data di nascita"
-						value="${c.anno_nascita}"> <label
+						value="${c.anno_nascita}" required> <label
 						for="exampleFormControlInput1" class="form-label">Residenza</label>
 					<input name="residenza" type="text" class="form-control"
 						id="exampleFormControlInput1" placeholder="Residenza"
-						value="${c.residenza}"> <label
+						value="${c.residenza}" required> <label
 						for="exampleFormControlInput1" class="form-label">Numero
 						di telefono</label> <input name="telefono" type="tel" class="form-control"
 						id="exampleFormControlInput1" placeholder="Numero di telefono"
-						value="${c.telefono}"> <label for="exampleFormControlInput1"
+						value="${c.telefono}" required> <label for="exampleFormControlInput1"
 						class="form-label">Email</label> <input name="email" type="email"
 						class="form-control" id="exampleFormControlInput1"
-						placeholder="name@example.com" value="${c.email}"> <label
+						placeholder="name@example.com" value="${c.email}" required> <label
 						for="exampleFormControlInput1" class="form-label">Titolo
 						di studio</label> <input name="titolo_studio" type="text"
 						class="form-control" id="exampleFormControlInput1"
-						placeholder="Titolo di studio" value="${c.titolo_studio}"> <label
+						placeholder="Titolo di studio" value="${c.titolo_studio}" required> <label
 						for="exampleFormControlInput1" class="form-label">Voto</label> <input
 						name="voto" type="number" class="form-control"
-						id="exampleFormControlInput1" placeholder="Voto" value="${c.voto}">
+						id="exampleFormControlInput1" placeholder="Voto" value="${c.voto}" required>
 
 					<label for="exampleFormControlInput1" class="form-label">Formazione</label>
 					<input name="formazione" type="text" class="form-control"
 						id="exampleFormControlInput1" placeholder="Formazione"
-						value="${c.formazione}"> <label
+						value="${c.formazione}" required> <label
 						for="exampleFormControlInput1" class="form-label">Data di
 						candidatura</label> <input name="data_candidatura" type="date"
 						class="form-control" id="exampleFormControlInput1"
-						placeholder="Data di candidatura" value="${c.data_candidatura}">
+						placeholder="Data di candidatura" value="${c.data_candidatura} required">
 
 					<label for="exampleFormControlInput1" class="form-label">Data
 						di colloquio</label> <input name="data_colloquio" type="date"
 						class="form-control" id="exampleFormControlInput1"
-						placeholder="Data di colloquio" value="${c.data_colloquio}">
+						placeholder="Data di colloquio" value="${c.data_colloquio}" required>
 
 					<label for="exampleFormControlInput1" class="form-label">Greenpass</label>
 					<input name="greenpass" type="text" class="form-control"
 						id="exampleFormControlInput1" placeholder="Greenpass"
-						value="${c.greenpass}">
+						value="${c.greenpass}" required>
 
 
 				</div>
@@ -117,7 +117,7 @@
 					</select> <br> <label for="exampleFormControlTextarea1"
 						class="form-label">Note</label> <input name="note"
 						class="form-control" id="exampleFormControlTextarea1"
-						onclick="popup_note()" value="${c.note}">
+						onclick="popup_note()" value="${c.note}" required>
 				</div>
 				<button type="submit" class="btn btn-primary" onclick="risultato()">Modifica</button>
 			</div>
