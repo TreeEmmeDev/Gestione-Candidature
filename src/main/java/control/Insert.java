@@ -39,23 +39,9 @@ public class Insert extends HttpServlet {
     Candidatura c = new Candidatura(request.getParameter("nome"), request.getParameter("cognome"), anno_nascitaC, request.getParameter("residenza"), request.getParameter("telefono"), 
     		request.getParameter("email"), request.getParameter("titolo_studio"), request.getParameter("voto"), request.getParameter("formazione"), data_candidaturaC, data_colloquioC, 
     		request.getParameter("note"), request.getParameter("esito"), request.getParameter("greenpass"));
-    CandidaturaDao cdao = new CandidaturaDao();
     
-//    c.setNome(nome);
-//    c.setCognome(cognome);
-//    c.setEta(String.valueOf(CandidatureUtils.calculateAge(anno_nascitaC)));
-//    c.setResidenza(residenza);
-//    c.setTelefono(telefono);
-//    c.setEmail(email);
-//    c.setTitolo_studio(titolo_studio);
-//    c.setVoto(voto);
-//    c.setFormazione(formazione);
-//    c.setNote(note);
-//    c.setEsito(esito);
-//    c.setGreenpass(greenpass);
-//    c.setData_candidatura(data_candidaturaC);
-//    c.setData_colloquio(data_colloquioC);
-//    c.setAnno_nascita(anno_nascitaC);
+    CandidaturaDao cdao = new CandidaturaDao();
+
     
     try {
       result = cdao.insert(c);
@@ -64,6 +50,6 @@ public class Insert extends HttpServlet {
     }
     
     request.setAttribute("result", Integer.valueOf(result));
-    request.getRequestDispatcher("index.jsp").forward((ServletRequest)request, (ServletResponse)response);
+    request.getRequestDispatcher("index.jsp").forward(request, response);
   }
 }

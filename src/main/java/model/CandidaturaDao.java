@@ -57,13 +57,14 @@ public class CandidaturaDao {
     ResultSet rs = ps.executeQuery();
     while (rs.next()) {
       Candidatura p = new Candidatura();
+      
       p.setNome(rs.getString("nome"));
       p.setCognome(rs.getString("cognome"));
-      Date anno = rs.getDate("anno_nascita");
-      LocalDate localanno = Instant.ofEpochMilli(anno.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+      
+      LocalDate localanno = Instant.ofEpochMilli(rs.getDate("anno_nascita").getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
       p.setAnno_nascita(localanno);
-      Date data_candidatura = rs.getDate("data_candidatura");
-      LocalDate data_candidaturalocal = Instant.ofEpochMilli(data_candidatura.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+      
+      LocalDate data_candidaturalocal = Instant.ofEpochMilli(rs.getDate("data_candidatura").getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
       p.setData_candidatura(data_candidaturalocal);
       Date data_colloquio = rs.getDate("data_colloquio");
       LocalDate data_colloquiolocal = Instant.ofEpochMilli(data_colloquio.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
@@ -80,7 +81,8 @@ public class CandidaturaDao {
       p.setEta(rs.getString("eta"));
       p.setId(rs.getInt("id"));
       lista.add(p);
-    } 
+    }
+    
     return lista;
   }
   
@@ -96,6 +98,7 @@ public class CandidaturaDao {
     Connection conn = Connessione.getConnessione();
     String Sql = "UPDATE candidatura SET nome=?, cognome=?, anno_nascita=?, residenza=?, telefono=?, email=?, titolo_studio=?, voto=?, formazione=?, data_candidatura=?, data_colloquio=?, note=?, esito=?, greenpass=? WHERE id=?";
     PreparedStatement ps = conn.prepareStatement(Sql);
+    
     ps.setString(1, c.getNome());
     ps.setString(2, c.getCognome());
     ps.setDate(3, Date.valueOf(c.getAnno_nascita()));
