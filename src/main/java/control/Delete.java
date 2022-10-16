@@ -24,8 +24,7 @@ public class Delete extends HttpServlet implements Servlet {
   }
   
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    String id = request.getParameter("id");
-    int idC = Integer.valueOf(id).intValue();
+    int idC = Integer.parseInt(request.getParameter("id"));
     
     CandidaturaDao cdao = new CandidaturaDao();
     try {

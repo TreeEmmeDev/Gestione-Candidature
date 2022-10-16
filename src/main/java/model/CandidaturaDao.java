@@ -18,11 +18,13 @@ public class CandidaturaDao {
     PreparedStatement ps = conn.prepareStatement(sql);
     ps.setString(1, c.getNome());
     ps.setString(2, c.getCognome());
+    
     if (c.getAnno_nascita() == null) {
       ps.setDate(3, null);
     } else {
       ps.setDate(3, Date.valueOf(c.getAnno_nascita()));
     } 
+    
     ps.setString(4, c.getEta());
     ps.setString(5, c.getResidenza());
     ps.setString(6, c.getTelefono());

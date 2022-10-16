@@ -51,25 +51,25 @@ public class Update extends HttpServlet {
     if (!anno_nascita.equalsIgnoreCase(""))
       anno_nascitaC = LocalDate.parse(anno_nascita); 
     
-    Candidatura c = new Candidatura();
+    Candidatura c = new Candidatura(anno_nascita, anno_nascita, anno_nascitaC, anno_nascita, anno_nascita, anno_nascita, anno_nascita, anno_nascita, anno_nascita, anno_nascitaC, anno_nascitaC, anno_nascita, anno_nascita, anno_nascita);
     CandidaturaDao cdao = new CandidaturaDao();
     
-    c.setId(idC);
-    c.setNome(nome);
-    c.setCognome(cognome);
-    c.setEta(String.valueOf(CandidatureUtils.calculateAge(anno_nascitaC)));
-    c.setResidenza(residenza);
-    c.setTelefono(telefono);
-    c.setEmail(email);
-    c.setTitolo_studio(titolo_studio);
-    c.setVoto(voto);
-    c.setFormazione(formazione);
-    c.setNote(note);
-    c.setEsito(esito);
-    c.setGreenpass(greenpass);
-    c.setData_candidatura(data_candidaturaC);
-    c.setData_colloquio(data_colloquioC);
-    c.setAnno_nascita(anno_nascitaC);
+//    c.setId(idC);
+//    c.setNome(nome);
+//    c.setCognome(cognome);
+//    c.setEta(String.valueOf(CandidatureUtils.calculateAge(anno_nascitaC)));
+//    c.setResidenza(residenza);
+//    c.setTelefono(telefono);
+//    c.setEmail(email);
+//    c.setTitolo_studio(titolo_studio);
+//    c.setVoto(voto);
+//    c.setFormazione(formazione);
+//    c.setNote(note);
+//    c.setEsito(esito);
+//    c.setGreenpass(greenpass);
+//    c.setData_candidatura(data_candidaturaC);
+//    c.setData_colloquio(data_colloquioC);
+//    c.setAnno_nascita(anno_nascitaC);
     
     System.out.println(c);
     

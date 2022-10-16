@@ -50,24 +50,24 @@ public class Insert extends HttpServlet {
     if (!anno_nascita.equalsIgnoreCase(""))
       anno_nascitaC = LocalDate.parse(anno_nascita); 
     
-    Candidatura c = new Candidatura();
+    Candidatura c = new Candidatura(request.getParameter("nome"), request.getParameter("cognome"), );
     CandidaturaDao cdao = new CandidaturaDao();
     
-    c.setNome(nome);
-    c.setCognome(cognome);
-    c.setEta(String.valueOf(CandidatureUtils.calculateAge(anno_nascitaC)));
-    c.setResidenza(residenza);
-    c.setTelefono(telefono);
-    c.setEmail(email);
-    c.setTitolo_studio(titolo_studio);
-    c.setVoto(voto);
-    c.setFormazione(formazione);
-    c.setNote(note);
-    c.setEsito(esito);
-    c.setGreenpass(greenpass);
-    c.setData_candidatura(data_candidaturaC);
-    c.setData_colloquio(data_colloquioC);
-    c.setAnno_nascita(anno_nascitaC);
+//    c.setNome(nome);
+//    c.setCognome(cognome);
+//    c.setEta(String.valueOf(CandidatureUtils.calculateAge(anno_nascitaC)));
+//    c.setResidenza(residenza);
+//    c.setTelefono(telefono);
+//    c.setEmail(email);
+//    c.setTitolo_studio(titolo_studio);
+//    c.setVoto(voto);
+//    c.setFormazione(formazione);
+//    c.setNote(note);
+//    c.setEsito(esito);
+//    c.setGreenpass(greenpass);
+//    c.setData_candidatura(data_candidaturaC);
+//    c.setData_colloquio(data_colloquioC);
+//    c.setAnno_nascita(anno_nascitaC);
     
     try {
       result = cdao.insert(c);
