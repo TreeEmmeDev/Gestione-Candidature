@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.Period;
 
 public class CandidatureUtils {
+	
   public static int calculateAge(LocalDate dob) {
     LocalDate curDate = LocalDate.now();
     
@@ -12,4 +13,5 @@ public class CandidatureUtils {
     return 0;
     
   }
+  
 }
