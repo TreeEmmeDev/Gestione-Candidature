@@ -13,24 +13,29 @@
 
             <title>Home Page</title>
 
+
+            <link href="css/bootstrap.min.css" rel="stylesheet">
+            <link rel="stylesheet" href="css/style.css">
+            <title>Gestione Candidato</title>
+
+            <script>
+                function popup_note() {
+                    document.getElementById("note").style.display = "block";
+                }
+            </script>
         </head>
 
-        <body style="background-color:rgb(160, 198, 212)">
-            <nav class="navbar navbar-expand-lg navbar-fixed-bottom" style="background-color: rgba(0, 101, 184, 0.952)">
+        <body>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd !important;">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#"></a>
-
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav align-center">
-                            <a class="nav-link active" aria-current="page" href="#" style="font-family: Mukta, sans-serif; color: white">HOME</a>
-                            <a class="nav-link" href="#" style="font-family: Mukta, sans-serif; color: white">NUOVA CANDIDATURA</a>
-                            <a class="nav-link" href="#" style="font-family: Mukta, sans-serif; color: white">TABELLA CANDIDATURA</a>
-
+                        <div class="navbar-nav">
+                            <img src="img/unnamed.png" alt="" width="70" height="60" class="d-inline-block align-text-top"> <a class="nav-link" href="select">Lista
+								Candidati</a>
                         </div>
                     </div>
                 </div>
             </nav>
-
             <form action="Insert" method="POST">
                 <div class="container">
                     <div class="alert alert-dark">
