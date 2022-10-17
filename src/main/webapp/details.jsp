@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="package/dist/sweetalert2.min.js"></script>
     <link rel="package/dist/stylesheet" href="sweetalert2.min.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        
     <link rel="stylesheet" href="css/style.css">
     <title>Modifica Candidato</title>
     
@@ -46,22 +47,53 @@ function palla(){
   border-radius: 50%;
   display: inline-block;
 }
+
+.nav-link{
+            color: white;
+        }
+     
+        .nav-link:hover{
+            color: rgba(99, 166, 220, 0.952);
+        }
+     
+       .act{
+            color: rgb(0, 140, 255);;
+        }
+        .iconcina{
+            color: white;
+        }
 </style>
 </head>
 <body onload="palla()">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd !important;">
-  <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <img src="img/unnamed.png" alt="" width="70" height="60" class="d-inline-block align-text-top">
-        <a class="nav-link" href="index.jsp">Inserisci Candidati</a>
-        <a class="nav-link" href="select">Lista Candidati</a>
-      </div>
-    </div>
-  </div>
-</nav>
+  
+   <nav class="navbar navbar-expand-lg" style="background-color: rgba(0, 101, 184, 0.952); color: white;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">   </a>
+              <button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars iconcina"></i>
+              </button>
+     
+              
+     
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="home.jsp">HOME</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.jsp">INSERISCI</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="Select">VISUALIZZA</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+  
+  
   <form action="Appoggio" method="POST">  
-  <div class="container">   
+  <div class="container" style="margin-top: 30px;">   
   <div class="alert alert-dark">
     <div class="mb-3">
     
@@ -118,5 +150,9 @@ function palla(){
 </div>
 </div>
 </form> 
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/c2b8bef5f3.js" crossorigin="anonymous"></script>
 </body>
 </html>

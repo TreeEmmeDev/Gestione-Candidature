@@ -14,12 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 import model.Candidatura;
 import model.CandidaturaDao;
 
-@WebServlet({"/select"})
+@WebServlet({"/Select"})
 public class Select extends HttpServlet {
   private static final long serialVersionUID = 1L;
   
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    CandidaturaDao cdao = new CandidaturaDao();
+    CandidaturaDao cdao= new CandidaturaDao();
     List<Candidatura> listacandidati = new ArrayList<>();
     
     try {

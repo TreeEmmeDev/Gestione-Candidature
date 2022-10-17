@@ -88,7 +88,7 @@
                     <a class="nav-link" href="index.jsp">INSERISCI</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="select.jsp">VISUALIZZA</a>
+                    <a class="nav-link" href="Select">VISUALIZZA</a>
                   </li>
                 </ul>
               </div>
@@ -101,7 +101,7 @@
                 <div class="tracking-in-contract">
                     <h1 style="font-family: 'Dela Gothic One', cursive; color: rgba(0, 101, 184, 0.952);">GESTIONALE</h1>
                 </div>
-                <img src="../img/unnamed.png" class="rounded mx-auto d-block" style="width: 200px;">
+                <img src="img/unnamed.png" class="rounded mx-auto d-block" style="width: 200px;">
           </div>
         </div>
      
@@ -118,7 +118,7 @@
         <ul class="nav justify-content-center pb-3 mb-3 ">
             <li class="nav-item "><a href="# " class="nav-link px-2 " style="font-family: Mukta, sans-serif; color: white ">Github</a></li>
         </ul>
-        <p class="text-center " style="font-family: Mukta, sans-serif; color: white ">© 2022 3EM Engineering</p>
+        <p class="text-center " style="font-family: Mukta, sans-serif; color: white ">2022 3EM Engineering</p>
         
         
         
