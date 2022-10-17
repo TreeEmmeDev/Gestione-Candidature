@@ -1,0 +1,14 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "pwa-chrome",
+            "request": "launch",
+            "name": "Open home.jsp",
+            "file": "c:\\corso java di falco tommaso\\JAVA\\2022.08.29\\ES. 1 (gestione persona)\\Gestione-Candidature\\src\\main\\webapp\\home.jsp"
+        }
+    ]
+}
