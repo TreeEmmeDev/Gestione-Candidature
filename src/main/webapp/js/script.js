@@ -47,4 +47,35 @@ function controllotitolo() {
 }
 
 
-controllotitolo();
+function successo() {
+    if (localStorage.getItem("inserimento") ==  1 ){
+        Swal.fire(
+            'Ottimo Lavoro!',
+            'Hai fatto l\'inserimento',
+            'success'
+          )
+          localStorage.setItem("inserimento", 0);
+    }
+}
+
+//successo();
+
+function elimina() {
+    if (localStorage.getItem("elimina") ==  1 ){
+        Swal.fire({
+            title: 'Sei sicuro di voler eliminare il candidato ?',
+            icon: 'question',
+            iconHtml: '?',
+            confirmButtonText: 'Si',
+            cancelButtonText: 'No',
+            showCancelButton: true,
+            showCloseButton: true,
+            preConfirm: () =>{
+                console.log("ciao")
+            }
+          })
+          localStorage.setItem("elimina", 0);
+    }
+}
+
+elimina();
