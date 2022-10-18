@@ -40,7 +40,7 @@ public class Insert extends HttpServlet {
     		request.getParameter("note"), request.getParameter("esito"), request.getParameter("greenpass"));
     
     CandidaturaDao cdao = new CandidaturaDao();
-
+    c.setEta(CandidatureUtils.calculateAge(anno_nascitaC));
     
     try {
       cdao.insert(c);

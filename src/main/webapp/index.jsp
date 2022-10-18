@@ -78,7 +78,7 @@
                     <div class="alert alert-dark">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Nome</label>
-                            <input onkeyup="validaN()" type="text" class="form-control" id="nome" placeholder="Nome" required> <label for="exampleFormControlInput1" class="form-label">Cognome</label>
+                            <input onkeyup="validaN()" type="text" class="form-control" name="nome" id="nome" placeholder="Nome" required > <label for="exampleFormControlInput1" class="form-label">Cognome</label>
                             <input onkeyup="validaC()" name="cognome" type="text" class="form-control" id="cognome" placeholder="Cognome" required> <label for="exampleFormControlInput1" class="form-label">Data di
 								nascita</label> <input name="anno_nascita" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di nascita" required> <label for="exampleFormControlInput1" class="form-label">Residenza</label>
                             <input name="residenza" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Residenza" required> <label for="exampleFormControlInput1" class="form-label">Numero

@@ -21,6 +21,10 @@ public class CandidaturaDao {
     
     PreparedStatement ps = conn.prepareStatement(sql);
     ps.setString(1, c.getNome());
+    
+    System.out.println(c.getNome());
+    
+    
     ps.setString(2, c.getCognome());
     
     if (c.getAnno_nascita() == null) {
@@ -29,7 +33,7 @@ public class CandidaturaDao {
       ps.setDate(3, Date.valueOf(c.getAnno_nascita()));
     } 
     
-    ps.setString(4, c.getEta());
+    ps.setInt(4, c.getEta());
     ps.setString(5, c.getResidenza());
     ps.setString(6, c.getTelefono());
     ps.setString(7, c.getEmail());
@@ -52,6 +56,8 @@ public class CandidaturaDao {
     ps.setString(13, c.getNote());
     ps.setString(14, c.getEsito());
     ps.setString(15, c.getGreenpass());
+    
+    ps.executeUpdate();
     
   }
   
@@ -88,7 +94,7 @@ public class CandidaturaDao {
       p.setNote(rs.getString("note"));
       p.setEsito(rs.getString("esito"));
       p.setGreenpass(rs.getString("greenpass"));
-      p.setEta(rs.getString("eta"));
+      p.setEta(Integer.parseInt(rs.getString("eta")));
       p.setId(rs.getInt("id"));
       
       lista.add(p);

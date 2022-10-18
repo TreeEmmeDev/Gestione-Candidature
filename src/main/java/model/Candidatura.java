@@ -11,7 +11,7 @@ public class Candidatura {
 
 	private LocalDate anno_nascita;
 
-	private String eta;
+	private int eta;
 
 	private String residenza;
 
@@ -67,11 +67,11 @@ public class Candidatura {
 		this.anno_nascita = anno_nascita;
 	}
 
-	public String getEta() {
+	public int getEta() {
 		return this.eta;
 	}
 
-	public void setEta(String eta) {
+	public void setEta(int eta) {
 		this.eta = eta;
 	}
 
