@@ -25,7 +25,7 @@
             </script>
         </head>
 
-        <body>
+        <body style="background-color:rgb(160, 198, 212)">
         
             <style>
         .nav-link{
@@ -45,8 +45,8 @@
 
     }
      
-     
     </style>
+    
         
         <nav class="navbar navbar-expand-lg" style="background-color: rgba(0, 101, 184, 0.952); color: white;">
             <div class="container-fluid">
@@ -78,8 +78,8 @@
                     <div class="alert alert-dark">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Nome</label>
-                            <input name="nome" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nome" required> <label for="exampleFormControlInput1" class="form-label">Cognome</label>
-                            <input name="cognome" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Cognome" required> <label for="exampleFormControlInput1" class="form-label">Data di
+                            <input onkeyup="validaN()" type="text" class="form-control" id="nome" placeholder="Nome" required> <label for="exampleFormControlInput1" class="form-label">Cognome</label>
+                            <input onkeyup="validaC()" name="cognome" type="text" class="form-control" id="cognome" placeholder="Cognome" required> <label for="exampleFormControlInput1" class="form-label">Data di
 								nascita</label> <input name="anno_nascita" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di nascita" required> <label for="exampleFormControlInput1" class="form-label">Residenza</label>
                             <input name="residenza" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Residenza" required> <label for="exampleFormControlInput1" class="form-label">Numero
 								di telefono</label> <input name="telefono" type="tel" placeholder="3398569667" pattern="[0-9]{10}" class="form-control" id="exampleFormControlInput1" required>
@@ -88,12 +88,22 @@
                             <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required>
 
                             <label for="exampleFormControlInput1" class="form-label">Titolo
-								di studio</label> <input name="titolo_studio" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Titolo di studio" required> <label for="exampleFormControlInput1" class="form-label">Voto</label>                            <input name="voto" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Voto" required> <label for="exampleFormControlInput1" class="form-label">Formazione</label>
+								di studio</label> 
+								<select name="titolo_studio" onchange="controllotitolo()" id="titolodistudio" class="custom-select">
+									<option value="Diploma">Diploma</option>
+									<option value="Laurea">Laurea</option>
+								</select> <br>
+								 
+								
+								<label for="exampleFormControlInput1" class="form-label">Voto</label>                            
+								<input name="voto" type="number" class="form-control" id="voto" placeholder="Voto"  min="60" max="100" required> 
+								
+								<label for="exampleFormControlInput1" class="form-label">Formazione</label>
                             <input name="formazione" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Formazione" required> <label for="exampleFormControlInput1" class="form-label">Data di
 								candidatura</label> <input name="data_candidatura" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di candidatura" required> <label for="exampleFormControlInput1" class="form-label">Data di
 								colloquio</label> <input name="data_colloquio" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di colloquio" required>
                             <div class="mb-3">
-                                <label for="greenpass">Certificazione Verde: </label> <select name="greenpass">
+                                <label for="greenpass">Certificazione Verde: </label> <select name="greenpass" class="custom-select">
 									<option value="si">Si</option>
 									<option value="no">No</option>
 								</select> <br>
@@ -101,7 +111,7 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="esito">Esito:</label> <select name="esito">
+                            <label for="esito">Esito:</label> <select name="esito" class="custom-select">
 								<option value="Idoneo">Idoneo</option>
 								<option value="Non Idoneo">Non Idoneo</option>
 								<option value="In attesa">In attesa</option>
@@ -115,11 +125,23 @@
                             <p style="display: none; color: blue;" id="note">Lunghezza massima 1000</p>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Invio</button>
+                        <button type="submit" class="btn btn-primary" id="submit">Invio</button>
                     </div>
                 </div>
             </form>
+            
         </body>
+                <script src="js/script.js"> </script>
+                <style>     
+             .ERROR{
+            outline: none !important;
+            border:2px solid red !important;
+            box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.25) !important;
+        }
+
+        .hidden {
+            display: none;
+        }</style>
         
          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/c2b8bef5f3.js" crossorigin="anonymous"></script>

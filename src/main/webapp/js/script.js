@@ -22,7 +22,9 @@ function validaC() {
 }
 
 function validaN(){
-    var nome = document.getElementById("nome");
+	
+    var nome = document.querySelector("input#nome");
+    
     if(containsNumbers(nome.value)){
         submit.classList.add("hidden");
         nome.classList.add("ERROR");
@@ -58,7 +60,6 @@ function successo() {
     }
 }
 
-//successo();
 
 function elimina() {
     if (localStorage.getItem("elimina") ==  1 ){
@@ -77,5 +78,3 @@ function elimina() {
           localStorage.setItem("elimina", 0);
     }
 }
-
-elimina();

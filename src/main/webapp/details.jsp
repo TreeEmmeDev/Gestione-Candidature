@@ -64,7 +64,7 @@ function palla(){
         }
 </style>
 </head>
-<body onload="palla()">
+<body onload="palla()" style="background-color:rgb(160, 198, 212)">
   
    <nav class="navbar navbar-expand-lg" style="background-color: rgba(0, 101, 184, 0.952); color: white;">
             <div class="container-fluid">

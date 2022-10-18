@@ -16,7 +16,7 @@
 
         </head>
 
-        <body style="background-color:rgb(160, 198, 212)">
+        <body style="background-color: white;">
         <nav class="navbar navbar-expand-lg" style="background-color: rgba(0, 101, 184, 0.952); color: white;">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">   </a>
@@ -193,7 +193,7 @@
                                 <tr>
                                     <th scope="col">Nome</th>
                                     <th scope="col">Cognome</th>
-                                    <th scope="col">Et�</th>
+                                    <th scope="col">Eta</th>
                                     <th scope="col">Formaz</th>
                                     <th scope="col">Candidatura</th>
                                     <th scope="col">Greenpass</th>
