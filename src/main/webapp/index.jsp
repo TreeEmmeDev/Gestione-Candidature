@@ -11,7 +11,7 @@
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Kanit&family=Mukta:wght@500;700&display=swap" rel="stylesheet">
 
-            <title>Home Page</title>
+            <title>Inserisci</title>
 
 
             <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -111,7 +111,8 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="esito">Esito:</label> <select name="esito" class="custom-select">
+                            <label for="esito">Esito:</label>
+                            <select name="esito" class="custom-select">
 								<option value="Idoneo">Idoneo</option>
 								<option value="Non Idoneo">Non Idoneo</option>
 								<option value="In attesa">In attesa</option>

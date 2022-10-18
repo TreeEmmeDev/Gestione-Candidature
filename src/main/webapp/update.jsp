@@ -12,8 +12,9 @@
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Kanit&family=Mukta:wght@500;700&display=swap" rel="stylesheet">
 
-            <title>Home Page</title>
-
+            <title>Modifica</title>
+			<link href="css/bootstrap.min.css" rel="stylesheet">
+            <link rel="stylesheet" href="css/style.css">
         </head>
         
         <style>
@@ -70,10 +71,10 @@
                             <input name="id" type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="Nome" value="${c.id}">
 
                             <label for="exampleFormControlInput1" class="form-label">Nome</label>
-                            <input name="nome" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nome" value="${c.nome}" required>
+                            <input name="nome" onkeyup="validaN()" type="text" class="form-control" id="nome" placeholder="Nome" value="${c.nome}" required>
 
                             <label for="exampleFormControlInput1" class="form-label">Cognome</label>
-                            <input name="cognome" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Cognome" value="${c.cognome}" required> <label for="exampleFormControlInput1" class="form-label">Data di nascita</label>
+                            <input name="cognome" onkeyup="validaC()" type="text" class="form-control" id="cognome" placeholder="Cognome" value="${c.cognome}" required> <label for="exampleFormControlInput1" class="form-label">Data di nascita</label>
                             <input
                                 name="anno_nascita" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di nascita" value="${c.anno_nascita}" required> <label for="exampleFormControlInput1" class="form-label">Residenza</label>
                                 <input name="residenza" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Residenza" value="${c.residenza}" required> <label for="exampleFormControlInput1" class="form-label">Numero
@@ -87,8 +88,11 @@
                                 <label for="exampleFormControlInput1" class="form-label">Data
 						di colloquio</label> <input name="data_colloquio" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di colloquio" value="${c.data_colloquio}" required>
 
-                                <label for="exampleFormControlInput1" class="form-label">Greenpass</label>
-                                <input name="greenpass" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Greenpass" value="${c.greenpass}" required>
+                                <label for="greenpass">Certificazione Verde: </label>
+                                 <select name="greenpass" class="custom-select">
+									<option value="si">Si</option>
+									<option value="no">No</option>
+								</select> <br>
 
 
                         </div>
@@ -96,19 +100,33 @@
                             <!--  <label for="exampleFormControlTextarea1" class="form-label">Esito colloquio</label>
   <input name="esito" class="form-control" id="exampleFormControlTextarea1" rows="3" onclick="popup_esito()" value="${c.esito}"> -->
 
-                            <label for="esito">Esito:</label> <select name="esito" id="esito">
+                            <label for="esito">Esito:</label>
+                       <select name="esito" id="esito" class="custom-select">
 						<option value="Idoneo">Idoneo</option>
 						<option value="Non Idoneo">Non Idoneo</option>
 						<option value="In attesa">In attesa</option>
 						<option value="Da ricontattare">Da ricontattare</option>
-					</select> <br> <label for="exampleFormControlTextarea1" class="form-label">Note</label> <input name="note" class="form-control" id="exampleFormControlTextarea1" onclick="popup_note()" value="${c.note}" required>
+							</select>
+							
+					 <br> <label for="exampleFormControlTextarea1" class="form-label">Note</label> <input name="note" class="form-control" id="exampleFormControlTextarea1" onclick="popup_note()" value="${c.note}" required>
                             <p style="display: none; color: blue;" id="note">Lunghezza massima 1000</p>
                         </div>
-                        <button type="submit" class="btn btn-primary" onclick="risultato()">Modifica</button>
+                        <button type="submit" class="btn btn-primary" id="submit" onclick="risultato()">Modifica</button>
                     </div>
                 </div>
             </form>
             
+            <script src="js/script.js"> </script>
+                <style>     
+             .ERROR{
+            outline: none !important;
+            border:2px solid red !important;
+            box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.25) !important;
+        }
+
+        .hidden {
+            display: none;
+        }</style>
             
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/c2b8bef5f3.js" crossorigin="anonymous"></script>
