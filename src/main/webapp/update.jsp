@@ -79,8 +79,30 @@
                                 name="anno_nascita" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di nascita" value="${c.anno_nascita}" required> <label for="exampleFormControlInput1" class="form-label">Residenza</label>
                                 <input name="residenza" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Residenza" value="${c.residenza}" required> <label for="exampleFormControlInput1" class="form-label">Numero
 						di telefono</label> <input name="telefono" type="tel" class="form-control" id="exampleFormControlInput1" placeholder="3398569667" pattern="[0-9]{10}" value="${c.telefono}" required> <label for="exampleFormControlInput1" class="form-label">Email</label>                                <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" value="${c.email}" required> <label for="exampleFormControlInput1" class="form-label">Titolo
-						di studio</label> <input name="titolo_studio" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Titolo di studio" value="${c.titolo_studio}" required> <label for="exampleFormControlInput1" class="form-label">Voto</label>                                <input name="voto" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Voto" value="${c.voto}" required>
-
+						di studio</label> 
+						
+						
+						
+						
+						
+						
+						 <c:if test="${c.titolo_studio == 'Diploma'}">
+						<select name="titolo_studio" class="custom-select" onchange="controllotitolo()" id="titolodistudio">
+	                                 	<option value="Diploma">Diploma</option>
+										<option value="Laurea">Laurea</option>	
+									</select> <br>
+									</c:if>
+									
+									<c:if test="${c.titolo_studio == 'Laurea'}">
+						<select name="titolo_studio" class="custom-select" onchange="controllotitolo()" id="titolodistudio">
+						<option value="Laurea">Laurea</option>	
+	                                 	<option value="Diploma">Diploma</option>
+										
+									</select> <br>
+									</c:if>
+									
+														<label for="exampleFormControlInput1" class="form-label">Voto</label>                                <input name="voto" type="number" class="form-control" id="voto" placeholder="Voto" value="${c.voto}" required min="60" max="100">
+									
                                 <label for="exampleFormControlInput1" class="form-label">Formazione</label>
                                 <input name="formazione" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Formazione" value="${c.formazione}" required> <label for="exampleFormControlInput1" class="form-label">Data di
 						candidatura</label> <input name="data_candidatura" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di candidatura" value="${c.data_candidatura}" required>
@@ -89,11 +111,18 @@
 						di colloquio</label> <input name="data_colloquio" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di colloquio" value="${c.data_colloquio}" required>
 
                                 <label for="greenpass">Certificazione Verde: </label>
-                                 <select name="greenpass" class="custom-select">
-									<option value="si">Si</option>
-									<option value="no">No</option>
-								</select> <br>
-
+                                <c:if test="${c.greenpass == 'si'}">
+	                                 <select name="greenpass" class="custom-select">
+										<option value="si">Si</option>
+										<option value="no">No</option>
+									</select> <br>
+								</c:if>
+								<c:if test="${c.greenpass == 'no'}">
+	                                 <select name="greenpass" class="custom-select">
+	                                 	<option value="no">No</option>
+										<option value="si">Si</option>	
+									</select> <br>
+								</c:if>
 
                         </div>
                         <div class="mb-3">
@@ -116,7 +145,6 @@
                 </div>
             </form>
             
-            <script src="js/script.js"> </script>
                 <style>     
              .ERROR{
             outline: none !important;
@@ -130,6 +158,8 @@
             
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/c2b8bef5f3.js" crossorigin="anonymous"></script>
+                    <script src="js/script.js"> </script>
+        
         </body>
 
         </html>
