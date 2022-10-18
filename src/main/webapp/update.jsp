@@ -15,6 +15,7 @@
 	<title>Modifica</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="icon" href="img/unnamed.png">
 </head>
 
 <style>
