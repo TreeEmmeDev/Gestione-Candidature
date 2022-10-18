@@ -22,11 +22,24 @@ public class Select extends HttpServlet {
     CandidaturaDao cdao= new CandidaturaDao();
     List<Candidatura> listacandidati = new ArrayList<>();
     
+    String nome = request.getParameter("nome");
+    String cognome = request.getParameter("cognome");
+    
+    
     try {
-      listacandidati = cdao.lettura();
+	    if(nome == null && cognome == null) {
+	    	listacandidati = cdao.lettura();
+	    }else if(nome != null && cognome == null) {
+	  	    listacandidati = cdao.letturaRicerca("nome", nome, cognome);
+	    }else if(nome == null && cognome != null) {
+	    	listacandidati = cdao.letturaRicerca("cognome", nome, cognome);
+	    }else {
+	    	listacandidati = cdao.letturaRicerca("cognomeenome", nome, cognome);
+	    }
     } catch (SQLException e) {
-      e.printStackTrace();
-    } 
+		e.printStackTrace();
+	} 
+
     
     request.setAttribute("listacandidati", listacandidati);
     request.getRequestDispatcher("select.jsp").forward((ServletRequest)request, (ServletResponse)response);

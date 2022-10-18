@@ -141,4 +141,71 @@ public class CandidaturaDao {
     
     ps.executeUpdate();
   }
+  
+  
+  
+  
+  public List<Candidatura> letturaRicerca(String operazione, String nome, String cognome) throws SQLException {
+	    Connection conn = Connessione.getConnessione();
+	    String Sql = "";
+	    
+	    if(operazione.equalsIgnoreCase("nome")) {
+	    	Sql = "SELECT * FROM candidatura WHERE nome LIKE '%" + nome + "%'";
+	    }else if(operazione.equalsIgnoreCase("cognome")) {
+	    	Sql = "SELECT * FROM candidatura WHERE cognome LIKE '%" + cognome + "%'";
+	    }else {
+	    	Sql = "SELECT * FROM candidatura WHERE nome LIKE '%" + nome + "%' AND cognome LIKE '%" + cognome + "%'";
+	    }
+	    
+	    
+	    List<Candidatura> lista = new ArrayList<>();
+	    PreparedStatement ps = conn.prepareStatement(Sql);
+	    ResultSet rs = ps.executeQuery();
+	    
+	    while (rs.next()) {
+	      Candidatura p = new Candidatura();
+	      
+	      p.setNome(rs.getString("nome"));
+	      p.setCognome(rs.getString("cognome"));
+	      
+	      LocalDate localanno = Instant.ofEpochMilli(rs.getDate("anno_nascita").getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+	      p.setAnno_nascita(localanno);
+	      
+	      LocalDate data_candidaturalocal = Instant.ofEpochMilli(rs.getDate("data_candidatura").getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+	      p.setData_candidatura(data_candidaturalocal);
+	      
+	      LocalDate data_colloquiolocal = null;
+	      
+	      if(rs.getDate("data_colloquio") != null) {
+	    	  data_colloquiolocal = Instant.ofEpochMilli(rs.getDate("data_colloquio").getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+	      }
+	      
+	      p.setData_colloquio(data_colloquiolocal);
+	      
+	      p.setResidenza(rs.getString("residenza"));
+	      p.setTelefono(rs.getString("telefono"));
+	      p.setEmail(rs.getString("email"));
+	      p.setTitolo_studio(rs.getString("titolo_studio"));
+	      p.setVoto(rs.getString("voto"));
+	      p.setFormazione(rs.getString("formazione"));
+	      p.setNote(rs.getString("note"));
+	      p.setEsito(rs.getString("esito"));
+	      p.setGreenpass(rs.getString("greenpass"));
+	      p.setEta(Integer.parseInt(rs.getString("eta")));
+	      p.setId(rs.getInt("id"));
+	      
+	      lista.add(p);
+	    }
+	    
+	    return lista;
+	  }
+
+
+  
+  
+  
+  
+  
 }
+
+
