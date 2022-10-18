@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit&family=Mukta:wght@500;700&display=swap" rel="stylesheet">
+    <link href="css/tabellaBella.css" rel="stylesheet">
 
     <title>Visualizza</title>
 </head>
@@ -100,57 +101,54 @@
 
 <body>
                 
-
-    <table class="table table-sm">
-        <thead>
-            <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">Cognome</th>
-                <th scope="col">Eta</th>
-                <th scope="col">Formazione</th>
-                <th scope="col">Candidatura</th>
-                <th scope="col">Greenpass</th>
-                <th scope="col">Dettagli</th>
-                <th scope="col">Elimina</th>
-                <th scope="col">Modifica</th>
-            </tr>
-        </thead>
-        
-        <tbody>
-            <c:forEach items="${listacandidati}" var="listacandidati">
-                <tr>
-                    <td>${listacandidati.nome}</td>
-                    <td>${listacandidati.cognome}</td>
-                    <td>${listacandidati.eta}</td>
-                    <td>${listacandidati.formazione}</td>
-                    <td>${listacandidati.data_candidatura}</td>
-                    <td>${listacandidati.greenpass}</td>
-                    <td><a href="AppoggioDettaglio?id=${listacandidati.id}&nome=${listacandidati.nome}&cognome=${listacandidati.cognome}&anno_nascita=${listacandidati.anno_nascita}&eta=${listacandidati.eta}
-						&residenza=${listacandidati.residenza}&telefono=${listacandidati.telefono}&email=${listacandidati.email}&titolo_studio=${listacandidati.titolo_studio}&voto=${listacandidati.voto}
-						&formazione=${listacandidati.formazione}&data_candidatura=${listacandidati.data_candidatura}&data_colloquio=${listacandidati.data_colloquio}&note=${listacandidati.note}&esito=${listacandidati.esito}
-						&greenpass=${listacandidati.greenpass}">
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ModeButton">Dettagli</button>
-                        </a>
-                    </td>
-                    
-                    <td>
-                        <form action="Delete" method="post">
-                            <input type="hidden" name="id" id="id" value="${listacandidati.id}" />
-                            <button class="btn btn-danger" type="submit">Elimina</button>
-                        </form>
-                    </td>
-                        
-                        <td><a href="Update?id=${listacandidati.id}&nome=${listacandidati.nome}&cognome=${listacandidati.cognome}&anno_nascita=${listacandidati.anno_nascita}&eta=${listacandidati.eta}
-						    &residenza=${listacandidati.residenza}&telefono=${listacandidati.telefono}&email=${listacandidati.email}&titolo_studio=${listacandidati.titolo_studio}&voto=${listacandidati.voto}
-						    &formazione=${listacandidati.formazione}&data_candidatura=${listacandidati.data_candidatura}&data_colloquio=${listacandidati.data_colloquio}&note=${listacandidati.note}&esito=${listacandidati.esito}
-						    &greenpass=${listacandidati.greenpass}">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModeButton">Modifica</button>
-                            </a>
-                        </td>
-                </tr>
-            </c:forEach>
-        </tbody>
-    </table>
+	 <div id="no-more-tables">
+	    <table class="table table-sm">
+	        <thead>
+	            <tr>
+	                <th scope="col">Nome</th>
+	                <th scope="col">Cognome</th>
+	                <th scope="col">Eta</th>
+	                <th scope="col">Candidatura</th>
+	                <th scope="col">Dettagli</th>
+	                <th scope="col">Elimina</th>
+	                <th scope="col">Modifica</th>
+	            </tr>
+	        </thead>
+	        
+	        <tbody>
+	            <c:forEach items="${listacandidati}" var="listacandidati">
+	                <tr>
+	                    <td data-title="Nome">${listacandidati.nome}</td>
+	                    <td data-title="Cognome">${listacandidati.cognome}</td>
+	                    <td data-title="Eta">${listacandidati.eta}</td>
+	                    <td data-title="Candidatura">${listacandidati.data_candidatura}</td>
+	                    <td data-title="Dettagli"><a href="AppoggioDettaglio?id=${listacandidati.id}&nome=${listacandidati.nome}&cognome=${listacandidati.cognome}&anno_nascita=${listacandidati.anno_nascita}&eta=${listacandidati.eta}
+							&residenza=${listacandidati.residenza}&telefono=${listacandidati.telefono}&email=${listacandidati.email}&titolo_studio=${listacandidati.titolo_studio}&voto=${listacandidati.voto}
+							&formazione=${listacandidati.formazione}&data_candidatura=${listacandidati.data_candidatura}&data_colloquio=${listacandidati.data_colloquio}&note=${listacandidati.note}&esito=${listacandidati.esito}
+							&greenpass=${listacandidati.greenpass}">
+	                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ModeButton">Dettagli</button>
+	                        </a>
+	                    </td>
+	                    
+	                    <td data-title="Elimina">
+	                        <form action="Delete" method="post">
+	                            <input type="hidden" name="id" id="id" value="${listacandidati.id}" />
+	                            <button class="btn btn-danger" type="submit">Elimina</button>
+	                        </form>
+	                    </td>
+	                        
+	                        <td data-title="Modifica"><a href="Update?id=${listacandidati.id}&nome=${listacandidati.nome}&cognome=${listacandidati.cognome}&anno_nascita=${listacandidati.anno_nascita}&eta=${listacandidati.eta}
+							    &residenza=${listacandidati.residenza}&telefono=${listacandidati.telefono}&email=${listacandidati.email}&titolo_studio=${listacandidati.titolo_studio}&voto=${listacandidati.voto}
+							    &formazione=${listacandidati.formazione}&data_candidatura=${listacandidati.data_candidatura}&data_colloquio=${listacandidati.data_colloquio}&note=${listacandidati.note}&esito=${listacandidati.esito}
+							    &greenpass=${listacandidati.greenpass}">
+	                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModeButton">Modifica</button>
+	                            </a>
+	                        </td>
+	                </tr>
+	            </c:forEach>
+	        </tbody>
+	    </table>
+	</div>
 
     <div id="myModal" class="modal">
         <div class="modal-content">

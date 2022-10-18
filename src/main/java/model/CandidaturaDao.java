@@ -81,8 +81,12 @@ public class CandidaturaDao {
       LocalDate data_candidaturalocal = Instant.ofEpochMilli(rs.getDate("data_candidatura").getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
       p.setData_candidatura(data_candidaturalocal);
       
-
-      LocalDate data_colloquiolocal = Instant.ofEpochMilli(rs.getDate("data_colloquio").getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+      LocalDate data_colloquiolocal = null;
+      
+      if(rs.getDate("data_colloquio") != null) {
+    	  data_colloquiolocal = Instant.ofEpochMilli(rs.getDate("data_colloquio").getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+      }
+      
       p.setData_colloquio(data_colloquiolocal);
       
       p.setResidenza(rs.getString("residenza"));
