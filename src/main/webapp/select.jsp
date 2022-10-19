@@ -42,7 +42,7 @@
                         <a class="nav-link" href="#" onclick="legenda()">LEGENDA COLORI</a>
                     </li>
                 </ul>
-                <form class="d-flex position-absolute end-0 " role="search" action="Select" method="GET" style="margin-right:5px;">
+                <form class="d-flex position-absolute end-0" id="operazioni" role="search" action="Select" method="GET" style="margin-right:5px;">
                 	<select class="form-select me-2" aria-label="Default select example" id="esitoSelezione" onchange="filtraEsito()">
 					  <option selected>Esito</option>
 					  <option value="Idoneo">Idoneo</option>
