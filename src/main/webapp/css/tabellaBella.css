@@ -8,6 +8,10 @@
         #no-more-tables tr {
         display: block;
         }
+        
+        .position-absolute{
+        	position: relative !important;
+        }
          
         /* Hide table headers (but not display: none;, for accessibility) */
         #no-more-tables thead tr {
@@ -16,7 +20,7 @@
         left: -9999px;
         }
          
-        #no-more-tables tr { border: 1px solid #ccc; }
+        #no-more-tables tr { border: 1px solid #ccc; border-radius : 10px; margin-top: 15px;}
           
         #no-more-tables td {
         /* Behave like a "row" */

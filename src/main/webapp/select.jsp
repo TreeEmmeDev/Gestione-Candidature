@@ -38,6 +38,11 @@
                         <a class="nav-link act" href="Select">VISUALIZZA</a>
                     </li>
                 </ul>
+                <form class="d-flex position-absolute end-0" role="search" action="Select" method="GET" style="margin-right:5px;">
+      				<input class="form-control me-2" name="nome" type="search" placeholder="Nome" aria-label="Search">
+      				<input class="form-control me-2" name="cognome" type="search" placeholder="Cognome" aria-label="Search">
+      				<button class="btn btn-outline-light" type="submit">Search</button>
+    			</form>
             </div>
         </div>
     </nav>
@@ -101,9 +106,9 @@
 </head>
 
 <body>
-                
-	 <div id="no-more-tables">
-	    <table class="table table-sm">
+                	
+	 <div id="no-more-tables" class="container" style="margin-top: 30px;">
+	    <table class="table col-sm-12 table-bordered table-striped table-condensed cf">
 	        <thead>
 	            <tr>
 	                <th scope="col">Nome</th>
@@ -123,10 +128,7 @@
 	                    <td data-title="Cognome">${listacandidati.cognome}</td>
 	                    <td data-title="Eta">${listacandidati.eta}</td>
 	                    <td data-title="Candidatura">${listacandidati.data_candidatura}</td>
-	                    <td data-title="Dettagli"><a href="AppoggioDettaglio?id=${listacandidati.id}&nome=${listacandidati.nome}&cognome=${listacandidati.cognome}&anno_nascita=${listacandidati.anno_nascita}&eta=${listacandidati.eta}
-							&residenza=${listacandidati.residenza}&telefono=${listacandidati.telefono}&email=${listacandidati.email}&titolo_studio=${listacandidati.titolo_studio}&voto=${listacandidati.voto}
-							&formazione=${listacandidati.formazione}&data_candidatura=${listacandidati.data_candidatura}&data_colloquio=${listacandidati.data_colloquio}&note=${listacandidati.note}&esito=${listacandidati.esito}
-							&greenpass=${listacandidati.greenpass}">
+	                    <td data-title="Dettagli"><a href="AppoggioDettaglio?id=${listacandidati.id}&nome=${listacandidati.nome}&cognome=${listacandidati.cognome}&anno_nascita=${listacandidati.anno_nascita}&eta=${listacandidati.eta}&residenza=${listacandidati.residenza}&telefono=${listacandidati.telefono}&email=${listacandidati.email}&titolo_studio=${listacandidati.titolo_studio}&voto=${listacandidati.voto}&formazione=${listacandidati.formazione}&data_candidatura=${listacandidati.data_candidatura}&data_colloquio=${listacandidati.data_colloquio}&note=${listacandidati.note}&esito=${listacandidati.esito}&greenpass=${listacandidati.greenpass}">
 	                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ModeButton">Dettagli</button>
 	                        </a>
 	                    </td>
@@ -138,10 +140,7 @@
 	                        </form>
 	                    </td>
 	                        
-	                        <td data-title="Modifica"><a href="Update?id=${listacandidati.id}&nome=${listacandidati.nome}&cognome=${listacandidati.cognome}&anno_nascita=${listacandidati.anno_nascita}&eta=${listacandidati.eta}
-							    &residenza=${listacandidati.residenza}&telefono=${listacandidati.telefono}&email=${listacandidati.email}&titolo_studio=${listacandidati.titolo_studio}&voto=${listacandidati.voto}
-							    &formazione=${listacandidati.formazione}&data_candidatura=${listacandidati.data_candidatura}&data_colloquio=${listacandidati.data_colloquio}&note=${listacandidati.note}&esito=${listacandidati.esito}
-							    &greenpass=${listacandidati.greenpass}">
+	                        <td data-title="Modifica"><a href="Update?id=${listacandidati.id}&nome=${listacandidati.nome}&cognome=${listacandidati.cognome}&anno_nascita=${listacandidati.anno_nascita}&eta=${listacandidati.eta}&residenza=${listacandidati.residenza}&telefono=${listacandidati.telefono}&email=${listacandidati.email}&titolo_studio=${listacandidati.titolo_studio}&voto=${listacandidati.voto}&formazione=${listacandidati.formazione}&data_candidatura=${listacandidati.data_candidatura}&data_colloquio=${listacandidati.data_colloquio}&note=${listacandidati.note}&esito=${listacandidati.esito}&greenpass=${listacandidati.greenpass}">
 	                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModeButton">Modifica</button>
 	                            </a>
 	                        </td>
