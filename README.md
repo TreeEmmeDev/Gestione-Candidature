@@ -34,5 +34,3 @@ E' possibile avviare il file *startup.bat* nella cartella bin di tomcat se non s
 
 ## Cambio Porta Tomcat
 Per cambiare la porta è necessario aprire il file `server.xml` situato nella cartella conf e cambiare la porta alla riga **69**
-
-aaaaaaa
