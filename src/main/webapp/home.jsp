@@ -28,6 +28,7 @@
         .nav-link {
             color: white;
             font-weight: bold;
+            margin-right: 15px;
         }
         
         .nav-link:hover {
@@ -89,10 +90,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link act" aria-current="page" href="#">HOME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                        <a class="nav-link act" aria-current="page" href="#">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.jsp">INSERISCI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                        <a class="nav-link" href="index.jsp">INSERISCI</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="Select">VISUALIZZA</a>
