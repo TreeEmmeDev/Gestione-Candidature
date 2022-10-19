@@ -62,6 +62,7 @@ public class Update extends HttpServlet {
     c.setData_colloquio(data_colloquioC);
     
     CandidaturaDao cdao = new CandidaturaDao();
+    c.setEta(CandidatureUtils.calculateAge(anno_nascitaC));
     
     try {
       cdao.update(c);

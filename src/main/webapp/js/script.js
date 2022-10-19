@@ -5,13 +5,17 @@ function containsNumbers(str) {
 
   }
   
+  
+ function onlyLettersAndSpaces(str) {
+  return /^[A-Za-z\s]*$/.test(str);
+}
 var submit = document.getElementById("submit");
 
 function validaC() {
     
     var cognome = document.getElementById("cognome");
 
-    if(containsNumbers(cognome.value)){
+    if(containsNumbers(cognome.value) && !onlyLettersAndSpaces(cognome.value)){
         submit.classList.add("hidden");
         cognome.classList.add("ERROR");
     }else {
@@ -25,7 +29,7 @@ function validaN(){
 	
     var nome = document.querySelector("input#nome");
     
-    if(containsNumbers(nome.value)){
+    if(containsNumbers(nome.value) && !onlyLettersAndSpaces(nome.value)){
         submit.classList.add("hidden");
         nome.classList.add("ERROR");
     }else {
