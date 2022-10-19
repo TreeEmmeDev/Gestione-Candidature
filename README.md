@@ -1,5 +1,7 @@
 # Gestione-Candidature
 
+as
+
 App creata con servlet e jsp per la gestione delle candidature in modo dettagliato
 
 ## Importare in eclipse
