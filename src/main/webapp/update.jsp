@@ -36,7 +36,7 @@
 	}
 </style>
 
-<body style="background-color: rgb(160, 198, 212)">
+<body style="background-color: rgb(160, 198, 212)" onload="controllotitolo(); setValue(${c.voto});">
 	<nav class="navbar navbar-expand-lg" style="background-color: rgba(0, 101, 184, 0.952); color: white;">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"> </a>
@@ -102,10 +102,13 @@
 					</c:if>
 
 					<label for="exampleFormControlInput1" class="form-label">Voto</label>
-					<input name="voto" type="number" class="form-control" id="voto" placeholder="Voto" value="${c.voto}" required min="60" max="100">
+					<input name="voto" type="number" value="${c.voto}" class="form-control" id="voto" placeholder="Voto" required min="60">
+
+
+
 
 					<label for="exampleFormControlInput1" class="form-label">Formazione</label>
-					<input name="formazione" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Formazione" value="${c.formazione}" required> 
+					<input name="formazione" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Formazione" value ="${c.formazione}" required> 
 						
 					<label for="exampleFormControlInput1" class="form-label">Data di candidatura</label> 
 					<input name="data_candidatura" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di candidatura" value="${c.data_candidatura}" required> 
@@ -193,6 +196,13 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 	<script src="https://kit.fontawesome.com/c2b8bef5f3.js" crossorigin="anonymous"></script>
 	<script src="js/script.js"></script>
+	
+	<script>
+		function setValue(data){
+			var voto = document.getElementById("voto");
+			voto.value = data;
+		}
+	</script>
 
 </body>
 </html>

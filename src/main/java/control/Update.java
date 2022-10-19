@@ -24,6 +24,8 @@ public class Update extends HttpServlet {
 	  	String data_candidatura = request.getParameter("data_candidatura");
 	    String anno_nascita = request.getParameter("anno_nascita");
 	    
+	    
+	    
 	    Candidatura c = new Candidatura(request.getParameter("nome"), request.getParameter("cognome"), LocalDate.parse(anno_nascita), request.getParameter("residenza"), request.getParameter("telefono"), 
 	    		request.getParameter("email"), request.getParameter("titolo_studio"), request.getParameter("voto"), request.getParameter("formazione"), LocalDate.parse(data_candidatura), 
 	    		request.getParameter("note"), request.getParameter("esito"), request.getParameter("greenpass"));
@@ -34,9 +36,8 @@ public class Update extends HttpServlet {
 	    	data_colloquio = request.getParameter("data_colloquio");
 	    	c.setData_colloquio(LocalDate.parse(data_colloquio));
 	    }
-	    
-	    request.setAttribute("c", c);
-	    
+
+	    request.setAttribute("c", c);	    
 	    request.getRequestDispatcher("update.jsp").forward((ServletRequest)request, (ServletResponse)response);
   }
   
