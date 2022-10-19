@@ -38,6 +38,11 @@
                         <a class="nav-link act" href="Select">VISUALIZZA</a>
                     </li>
                 </ul>
+                <form class="d-flex position-absolute end-0" role="search" action="Select" method="GET">
+      				<input class="form-control me-2" name="nome" type="search" placeholder="Nome" aria-label="Search">
+      				<input class="form-control me-2" name="cognome" type="search" placeholder="Cognome" aria-label="Search">
+      				<button class="btn btn-outline-light" type="submit">Search</button>
+    			</form>
             </div>
         </div>
     </nav>
@@ -101,9 +106,9 @@
 </head>
 
 <body>
-                
-	 <div id="no-more-tables">
-	    <table class="table table-sm">
+                	
+	 <div id="no-more-tables" class="container" style="margin-top: 30px;">
+	    <table class="table col-sm-12 table-bordered table-striped table-condensed cf">
 	        <thead>
 	            <tr>
 	                <th scope="col">Nome</th>
