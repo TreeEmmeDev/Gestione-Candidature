@@ -90,6 +90,8 @@
 
         .nav-link{
             color: white;
+            font-weight: bold;
+            margin-right: 15px;
         }
      
         .nav-link:hover{
@@ -102,12 +104,19 @@
         .iconcina{
             color: white;
         }
+        
+        .dot {
+		    height: 25px;
+		    width: 25px; 
+		    border-radius: 50%;
+		    display: inline-block;
+		  }
     </style>
 </head>
 
 <body>
                 	
-	 <div id="no-more-tables" class="container" style="margin-top: 30px;">
+	 <div id="no-more-tables" class="container text-center" style="margin-top: 30px;">
 	    <table class="table col-sm-12 table-bordered table-striped table-condensed cf">
 	        <thead>
 	            <tr>
@@ -115,6 +124,7 @@
 	                <th scope="col">Cognome</th>
 	                <th scope="col">Eta</th>
 	                <th scope="col">Candidatura</th>
+	                <th scope="col">Esito</th>
 	                <th scope="col">Dettagli</th>
 	                <th scope="col">Elimina</th>
 	                <th scope="col">Modifica</th>
@@ -128,6 +138,23 @@
 	                    <td data-title="Cognome">${listacandidati.cognome}</td>
 	                    <td data-title="Eta">${listacandidati.eta}</td>
 	                    <td data-title="Candidatura">${listacandidati.data_candidatura}</td>
+	                    
+	                    <c:if test="${listacandidati.esito == 'Idoneo'}">
+							<td data-title="Esito"><span class="dot" id="esitoPalla" style="background-color: green"></span></td>
+						</c:if>
+
+						<c:if test="${listacandidati.esito == 'Non Idoneo'}">
+							<td data-title="Esito"><span class="dot" id="esitoPalla" style="background-color: red"></span></td>	
+						</c:if>
+	
+						<c:if test="${listacandidati.esito == 'In attesa'}">
+							<td data-title="Esito"><span class="dot" id="esitoPalla" style="background-color: yellow"></span></td>
+						</c:if>
+	
+						<c:if test="${listacandidati.esito == 'Da ricontattare'}">
+							<td data-title="Esito"><span class="dot" id="esitoPalla" style="background-color: blue"></span></td>
+						</c:if>
+	                    
 	                    <td data-title="Dettagli"><a href="AppoggioDettaglio?id=${listacandidati.id}&nome=${listacandidati.nome}&cognome=${listacandidati.cognome}&anno_nascita=${listacandidati.anno_nascita}&eta=${listacandidati.eta}&residenza=${listacandidati.residenza}&telefono=${listacandidati.telefono}&email=${listacandidati.email}&titolo_studio=${listacandidati.titolo_studio}&voto=${listacandidati.voto}&formazione=${listacandidati.formazione}&data_candidatura=${listacandidati.data_candidatura}&data_colloquio=${listacandidati.data_colloquio}&note=${listacandidati.note}&esito=${listacandidati.esito}&greenpass=${listacandidati.greenpass}">
 	                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ModeButton">Dettagli</button>
 	                        </a>
