@@ -80,26 +80,25 @@
         }
     </style>
 
-    <nav class="navbar navbar-expand-lg" style="background-color: rgba(0, 101, 184, 0.952); color: white; height:65px;">
+    <nav class="navbar navbar-expand-lg" style="background-color: rgba(0, 101, 184, 0.952); color: white;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"> </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fa-solid fa-bars iconcina"></i>
-          </button>
-
-
+            <a class="navbar-brand" href="#">   </a>
+            <button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars iconcina"></i>
+            </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link act" aria-current="page" href="#">HOME</a>
+                        <a class="nav-link act" aria-current="page" href="home.jsp">HOME</a>
                     </li>
-                    <li class="nav-item">
+                     <li class="nav-item">
                         <a class="nav-link" href="index.jsp">INSERISCI</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="Select">VISUALIZZA</a>
                     </li>
+
                 </ul>
             </div>
         </div>
@@ -119,7 +118,7 @@
 
     <footer style="background-color: rgb(0, 101, 184); bottom: 0; width: 100%;  height: 75px; position:absolute;">
 
-        <p class="text-center " style="font-family: Mukta, sans-serif; color: white; position:center; margin-top: 25px">© 2022 3EM Engineering</p>
+        <p class="text-center " style="font-family: Mukta, sans-serif; color: white; position:center; margin-top: 25px">© <script>document.write(new Date().getFullYear())</script> 3EM Engineering</p>
 
     </footer>
 

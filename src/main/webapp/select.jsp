@@ -19,6 +19,7 @@
 </head>
 
 <body style="background-color: white;">
+
     <nav class="navbar navbar-expand-lg" style="background-color: rgba(0, 101, 184, 0.952); color: white;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">   </a>
@@ -37,11 +38,14 @@
                     <li class="nav-item">
                         <a class="nav-link act" href="Select">VISUALIZZA</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="legenda()">LEGENDA COLORI</a>
+                    </li>
                 </ul>
                 <form class="d-flex position-absolute end-0" role="search" action="Select" method="GET" style="margin-right:5px;">
       				<input class="form-control me-2" name="nome" type="search" placeholder="Nome" aria-label="Search">
       				<input class="form-control me-2" name="cognome" type="search" placeholder="Cognome" aria-label="Search">
-      				<button class="btn btn-outline-light" type="submit">Search</button>
+      				<button class="btn btn-outline-light" type="submit">Cerca</button>
     			</form>
             </div>
         </div>
@@ -245,5 +249,7 @@
                 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/c2b8bef5f3.js" crossorigin="anonymous"></script>
+    <script src="js/sweetalert2.all.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

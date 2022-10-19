@@ -85,3 +85,17 @@ function elimina() {
           localStorage.setItem("elimina", 0);
     }
 }
+
+
+function legenda(){
+	Swal.fire(
+  		'Legenda Colori',
+  		
+  		'<span class="dot" id="esitoPalla" style="background-color: green"></span> Idoneo <br>' +
+  		'<span class="dot" id="esitoPalla" style="background-color: red"></span> NON Idoneo <br>'+
+        '<span class="dot" id="esitoPalla" style="background-color: yellow"></span> Da Ricontattare <br>'+
+        '<span class="dot" id="esitoPalla" style="background-color: blue"></span> In Attesa <br>',
+        
+  		'question'
+)
+}
