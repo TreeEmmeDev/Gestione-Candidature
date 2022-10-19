@@ -97,5 +97,22 @@ function legenda(){
         '<span class="dot" id="esitoPalla" style="background-color: blue"></span> In Attesa <br>',
         
   		'question'
-)
+	)
+}
+
+
+function filtraEsito(){
+	var selettore = document.getElementById("esitoSelezione");
+	
+	if(selettore.value == ""){
+		window.open("Select", "_self");	
+	}else if(selettore.value == "Idoneo"){
+		window.open("Select?esito=Idoneo", "_self");
+	}else if(selettore.value == "Non Idoneo"){
+		window.open("Select?esito=NonIdoneo", "_self");
+	}else if(selettore.value == "In Attesa"){
+		window.open("Select?esito=InAttesa", "_self");
+	}else if(selettore.value == "Da ricontattare"){
+		window.open("Select?esito=DaRicontattare", "_self");
+	}
 }

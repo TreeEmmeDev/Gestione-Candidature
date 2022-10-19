@@ -42,7 +42,15 @@
                         <a class="nav-link" href="#" onclick="legenda()">LEGENDA COLORI</a>
                     </li>
                 </ul>
-                <form class="d-flex position-absolute end-0" role="search" action="Select" method="GET" style="margin-right:5px;">
+                <form class="d-flex position-absolute end-0 " role="search" action="Select" method="GET" style="margin-right:5px;">
+                	<select class="form-select me-2" aria-label="Default select example" id="esitoSelezione" onchange="filtraEsito()">
+					  <option selected>Esito</option>
+					  <option value="Idoneo">Idoneo</option>
+					  <option value="Non Idoneo">Non Idoneo</option>
+					  <option value="In Attesa">In Attesa</option>
+					  <option value="Da ricontattare">Da Ricontattare</option>
+					  <option value="">Reset FIltri</option>
+					</select>
       				<input class="form-control me-2" name="nome" type="search" placeholder="Nome" aria-label="Search">
       				<input class="form-control me-2" name="cognome" type="search" placeholder="Cognome" aria-label="Search">
       				<button class="btn btn-outline-light" type="submit">Cerca</button>
