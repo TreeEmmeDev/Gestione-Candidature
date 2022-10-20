@@ -187,7 +187,10 @@ public class CandidaturaDao {
 	      LocalDate localanno = Instant.ofEpochMilli(rs.getDate("anno_nascita").getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
 	      p.setAnno_nascita(localanno);
 	      
-	      LocalDate data_candidaturalocal = Instant.ofEpochMilli(rs.getDate("data_candidatura").getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+	      LocalDate data_candidaturalocal = null;
+	      if(rs.getDate("data_candidatura") != null) {
+	    	  data_candidaturalocal = Instant.ofEpochMilli(rs.getDate("data_candidatura").getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+	      }
 	      p.setData_candidatura(data_candidaturalocal);
 	      
 	      LocalDate data_colloquiolocal = null;
@@ -195,7 +198,6 @@ public class CandidaturaDao {
 	      if(rs.getDate("data_colloquio") != null) {
 	    	  data_colloquiolocal = Instant.ofEpochMilli(rs.getDate("data_colloquio").getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
 	      }
-	      
 	      p.setData_colloquio(data_colloquiolocal);
 	      
 	      p.setResidenza(rs.getString("residenza"));
@@ -237,7 +239,10 @@ public class CandidaturaDao {
 	      LocalDate localanno = Instant.ofEpochMilli(rs.getDate("anno_nascita").getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
 	      p.setAnno_nascita(localanno);
 	      
-	      LocalDate data_candidaturalocal = Instant.ofEpochMilli(rs.getDate("data_candidatura").getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+	      LocalDate data_candidaturalocal = null;
+	      if(rs.getDate("data_candidatura") != null) {
+	    	  data_candidaturalocal = Instant.ofEpochMilli(rs.getDate("data_candidatura").getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+	      }
 	      p.setData_candidatura(data_candidaturalocal);
 	      
 	      LocalDate data_colloquiolocal = null;
@@ -245,7 +250,6 @@ public class CandidaturaDao {
 	      if(rs.getDate("data_colloquio") != null) {
 	    	  data_colloquiolocal = Instant.ofEpochMilli(rs.getDate("data_colloquio").getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
 	      }
-	      
 	      p.setData_colloquio(data_colloquiolocal);
 	      
 	      p.setResidenza(rs.getString("residenza"));
