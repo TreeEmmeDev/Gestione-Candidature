@@ -40,6 +40,8 @@ function palla(){
 
   .nav-link{
     color: white;
+    font-weight: bold;
+    margin-right: 15px;
   }
       
   .nav-link:hover{
@@ -87,6 +89,9 @@ function palla(){
     </div>
   </nav>
   
+  <div style="position: relative; top: 17px;">
+  	<h2 style="font-weight: bold; font-family: 'Dela Gothic One'; text-align: center; color: rgb(255, 255, 255); filter: drop-shadow(5px 5px 2px #696969)"> DETTAGLI CANDIDATO:</h2>
+  </div>
   
   <form action="Update" method="GET">  
     <div class="container" style="margin-top: 30px;">   

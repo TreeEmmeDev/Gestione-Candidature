@@ -75,7 +75,7 @@ function legenda(){
   	
   		'<ul style="text-align: left; list-style-type: none; margin-left: 50px;">' +
   		'<li><span class="dot" id="esitoPalla" style="background-color: green;"></span> Idoneo' +
-  		'<span class="dot" id="esitoPalla" style="background-color: red; margin-left:100px;"></span> NON Idoneo </li>'+
+  		'<span class="dot" id="esitoPalla" style="background-color: red; margin-left:100px;"></span> Non Idoneo </li>'+
         '<li><span class="dot" id="esitoPalla" style="background-color: yellow"></span> Da Ricontattare'+
         '<span class="dot" id="esitoPalla" style="background-color: blue; margin-left:30px;"></span> In Attesa </li>'+
         '</ul>',

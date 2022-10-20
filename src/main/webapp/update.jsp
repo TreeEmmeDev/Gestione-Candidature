@@ -21,6 +21,8 @@
 <style>
 	.nav-link {
 		color: white;
+		font-weight: bold;
+        margin-right: 15px;
 	}
 
 	.nav-link:hover {
@@ -59,6 +61,10 @@
 			</div>
 		</div>
 	</nav>
+	
+	<div style="position: relative; top: 17px;">
+    	<h2 style="font-weight: bold; font-family: 'Dela Gothic One'; text-align: center; color: rgb(255, 255, 255); filter: drop-shadow(5px 5px 2px #696969)"> MODIFICA CANDIDATO:</h2>
+    </div>
 
 	<form action="Update" method="POST">
 		<div class="container" style="margin-top: 30px;">

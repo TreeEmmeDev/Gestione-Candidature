@@ -96,7 +96,7 @@
         .close:hover,
         .close:focus {
             color: #000;
-                text-decoration: none;
+            text-decoration: none;
             cursor: pointer;
         }
 

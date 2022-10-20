@@ -53,6 +53,7 @@
         .nav-link {
             color: white;
             font-weight: bold;
+            margin-right: 15px;
         }
         
         .nav-link:hover {
@@ -122,7 +123,7 @@
         </video>
         
         <div style="position: relative; top: 17px;">
-            <h2 style="font-weight: bold; font-family: 'Dela Gothic One'; text-align: center; color: rgb(255, 255, 255); filter: drop-shadow(5px 5px 2px #696969)"> INSERIMENTO CANDIDATI:</h2>
+            <h2 style="font-weight: bold; font-family: 'Dela Gothic One'; text-align: center; color: rgb(255, 255, 255); filter: drop-shadow(5px 5px 2px #696969)"> INSERIMENTO CANDIDATO:</h2>
         </div>
         
         <form action="Insert" method="POST" style="z-index:999">
