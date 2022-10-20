@@ -55,6 +55,11 @@ function palla(){
   .iconcina{
     color: white;
   }
+  #btn-back-to-top {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+  }
 </style>
 
 
@@ -80,9 +85,9 @@ function palla(){
           <li class="nav-item">
             <a class="nav-link" href="Select">VISUALIZZA</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="#" onclick="legenda()">LEGENDA COLORI</a>
-          </li>
+          </li> -->
         </ul>
       </div>
 
@@ -153,6 +158,10 @@ function palla(){
     </div>
   </div>
 </form> 
+
+<button type="button" class="btn btn-primary btn-floating btn-lg" id="btn-back-to-top" onclick="legenda()">
+	<i class="fa-solid fa-circle-info"></i>
+</button>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>

@@ -72,14 +72,12 @@ function successo() {
 function legenda(){
 	Swal.fire(
   		'Legenda Colori',
-  	
-  		'<ul style="text-align: left; list-style-type: none; margin-left: 50px;">' +
-  		'<li><span class="dot" id="esitoPalla" style="background-color: green;"></span> Idoneo' +
-  		'<span class="dot" id="esitoPalla" style="background-color: red; margin-left:100px;"></span> Non Idoneo </li>'+
-        '<li><span class="dot" id="esitoPalla" style="background-color: yellow"></span> Da Ricontattare'+
-        '<span class="dot" id="esitoPalla" style="background-color: blue; margin-left:30px;"></span> In Attesa </li>'+
-        '</ul>',
-        
+  		' <table style="text-align: justify; width: -webkit-fill-available;">' +
+  			'<tr><td><span class="dot" id="esitoPalla" style="background-color: green;"></span> Idoneo</td>' +
+  			'<td><span class="dot" id="esitoPalla" style="background-color: red;"></span> Non Idoneo</td>'+
+        	'</tr><tr><td><span class="dot" id="esitoPalla" style="background-color: yellow;"></span> Da Ricontattare</td>'+
+        	'<td><span class="dot" id="esitoPalla" style="background-color: blue;"></span> In Attesa</td></tr>'+
+        '</table>',
   		'question'
 	)
 }

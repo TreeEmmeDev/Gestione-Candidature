@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
-<html>
+<html><!--  -->
 
 <head>
     <meta charset="utf-8">
@@ -38,9 +38,9 @@
                     <li class="nav-item">
                         <a class="nav-link act" href="Select">VISUALIZZA</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="#" onclick="legenda()">LEGENDA COLORI</a>
-                    </li>
+                    </li> -->
                 </ul>
                 <form class="d-flex position-absolute end-0" id="operazioni" role="search" action="Select" method="GET" style="margin-right:5px;">
                 	<select class="form-select me-2" aria-label="Default select example" id="esitoSelezione" onchange="filtraEsito()">
@@ -123,6 +123,12 @@
 		    border-radius: 50%;
 		    display: inline-block;
 		  }
+		  
+		#btn-back-to-top {
+		  position: fixed;
+		  bottom: 20px;
+		  right: 20px;
+		}
     </style>
 </head>
 
@@ -167,7 +173,7 @@
 							<td data-title="Esito"><span class="dot" id="esitoPalla" style="background-color: blue"></span></td>
 						</c:if>
 	                    
-	                    <td data-title="Dettagli"><a href="AppoggioDettaglio?id=${listacandidati.id}&nome=${listacandidati.nome}&cognome=${listacandidati.cognome}&anno_nascita=${listacandidati.anno_nascita}&eta=${listacandidati.eta}&residenza=${listacandidati.residenza}&telefono=${listacandidati.telefono}&email=${listacandidati.email}&titolo_studio=${listacandidati.titolo_studio}&voto=${listacandidati.voto}&formazione=${listacandidati.formazione}&data_candidatura=${listacandidati.data_candidatura}&data_colloquio=${listacandidati.data_colloquio}&note=${listacandidati.note}&esito=${listacandidati.esito}&greenpass=${listacandidati.greenpass}">
+	                    <td data-title="Dettagli"><a href="Dettagli?id=${listacandidati.id}&nome=${listacandidati.nome}&cognome=${listacandidati.cognome}&anno_nascita=${listacandidati.anno_nascita}&eta=${listacandidati.eta}&residenza=${listacandidati.residenza}&telefono=${listacandidati.telefono}&email=${listacandidati.email}&titolo_studio=${listacandidati.titolo_studio}&voto=${listacandidati.voto}&formazione=${listacandidati.formazione}&data_candidatura=${listacandidati.data_candidatura}&data_colloquio=${listacandidati.data_colloquio}&note=${listacandidati.note}&esito=${listacandidati.esito}&greenpass=${listacandidati.greenpass}">
 	                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ModeButton">Dettagli</button>
 	                        </a>
 	                    </td>
@@ -186,7 +192,10 @@
 	        </tbody>
 	    </table>
 	</div>
-
+	
+	<button type="button" class="btn btn-primary btn-floating btn-lg" id="btn-back-to-top" onclick="legenda()">
+  		<i class="fa-solid fa-circle-info"></i>
+	</button>
     
 
     <script>
