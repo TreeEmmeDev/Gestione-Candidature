@@ -37,6 +37,7 @@
 </style>
 
 <body style="background-color: rgb(160, 198, 212)" onload="controllotitolo(); setValue(${c.voto});">
+
 	<nav class="navbar navbar-expand-lg" style="background-color: rgba(0, 101, 184, 0.952); color: white;">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"> </a>
@@ -61,8 +62,8 @@
 
 	<form action="Update" method="POST">
 		<div class="container" style="margin-top: 30px;">
-			<div class="alert alert-dark">
-				<div class="mb-3">
+			<div class="alert alert-dark" style="background-color: rgba(0, 101, 184, 0.952); border: 2px solid rgba(0, 101, 184, 0.952); padding: 10px; border-radius: 15px;">
+				<div class="mb-3" style="color: white;">
 
 					<input name="id" type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="Nome" value="${c.id}">
 
@@ -76,7 +77,7 @@
 					<input name="anno_nascita" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di nascita" value="${c.anno_nascita}" required>
 
 					<label for="exampleFormControlInput1" class="form-label">Residenza</label>
-					<input name="residenza" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Residenza" value="${c.residenza}" required> 
+					<input name="residenza" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Residenza" value="${c.residenza}"> 
 						
 					<label for="exampleFormControlInput1" class="form-label">Numero di telefono</label> 
 					<input name="telefono" type="tel" class="form-control" id="exampleFormControlInput1" placeholder="3398569667" pattern="[0-9]{10}" value="${c.telefono}" required> 
@@ -102,16 +103,16 @@
 					</c:if>
 
 					<label for="exampleFormControlInput1" class="form-label">Voto</label>
-					<input name="voto" type="number" value="${c.voto}" class="form-control" id="voto" placeholder="Voto" required min="60">
+					<input name="voto" type="number" value="${c.voto}" class="form-control" id="voto" placeholder="Voto" min="60">
 
 
 
 
 					<label for="exampleFormControlInput1" class="form-label">Formazione</label>
-					<input name="formazione" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Formazione" value ="${c.formazione}" required> 
+					<input name="formazione" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Formazione" value ="${c.formazione}"> 
 						
 					<label for="exampleFormControlInput1" class="form-label">Data di candidatura</label> 
-					<input name="data_candidatura" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di candidatura" value="${c.data_candidatura}" required> 
+					<input name="data_candidatura" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di candidatura" value="${c.data_candidatura}"	> 
 						
 					<label for="exampleFormControlInput1" class="form-label">Data di colloquio</label> 
 					<input name="data_colloquio" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di colloquio" value="${c.data_colloquio}"> 
@@ -183,10 +184,10 @@
 
 	<style>
 		.ERROR {
-			outline: none !important;
-			border: 2px solid red !important;
-			box-shadow: box-shadow: 0 0 0 0.2rem rgb(255 0 0 / 57%) !important;	
-		}
+            outline: none !important;
+            border: 2px solid red !important;
+            box-shadow: 0 0 0 0.2rem rgb(255 0 0 / 57%) !important;
+        }
 
 		.hidden {
 			display: none;

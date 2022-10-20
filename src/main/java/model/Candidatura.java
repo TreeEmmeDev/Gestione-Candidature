@@ -173,7 +173,7 @@ public class Candidatura {
 	}
 
 	public Candidatura(String nome, String cognome, LocalDate anno_nascita, String residenza, String telefono,
-			String email, String titolo_studio, String voto, String formazione, LocalDate data_candidatura, 
+			String email, String titolo_studio, String voto, String formazione, 
 			String note, String esito, String greenpass) {
 		this.nome = nome;
 		this.cognome = cognome;
@@ -184,7 +184,6 @@ public class Candidatura {
 		this.titolo_studio = titolo_studio;
 		this.voto = voto;
 		this.formazione = formazione;
-		this.data_candidatura = data_candidatura;
 		this.note = note;
 		this.esito = esito;
 		this.greenpass = greenpass;

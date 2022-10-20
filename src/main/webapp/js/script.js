@@ -60,7 +60,7 @@ function successo() {
     if (localStorage.getItem("inserimento") ==  1 ){
         Swal.fire(
             'Ottimo Lavoro!',
-            'Hai fatto l\'inserimento',
+            'Hai inserito il candidato',
             'success'
           )
           localStorage.setItem("inserimento", 0);

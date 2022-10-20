@@ -78,7 +78,11 @@ public class CandidaturaDao {
       LocalDate localanno = Instant.ofEpochMilli(rs.getDate("anno_nascita").getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
       p.setAnno_nascita(localanno);
       
-      LocalDate data_candidaturalocal = Instant.ofEpochMilli(rs.getDate("data_candidatura").getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+      LocalDate data_candidaturalocal= null;
+      
+      if(rs.getDate("data_candidatura") != null) {
+    	  data_candidaturalocal = Instant.ofEpochMilli(rs.getDate("data_candidatura").getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+      }
       p.setData_candidatura(data_candidaturalocal);
       
       LocalDate data_colloquiolocal = null;
@@ -132,8 +136,19 @@ public class CandidaturaDao {
     ps.setString(7, c.getTitolo_studio());
     ps.setString(8, c.getVoto());
     ps.setString(9, c.getFormazione());
-    ps.setDate(10, Date.valueOf(c.getData_candidatura()));
-    ps.setDate(11, Date.valueOf(c.getData_colloquio()));
+    
+    if(c.getData_candidatura() != null) {
+    	ps.setDate(10, Date.valueOf(c.getData_candidatura()));
+    }else{
+    	ps.setDate(10, null);
+    }
+    
+    if(c.getData_colloquio() != null) {
+    	ps.setDate(11, Date.valueOf(c.getData_colloquio()));
+    }else {
+    	ps.setDate(11, null);
+    }
+
     ps.setString(12, c.getNote());
     ps.setString(13, c.getEsito());
     ps.setString(14, c.getGreenpass());

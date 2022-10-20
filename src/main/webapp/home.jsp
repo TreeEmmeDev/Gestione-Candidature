@@ -19,7 +19,7 @@
 
 </head>
 
-<body>
+<body onload="successo()">
 
     <style>
         #myVideo {
@@ -112,7 +112,7 @@
                         <a class="nav-link" href="index.jsp">INSERISCI</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="Select">VISUALIZZA</a>
+                        <a class="nav-link" href="Select">VISUALIZZA</a>
                     </li>
                 </ul>
             </div>
@@ -130,27 +130,29 @@
     <div class="position-relative" style="margin-top: 220px;">
         <div class="position-absolute top-50 start-50 translate-middle">
             <div class="tracking-in-contract">
-                <h1 style="font-family: 'Dela Gothic One', cursive; color: rgb(255, 255, 255); filter: drop-shadow(5px 7px 2px #6f99f5) ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GESTIONE </h1>
+                <h1 style="font-family: 'Dela Gothic One', cursive; color: rgb(255, 255, 255); filter: drop-shadow(5px 7px 2px #6f99f5)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GESTIONE </h1>
                 <h1 style="font-family: 'Dela Gothic One', cursive; color: rgb(255, 255, 255); filter: drop-shadow(5px 7px 2px #6f99f5)"> CANDIDATURE</h1>
             </div>
-            <img src="img/unnamed.png " class="rounded mx-auto d-block" style="width: 200px; margin-top: 10px; filter: drop-shadow(10px 15px 4px #00000046); ">
+            <img src="img/unnamed.png" class="rounded mx-auto d-block" style="width: 200px; margin-top: 10px; filter: drop-shadow(10px 15px 4px #00000046);">
         </div>
     </div>
 
-    <!-- <div class="container ">
+    <!-- <div class="container">
  
-        <img src="../img/logo.png " class="mx-auto d-block " style="width: 300px; margin-top: 40px; ">
+        <img src="../img/logo.png" class="mx-auto d-block" style="width: 300px; margin-top: 40px;">
     </div> -->
 
 
     <footer style="background-color: rgb(0, 101, 184); bottom: 0; width: 100%;  height: 75px; position:absolute;">
 
-        <p class="text-center " style="font-family: Mukta, sans-serif; color: white; position:center; margin-top: 25px">© 2022 3EM Engineering</p>
+        <p class="text-center" style="font-family: Mukta, sans-serif; color: white; position:center; margin-top: 25px">© 2022 3EM Engineering</p>
 
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js " integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk " crossorigin="anonymous "></script>
-    <script src="https://kit.fontawesome.com/c2b8bef5f3.js " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/c2b8bef5f3.js" crossorigin="anonymous"></script>
+    <script src="js/sweetalert2.all.js"></script>
+    <script src="js/script.js"></script>
 
     <script>
         // Get the video

@@ -19,7 +19,7 @@ public class Insert extends HttpServlet {
   private static final long serialVersionUID = 1L;
   
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    response.getWriter().append("Served at: ").append(request.getContextPath());
+    //response.getWriter().append("Served at: ").append(request.getContextPath());
   }
   
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -36,12 +36,20 @@ public class Insert extends HttpServlet {
       anno_nascitaC = LocalDate.parse(request.getParameter("anno_nascita")); 
     
     Candidatura c = new Candidatura(request.getParameter("nome"), request.getParameter("cognome"), anno_nascitaC, request.getParameter("residenza"), request.getParameter("telefono"), 
-    		request.getParameter("email"), request.getParameter("titolo_studio"), request.getParameter("voto"), request.getParameter("formazione"), data_candidaturaC, 
+    		request.getParameter("email"), request.getParameter("titolo_studio"), request.getParameter("voto"), request.getParameter("formazione"), 
     		request.getParameter("note"), request.getParameter("esito"), request.getParameter("greenpass"));
-    c.setData_colloquio(data_colloquioC);
+    
+    if(data_candidaturaC != null) {
+    	c.setData_candidatura(data_candidaturaC);
+    }if(data_colloquioC != null) {
+    	c.setData_colloquio(data_colloquioC);
+    }if(anno_nascitaC != null) {
+    	c.setEta(CandidatureUtils.calculateAge(anno_nascitaC));
+    }
+    
     
     CandidaturaDao cdao = new CandidaturaDao();
-    c.setEta(CandidatureUtils.calculateAge(anno_nascitaC));
+    
     
     try {
       cdao.insert(c);

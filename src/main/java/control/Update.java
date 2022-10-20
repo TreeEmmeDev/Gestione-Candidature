@@ -23,19 +23,24 @@ public class Update extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	  	String data_candidatura = request.getParameter("data_candidatura");
 	    String anno_nascita = request.getParameter("anno_nascita");
-	    
+	    String data_colloquio = request.getParameter("data_colloquio");
+
 	    
 	    
 	    Candidatura c = new Candidatura(request.getParameter("nome"), request.getParameter("cognome"), LocalDate.parse(anno_nascita), request.getParameter("residenza"), request.getParameter("telefono"), 
-	    		request.getParameter("email"), request.getParameter("titolo_studio"), request.getParameter("voto"), request.getParameter("formazione"), LocalDate.parse(data_candidatura), 
+	    		request.getParameter("email"), request.getParameter("titolo_studio"), request.getParameter("voto"), request.getParameter("formazione"), 
 	    		request.getParameter("note"), request.getParameter("esito"), request.getParameter("greenpass"));
 	    c.setId(Integer.parseInt(request.getParameter("id")));
 	    
-	    String data_colloquio = null;
+	    
 	    if(request.getParameter("data_colloquio") != "") {
 	    	data_colloquio = request.getParameter("data_colloquio");
 	    	c.setData_colloquio(LocalDate.parse(data_colloquio));
+	    }if(request.getParameter("data_candidatura") != ""){
+	    	c.setData_candidatura(LocalDate.parse(data_candidatura));
 	    }
+	    
+	    
 
 	    request.setAttribute("c", c);	    
 	    request.getRequestDispatcher("update.jsp").forward((ServletRequest)request, (ServletResponse)response);
@@ -57,12 +62,18 @@ public class Update extends HttpServlet {
     
     Candidatura c = new Candidatura(request.getParameter("nome"), request.getParameter("cognome"), anno_nascitaC ,request.getParameter("residenza"),  request.getParameter("telefono"), 
     		request.getParameter("email"), request.getParameter("titolo_studio"), request.getParameter("voto"), request.getParameter("formazione"), 
-    		data_candidaturaC, request.getParameter("note"), request.getParameter("esito"), request.getParameter("greenpass"));
+    		request.getParameter("note"), request.getParameter("esito"), request.getParameter("greenpass"));
     c.setId(idC);
-    c.setData_colloquio(data_colloquioC);
+    
+    if(data_candidaturaC != null) {
+    	c.setData_candidatura(data_candidaturaC);
+    }if(data_colloquioC != null) {
+    	c.setData_colloquio(data_colloquioC);
+    }if(anno_nascitaC != null) {
+    	c.setEta(CandidatureUtils.calculateAge(anno_nascitaC));
+    }
     
     CandidaturaDao cdao = new CandidaturaDao();
-    c.setEta(CandidatureUtils.calculateAge(anno_nascitaC));
     
     try {
       cdao.update(c);

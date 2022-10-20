@@ -190,7 +190,7 @@
                         <p style="display: none; color: white;" id="note">Lunghezza massima 1000 caratteri</p>
                     </div>
 
-                    <button style="margin-top:15px; position: absolute;left: 50%; transform: translate(-50%, -50%); background-color:rgb(42, 56, 253);" type="submit" class="btn btn-primary" id="submit">Invio</button>
+                    <button style="margin-top:15px; position: absolute;left: 50%; transform: translate(-50%, -50%); background-color:rgb(42, 56, 253);" type="submit" class="btn btn-primary" id="submit" onclick="localStorage.setItem('inserimento', 1);">Invio</button>
                 </div>
             </div>
         </form>
