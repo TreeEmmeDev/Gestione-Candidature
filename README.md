@@ -41,5 +41,5 @@ Per cambiare la porta è necessario aprire il file `server.xml` situato nella ca
 [![Download](https://custom-icon-badges.herokuapp.com/badge/-Download-red?style=for-the-badge&logo=download&logoColor=white "Download")](https://github.com/TreeEmmeDev/Gestione-Candidature/releases/download/relase/Setup.Candidati.3em.exe)
 
 ## WAR File
-[![Download](https://custom-icon-badges.herokuapp.com/badge/-Download-green?style=for-the-badge&logo=download&logoColor=white "Download")](https://github.com/TreeEmmeDev/Gestione-Candidature/releases/download/relase/Setup.Candidati.3em.exe)
+[![Download](https://custom-icon-badges.herokuapp.com/badge/-Download-green?style=for-the-badge&logo=download&logoColor=white "Download")](https://github.com/TreeEmmeDev/Gestione-Candidature/blob/main/DesktopApp/Gestione-Candidature.war?raw=true)
 
