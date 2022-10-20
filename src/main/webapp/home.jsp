@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
     <link rel="icon" href="img/unnamed.png">
     
-    <title>Home Page - GESTIONE CANDIDATURE</title>
+    <title>GESTIONE CANDIDATURE - Home Page</title>
 
 </head>
 

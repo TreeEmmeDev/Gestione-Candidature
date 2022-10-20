@@ -15,7 +15,7 @@
     <link href="css/tabellaBella.css" rel="stylesheet">
     <link rel="icon" href="img/unnamed.png">
 
-    <title>Visualizza</title>
+    <title>GESTIONE CANDIDATURE - Visualizza Candidati</title>
 </head>
 
 <body style="background-color: white;">
