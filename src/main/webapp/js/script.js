@@ -68,20 +68,35 @@ function successo() {
 }
 
 
-function elimina() {
-    if (localStorage.getItem("elimina") ==  1 ){
-        Swal.fire({
-            title: 'Sei sicuro di voler eliminare il candidato ?',
-            icon: 'question',
-            iconHtml: '?',
-            confirmButtonText: 'Si',
-            cancelButtonText: 'No',
-            showCancelButton: true,
-            showCloseButton: true,
-            preConfirm: () =>{
-                console.log("ciao")
-            }
-          })
-          localStorage.setItem("elimina", 0);
-    }
+
+function legenda(){
+	Swal.fire(
+  		'Legenda Colori',
+  	
+  		'<ul style="text-align: left; list-style-type: none; margin-left: 50px;">' +
+  		'<li><span class="dot" id="esitoPalla" style="background-color: green;"></span> Idoneo' +
+  		'<span class="dot" id="esitoPalla" style="background-color: red; margin-left:100px;"></span> NON Idoneo </li>'+
+        '<li><span class="dot" id="esitoPalla" style="background-color: yellow"></span> Da Ricontattare'+
+        '<span class="dot" id="esitoPalla" style="background-color: blue; margin-left:30px;"></span> In Attesa </li>'+
+        '</ul>',
+        
+  		'question'
+	)
+}
+
+
+function filtraEsito(){
+	var selettore = document.getElementById("esitoSelezione");
+	
+	if(selettore.value == ""){
+		window.open("Select", "_self");	
+	}else if(selettore.value == "Idoneo"){
+		window.open("Select?esito=Idoneo", "_self");
+	}else if(selettore.value == "Non Idoneo"){
+		window.open("Select?esito=NonIdoneo", "_self");
+	}else if(selettore.value == "In Attesa"){
+		window.open("Select?esito=InAttesa", "_self");
+	}else if(selettore.value == "Da ricontattare"){
+		window.open("Select?esito=DaRicontattare", "_self");
+	}
 }

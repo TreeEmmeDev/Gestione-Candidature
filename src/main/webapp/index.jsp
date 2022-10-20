@@ -133,12 +133,13 @@
                     <p style="display: none; color: blue;" id="note">Lunghezza massima 1000</p>
                 </div>
 
-                <button type="submit" class="btn btn-primary" id="submit">Invio</button>
+                <button type="submit" class="btn btn-primary" id="submit" onclick="localStorage.setItem('inserimento', 1)">Invio</button>
             </div>
         </div>
     </form>
-            
-    <script src="js/script.js"> </script>
+    
+    <script src="js/sweetalert2.all.js"></script>
+    <script src="js/script.js"></script>
     <style>     
         .ERROR{
             outline: none !important;
@@ -153,5 +154,6 @@
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/c2b8bef5f3.js" crossorigin="anonymous"></script>
+    
 </body>
 </html>

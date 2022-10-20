@@ -24,18 +24,32 @@ public class Select extends HttpServlet {
     
     String nome = request.getParameter("nome");
     String cognome = request.getParameter("cognome");
-    
-    
+    String esito = request.getParameter("esito");
+        
     try {
 	    if(nome == null && cognome == null) {
-	    	listacandidati = cdao.lettura();
-	    }else if(nome != null && cognome == null) {
-	  	    listacandidati = cdao.letturaRicerca("nome", nome, cognome);
-	    }else if(nome == null && cognome != null) {
-	    	listacandidati = cdao.letturaRicerca("cognome", nome, cognome);
-	    }else {
-	    	listacandidati = cdao.letturaRicerca("cognomeenome", nome, cognome);
-	    }
+	    	if(esito == null) {
+	    		listacandidati = cdao.lettura();	
+	    	}else if(esito.equals("Idoneo")) {
+		    	listacandidati = cdao.filtriRicerca("Idoneo");
+		    }else if(esito.equals("NonIdoneo")) {
+		    	listacandidati = cdao.filtriRicerca("Non Idoneo");
+		    }else if(esito.equals("InAttesa")) {
+		    	listacandidati = cdao.filtriRicerca("In Attesa");
+		    }else if(esito.equals("DaRicontattare")) {
+		    	listacandidati = cdao.filtriRicerca("Da Ricontattare");
+		    }
+	    	
+		}else if(nome != null && cognome == null) {
+		  	listacandidati = cdao.letturaRicerca("nome", nome, cognome);
+		}else if(nome == null && cognome != null) {
+			listacandidati = cdao.letturaRicerca("cognome", nome, cognome);
+		}else{
+			listacandidati = cdao.letturaRicerca("cognomeenome", nome, cognome);
+		}
+	    
+	    
+	    
     } catch (SQLException e) {
 		e.printStackTrace();
 	} 

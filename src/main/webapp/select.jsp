@@ -19,6 +19,7 @@
 </head>
 
 <body style="background-color: white;">
+
     <nav class="navbar navbar-expand-lg" style="background-color: rgba(0, 101, 184, 0.952); color: white;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">   </a>
@@ -37,11 +38,22 @@
                     <li class="nav-item">
                         <a class="nav-link act" href="Select">VISUALIZZA</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="legenda()">LEGENDA COLORI</a>
+                    </li>
                 </ul>
-                <form class="d-flex position-absolute end-0" role="search" action="Select" method="GET" style="margin-right:5px;">
+                <form class="d-flex position-absolute end-0" id="operazioni" role="search" action="Select" method="GET" style="margin-right:5px;">
+                	<select class="form-select me-2" aria-label="Default select example" id="esitoSelezione" onchange="filtraEsito()">
+					  <option selected>Esito</option>
+					  <option value="Idoneo">Idoneo</option>
+					  <option value="Non Idoneo">Non Idoneo</option>
+					  <option value="In Attesa">In Attesa</option>
+					  <option value="Da ricontattare">Da Ricontattare</option>
+					  <option value="">Reset FIltri</option>
+					</select>
       				<input class="form-control me-2" name="nome" type="search" placeholder="Nome" aria-label="Search">
       				<input class="form-control me-2" name="cognome" type="search" placeholder="Cognome" aria-label="Search">
-      				<button class="btn btn-outline-light" type="submit">Search</button>
+      				<button class="btn btn-outline-light" type="submit">Cerca</button>
     			</form>
             </div>
         </div>
@@ -90,6 +102,8 @@
 
         .nav-link{
             color: white;
+            font-weight: bold;
+            margin-right: 15px;
         }
      
         .nav-link:hover{
@@ -102,12 +116,19 @@
         .iconcina{
             color: white;
         }
+        
+        .dot {
+		    height: 25px;
+		    width: 25px; 
+		    border-radius: 50%;
+		    display: inline-block;
+		  }
     </style>
 </head>
 
 <body>
                 	
-	 <div id="no-more-tables" class="container" style="margin-top: 30px;">
+	 <div id="no-more-tables" class="container text-center" style="margin-top: 30px;">
 	    <table class="table col-sm-12 table-bordered table-striped table-condensed cf">
 	        <thead>
 	            <tr>
@@ -115,6 +136,7 @@
 	                <th scope="col">Cognome</th>
 	                <th scope="col">Eta</th>
 	                <th scope="col">Candidatura</th>
+	                <th scope="col">Esito</th>
 	                <th scope="col">Dettagli</th>
 	                <th scope="col">Elimina</th>
 	                <th scope="col">Modifica</th>
@@ -128,16 +150,31 @@
 	                    <td data-title="Cognome">${listacandidati.cognome}</td>
 	                    <td data-title="Eta">${listacandidati.eta}</td>
 	                    <td data-title="Candidatura">${listacandidati.data_candidatura}</td>
+	                    
+	                    <c:if test="${listacandidati.esito == 'Idoneo'}">
+							<td data-title="Esito"><span class="dot" id="esitoPalla" style="background-color: green"></span></td>
+						</c:if>
+
+						<c:if test="${listacandidati.esito == 'Non Idoneo'}">
+							<td data-title="Esito"><span class="dot" id="esitoPalla" style="background-color: red"></span></td>	
+						</c:if>
+	
+						<c:if test="${listacandidati.esito == 'In attesa'}">
+							<td data-title="Esito"><span class="dot" id="esitoPalla" style="background-color: yellow"></span></td>
+						</c:if>
+	
+						<c:if test="${listacandidati.esito == 'Da ricontattare'}">
+							<td data-title="Esito"><span class="dot" id="esitoPalla" style="background-color: blue"></span></td>
+						</c:if>
+	                    
 	                    <td data-title="Dettagli"><a href="AppoggioDettaglio?id=${listacandidati.id}&nome=${listacandidati.nome}&cognome=${listacandidati.cognome}&anno_nascita=${listacandidati.anno_nascita}&eta=${listacandidati.eta}&residenza=${listacandidati.residenza}&telefono=${listacandidati.telefono}&email=${listacandidati.email}&titolo_studio=${listacandidati.titolo_studio}&voto=${listacandidati.voto}&formazione=${listacandidati.formazione}&data_candidatura=${listacandidati.data_candidatura}&data_colloquio=${listacandidati.data_colloquio}&note=${listacandidati.note}&esito=${listacandidati.esito}&greenpass=${listacandidati.greenpass}">
 	                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ModeButton">Dettagli</button>
 	                        </a>
 	                    </td>
 	                    
 	                    <td data-title="Elimina">
-	                        <form action="Delete" method="post">
-	                            <input type="hidden" name="id" id="id" value="${listacandidati.id}" />
-	                            <button class="btn btn-danger" type="submit">Elimina</button>
-	                        </form>
+	                     <button class="btn btn-danger" type="submit" onclick="elimina(${listacandidati.id})">Elimina</button>
+	                    
 	                    </td>
 	                        
 	                        <td data-title="Modifica"><a href="Update?id=${listacandidati.id}&nome=${listacandidati.nome}&cognome=${listacandidati.cognome}&anno_nascita=${listacandidati.anno_nascita}&eta=${listacandidati.eta}&residenza=${listacandidati.residenza}&telefono=${listacandidati.telefono}&email=${listacandidati.email}&titolo_studio=${listacandidati.titolo_studio}&voto=${listacandidati.voto}&formazione=${listacandidati.formazione}&data_candidatura=${listacandidati.data_candidatura}&data_colloquio=${listacandidati.data_colloquio}&note=${listacandidati.note}&esito=${listacandidati.esito}&greenpass=${listacandidati.greenpass}">
@@ -150,73 +187,30 @@
 	    </table>
 	</div>
 
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <table class="table table-sm">
-                <thead>
-                    <tr>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Cognome</th>
-                        <th scope="col">Eta</th>
-                        <th scope="col">Formaz</th>
-                        <th scope="col">Candidatura</th>
-                        <th scope="col">Greenpass</th>
-                        <th scope="col">Dettagli</th>
-                        <th scope="col">Elimina</th>
-                        <th scope="col">Modifica</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:forEach items="${listacandidati}" var="listacandidati">
-                        <tr>
-                            <td>${listacandidati.nome}</td>
-                            <td>${listacandidati.cognome}</td>
-                            <td>${listacandidati.eta}</td>
-                            <td>${listacandidati.formazione}</td>
-                            <td>${listacandidati.data_candidatura}</td>
-                            <td>${listacandidati.greenpass}</td>
-                            <td><button type="button" class="btn btn-success" id="myBtn">Dettagli</button></td>
-                            <td>
-                                <form action="Delete" method="post">
-                                    <input type="hidden" name="IdU" id="IdU" value="${list.id}" />
-                                    <button class="btn btn-danger" type="submit">Elimina</button>
-                                </form>
-                            </td>
-                            <td><a href="Update?id=${list.id}&nome=${list.nome}&cognome=${list.cognome}&eta=${list.eta}">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModeButton">Modifica</button>
-                                </a>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
+    
 
     <script>
-        var modal = document.getElementById("myModal");
-        var btn = document.getElementById("myBtn");
-        var span = document.getElementsByClassName("close")[0];
-
-        btn.onclick = function() {
-            modal.style.display = "block";
-        }
-
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+    function elimina(id) {
+    	console.log(id);
+        Swal.fire({
+            title: 'Sei sicuro di voler eliminare il candidato ?',
+            icon: 'question',
+            iconHtml: '?',
+            confirmButtonText: 'Si',
+            cancelButtonText: 'No',
+            showCancelButton: true,
+            showCloseButton: true,
+            preConfirm: () =>{
+                window.open("Delete?id=" + id, "_self");	
             }
-        }
+          })
+}
+        
     </script>
                 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/c2b8bef5f3.js" crossorigin="anonymous"></script>
+    <script src="js/sweetalert2.all.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

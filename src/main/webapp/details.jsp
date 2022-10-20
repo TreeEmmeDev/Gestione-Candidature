@@ -7,8 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <script src="package/dist/sweetalert2.min.js"></script>
-    <link rel="package/dist/stylesheet" href="sweetalert2.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="icon" href="img/unnamed.png">   
     <link rel="stylesheet" href="css/style.css">
@@ -80,6 +78,9 @@ function palla(){
           <li class="nav-item">
             <a class="nav-link" href="Select">VISUALIZZA</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="legenda()">LEGENDA COLORI</a>
+          </li>
         </ul>
       </div>
 
@@ -150,5 +151,7 @@ function palla(){
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/c2b8bef5f3.js" crossorigin="anonymous"></script>
+<script src="js/sweetalert2.all.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>

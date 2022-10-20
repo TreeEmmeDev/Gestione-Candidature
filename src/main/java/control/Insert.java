@@ -50,6 +50,6 @@ public class Insert extends HttpServlet {
     }
     
 
-    request.getRequestDispatcher("index.jsp").forward(request, response);
+    request.getRequestDispatcher("home.jsp").forward(request, response);
   }
 }
