@@ -173,10 +173,8 @@
 	                    </td>
 	                    
 	                    <td data-title="Elimina">
-	                        <form action="Delete" method="post">
-	                            <input type="hidden" name="id" id="id" value="${listacandidati.id}" />
-	                            <button class="btn btn-danger" type="submit">Elimina</button>
-	                        </form>
+	                     <button class="btn btn-danger" type="submit" onclick="elimina(${listacandidati.id})">Elimina</button>
+	                    
 	                    </td>
 	                        
 	                        <td data-title="Modifica"><a href="Update?id=${listacandidati.id}&nome=${listacandidati.nome}&cognome=${listacandidati.cognome}&anno_nascita=${listacandidati.anno_nascita}&eta=${listacandidati.eta}&residenza=${listacandidati.residenza}&telefono=${listacandidati.telefono}&email=${listacandidati.email}&titolo_studio=${listacandidati.titolo_studio}&voto=${listacandidati.voto}&formazione=${listacandidati.formazione}&data_candidatura=${listacandidati.data_candidatura}&data_colloquio=${listacandidati.data_colloquio}&note=${listacandidati.note}&esito=${listacandidati.esito}&greenpass=${listacandidati.greenpass}">
@@ -189,70 +187,25 @@
 	    </table>
 	</div>
 
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <table class="table table-sm">
-                <thead>
-                    <tr>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Cognome</th>
-                        <th scope="col">Eta</th>
-                        <th scope="col">Formaz</th>
-                        <th scope="col">Candidatura</th>
-                        <th scope="col">Greenpass</th>
-                        <th scope="col">Dettagli</th>
-                        <th scope="col">Elimina</th>
-                        <th scope="col">Modifica</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:forEach items="${listacandidati}" var="listacandidati">
-                        <tr>
-                            <td>${listacandidati.nome}</td>
-                            <td>${listacandidati.cognome}</td>
-                            <td>${listacandidati.eta}</td>
-                            <td>${listacandidati.formazione}</td>
-                            <td>${listacandidati.data_candidatura}</td>
-                            <td>${listacandidati.greenpass}</td>
-                            <td><button type="button" class="btn btn-success" id="myBtn">Dettagli</button></td>
-                            <td>
-                                <form action="Delete" method="post">
-                                    <input type="hidden" name="IdU" id="IdU" value="${list.id}" />
-                                    <button class="btn btn-danger" type="submit">Elimina</button>
-                                </form>
-                            </td>
-                            <td><a href="Update?id=${list.id}&nome=${list.nome}&cognome=${list.cognome}&eta=${list.eta}">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModeButton">Modifica</button>
-                                </a>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
+    
 
     <script>
-        var modal = document.getElementById("myModal");
-        var btn = document.getElementById("myBtn");
-        var span = document.getElementsByClassName("close")[0];
-
-        btn.onclick = function() {
-            modal.style.display = "block";
-        }
-
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+    function elimina(id) {
+    	console.log(id);
+        Swal.fire({
+            title: 'Sei sicuro di voler eliminare il candidato ?',
+            icon: 'question',
+            iconHtml: '?',
+            confirmButtonText: 'Si',
+            cancelButtonText: 'No',
+            showCancelButton: true,
+            showCloseButton: true,
+            preConfirm: () =>{
+                window.open("Delete?id=" + id, "_self");	
             }
-        }
+          })
+}
+        
     </script>
                 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>

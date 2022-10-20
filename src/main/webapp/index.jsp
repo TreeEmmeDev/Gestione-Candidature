@@ -133,7 +133,7 @@
                     <p style="display: none; color: blue;" id="note">Lunghezza massima 1000</p>
                 </div>
 
-                <button type="submit" class="btn btn-primary" id="submit">Invio</button>
+                <button type="submit" class="btn btn-primary" id="submit" onclick="localStorage.setItem('inserimento', 1)">Invio</button>
             </div>
         </div>
     </form>

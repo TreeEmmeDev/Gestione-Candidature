@@ -19,7 +19,7 @@
 
 </head>
 
-<body style="background: url('img/bg.png'); background-size: cover; background-repeat:no-repeat; background-position:center; height:100%">
+<body style="background: url('img/bg.png'); background-size: cover; background-repeat:no-repeat; background-position:center; height:100%"  onload="successo()">
 
     <style>
         body,
@@ -124,6 +124,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js " integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk " crossorigin="anonymous "></script>
     <script src="https://kit.fontawesome.com/c2b8bef5f3.js " crossorigin="anonymous "></script>
+    <script src="js/sweetalert2.all.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

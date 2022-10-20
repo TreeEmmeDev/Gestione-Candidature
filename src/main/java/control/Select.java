@@ -35,7 +35,7 @@ public class Select extends HttpServlet {
 		    }else if(esito.equals("NonIdoneo")) {
 		    	listacandidati = cdao.filtriRicerca("Non Idoneo");
 		    }else if(esito.equals("InAttesa")) {
-		    	listacandidati = cdao.filtriRicerca("InAttesa");
+		    	listacandidati = cdao.filtriRicerca("In Attesa");
 		    }else if(esito.equals("DaRicontattare")) {
 		    	listacandidati = cdao.filtriRicerca("Da Ricontattare");
 		    }

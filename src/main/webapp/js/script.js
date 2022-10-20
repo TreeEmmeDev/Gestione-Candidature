@@ -68,33 +68,17 @@ function successo() {
 }
 
 
-function elimina() {
-    if (localStorage.getItem("elimina") ==  1 ){
-        Swal.fire({
-            title: 'Sei sicuro di voler eliminare il candidato ?',
-            icon: 'question',
-            iconHtml: '?',
-            confirmButtonText: 'Si',
-            cancelButtonText: 'No',
-            showCancelButton: true,
-            showCloseButton: true,
-            preConfirm: () =>{
-                console.log("ciao")
-            }
-          })
-          localStorage.setItem("elimina", 0);
-    }
-}
-
 
 function legenda(){
 	Swal.fire(
   		'Legenda Colori',
-  		
-  		'<span class="dot" id="esitoPalla" style="background-color: green"></span> Idoneo <br>' +
-  		'<span class="dot" id="esitoPalla" style="background-color: red"></span> NON Idoneo <br>'+
-        '<span class="dot" id="esitoPalla" style="background-color: yellow"></span> Da Ricontattare <br>'+
-        '<span class="dot" id="esitoPalla" style="background-color: blue"></span> In Attesa <br>',
+  	
+  		'<ul style="text-align: left; list-style-type: none; margin-left: 50px;">' +
+  		'<li><span class="dot" id="esitoPalla" style="background-color: green;"></span> Idoneo' +
+  		'<span class="dot" id="esitoPalla" style="background-color: red; margin-left:100px;"></span> NON Idoneo </li>'+
+        '<li><span class="dot" id="esitoPalla" style="background-color: yellow"></span> Da Ricontattare'+
+        '<span class="dot" id="esitoPalla" style="background-color: blue; margin-left:30px;"></span> In Attesa </li>'+
+        '</ul>',
         
   		'question'
 	)
