@@ -1,0 +1,1 @@
+nativefier --name “Gesatione Candidati” --lang "it" --full-screen false --icon "C:\Users\Fin\Desktop\3em.ico" “http://localhost:8085/Gestione-Candidature/home.jsp"

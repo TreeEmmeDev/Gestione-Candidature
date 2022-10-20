@@ -28,12 +28,13 @@
 <body style="background-color:rgb(160, 198, 212)">
         
     <style>
-        .nav-link{
+        .nav-link {
             color: white;
+            font-weight: bold;
         }
         
-        .nav-link:hover{
-            color: rgba(99, 166, 220, 0.952);
+        .nav-link:hover {
+            color: rgba(40, 142, 226, 0.952);
         }
         
         .act{
