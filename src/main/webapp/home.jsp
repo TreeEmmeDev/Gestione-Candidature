@@ -13,15 +13,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
-    <link rel="icon" href="img/unnamed.png">
-    
-    <title>GESTIONE CANDIDATURE - Home Page</title>
+    <title>Home Page - GESTIONE CANDIDATURE</title>
 
 </head>
 
-<body style="background: url('img/bg.png'); background-size: cover; background-repeat:no-repeat; background-position:center; height:100%"  onload="successo()">
+<body>
 
     <style>
+        #myVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+        }
+        
+        .content {
+            position: fixed;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: #f1f1f1;
+            width: 100%;
+            padding: 20px;
+        }
+        
         body,
         html {
             height: 100%;
@@ -30,7 +45,6 @@
         .nav-link {
             color: white;
             font-weight: bold;
-            margin-right: 15px;
         }
         
         .nav-link:hover {
@@ -80,29 +94,37 @@
         }
     </style>
 
-    <nav class="navbar navbar-expand-lg" style="background-color: rgba(0, 101, 184, 0.952); color: white;">
+    <nav class="navbar navbar-expand-lg" style="z-index:999; background-color: rgba(0, 101, 184, 0.952); color: white; height:65px;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">   </a>
-            <button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa-solid fa-bars iconcina"></i>
-            </button>
+            <a class="navbar-brand" href="#"> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa-solid fa-bars iconcina"></i>
+          </button>
+
+
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link act" aria-current="page" href="home.jsp">HOME</a>
                     </li>
-                     <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="index.jsp">INSERISCI</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="Select">VISUALIZZA</a>
                     </li>
-
                 </ul>
             </div>
         </div>
     </nav>
+
+    </div>
+
+    <video autoplay muted loop id="myVideo">
+        <source src="img/bg.mp4" type="video/mp4">
+      </video>
+
 
 
     <div class="position-relative" style="margin-top: 220px;">
@@ -115,17 +137,25 @@
         </div>
     </div>
 
+    <!-- <div class="container ">
+ 
+        <img src="../img/logo.png " class="mx-auto d-block " style="width: 300px; margin-top: 40px; ">
+    </div> -->
+
 
     <footer style="background-color: rgb(0, 101, 184); bottom: 0; width: 100%;  height: 75px; position:absolute;">
 
-        <p class="text-center " style="font-family: Mukta, sans-serif; color: white; position:center; margin-top: 25px">© <script>document.write(new Date().getFullYear())</script> 3EM Engineering</p>
+        <p class="text-center " style="font-family: Mukta, sans-serif; color: white; position:center; margin-top: 25px">© 2022 3EM Engineering</p>
 
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js " integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk " crossorigin="anonymous "></script>
     <script src="https://kit.fontawesome.com/c2b8bef5f3.js " crossorigin="anonymous "></script>
-    <script src="js/sweetalert2.all.js"></script>
-    <script src="js/script.js"></script>
+
+    <script>
+        // Get the video
+        var video = document.getElementById("myVideo");
+    </script>
 </body>
 
 </html>
