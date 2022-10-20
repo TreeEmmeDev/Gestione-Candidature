@@ -90,8 +90,8 @@ function palla(){
   
   <form action="Update" method="GET">  
     <div class="container" style="margin-top: 30px;">   
-      <div class="alert alert-dark">
-        <div class="mb-3">
+      <div class="alert alert-dark" style="background-color: rgba(0, 101, 184, 0.952); border: 2px solid rgba(0, 101, 184, 0.952); padding: 10px; border-radius: 15px;">
+        <div class="mb-3" style="color: white;">
           <input name="id" type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="Nome" value="${c.id}" readonly>
           
           <label for="exampleFormControlInput1" class="form-label">Nome</label>
@@ -131,7 +131,7 @@ function palla(){
           <input name="greenpass" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Greenpass" value="${c.greenpass}" readonly>
         </div>
         
-      <div class="mb-3">
+      <div class="mb-3" style="color: white;">
         <label for="exampleFormControlTextarea1" class="form-label">Esito colloquio</label>
         <input name="esito" type="hidden" class="form-control" id="esito" value="${c.esito}" readonly>
         <br>
@@ -140,7 +140,8 @@ function palla(){
         <br>
         
         <label for="exampleFormControlTextarea1" class="form-label">Note</label>
-        <input name="note" class="form-control" id="exampleFormControlTextarea1" value="${c.note}" readonly>
+        <textarea style="height:150px" type="text" name="note" class="form-control" id="exampleFormControlTextarea1" rows="3" readonly>${c.note}</textarea>
+                     
       </div>
 
       <button type="submit" class="btn btn-primary">Modifica</button>

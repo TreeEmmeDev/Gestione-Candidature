@@ -135,7 +135,7 @@
 					</c:if>
 				</div>
 
-				<div class="mb-3">
+				<div class="mb-3" style="color: white;">
 					<label for="esito">Esito:</label>
 					<c:if test="${c.esito == 'Idoneo'}">
 						<select name="esito" id="esito" class="custom-select">
@@ -174,8 +174,8 @@
 					</c:if>
 
 					<label for="exampleFormControlTextarea1" class="form-label">Note</label> 
-					<input name="note" class="form-control" id="exampleFormControlTextarea1" onclick="popup_note()" value="${c.note}">
-					<p style="display: none; color: blue;" id="note">Lunghezza massima 1000</p>
+					<textarea style="height:150px" type="text" name="note" class="form-control" id="exampleFormControlTextarea1" rows="3" onclick="popup_note()">${c.note}</textarea>
+					<p style="display: none; color: white;" id="note">Lunghezza massima 1000 caratteri</p>
 				</div>
 				<button type="submit" class="btn btn-primary" id="submit" onclick="risultato()">Modifica</button>
 			</div>
@@ -203,6 +203,11 @@
 			var voto = document.getElementById("voto");
 			voto.value = data;
 		}
+		
+        function popup_note() {
+            document.getElementById("note").style.display ="block";
+        }
+    
 	</script>
 
 </body>
