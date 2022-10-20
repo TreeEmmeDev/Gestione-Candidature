@@ -185,7 +185,7 @@
 		.ERROR {
 			outline: none !important;
 			border: 2px solid red !important;
-			box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.25) !important;
+			box-shadow: box-shadow: 0 0 0 0.2rem rgb(255 0 0 / 57%) !important;	
 		}
 
 		.hidden {
