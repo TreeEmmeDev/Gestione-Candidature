@@ -183,7 +183,7 @@
 					<textarea style="height:150px" type="text" name="note" class="form-control" id="exampleFormControlTextarea1" rows="3" onclick="popup_note()">${c.note}</textarea>
 					<p style="display: none; color: white;" id="note">Lunghezza massima 1000 caratteri</p>
 				</div>
-				<button type="submit" class="btn btn-primary" id="submit" onclick="risultato()">Modifica</button>
+				<button type="submit" class="btn btn-primary" id="submit" onclick="risultato()">Salva Modifiche</button>
 			</div>
 		</div>
 	</form>
