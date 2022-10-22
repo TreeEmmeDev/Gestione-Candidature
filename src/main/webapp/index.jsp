@@ -143,7 +143,7 @@
                         <input name="residenza" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Residenza">
 
                         <label for="exampleFormControlInput1" class="form-label">Numero di telefono:</label>
-                        <input name="telefono" onkeyup="validaNumero()" type="tel" placeholder="Numero di telefono" pattern="[0-9]{10}" class="form-control" id="exampleFormControlInput1" id="numero" required>
+                        <input name="telefono" type="tel" placeholder="Numero di telefono" pattern="[0-9]{10}" class="form-control" id="exampleFormControlInput1" id="numero" required>
 
                         <label for="exampleFormControlInput1" class="form-label">Email:</label>
                         <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required>

@@ -52,19 +52,6 @@ function controllotitolo() {
 
 }
 
-function validaNumero(){
-
-    var numero = document.getElementById("numero");
-
-    if(containsNumbers(numero.value) && !onlyLettersAndSpaces(numero.value)){
-        submit.classList.add("hidden");
-        nome.classList.add("ERROR");
-    }else {
-        nome.classList.remove("ERROR");
-        submit.classList.remove("hidden");
-    }
-}
-
 
 
 
