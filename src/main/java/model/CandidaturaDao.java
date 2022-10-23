@@ -59,6 +59,8 @@ public class CandidaturaDao {
     
     ps.executeUpdate();
     
+    insertCestino(c);
+    
   }
   
   public List<Candidatura> lettura() throws SQLException {
@@ -156,6 +158,8 @@ public class CandidaturaDao {
     ps.setInt(16, c.getId());
     
     ps.executeUpdate();
+    
+    updateCestino(c);
   }
   
   
@@ -268,6 +272,91 @@ public class CandidaturaDao {
 	    }
 	    
 	    return lista;
+	  }
+  
+  
+  public void insertCestino(Candidatura c) throws SQLException {
+	    Connection conn = Connessione.getConnessione();
+	    String sql = "INSERT INTO candidatura_cestino (nome,cognome,anno_nascita,eta,residenza,telefono,email,titolo_studio,voto,formazione,data_candidatura,data_colloquio,note,esito,greenpass) "
+	    		+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	    
+	    PreparedStatement ps = conn.prepareStatement(sql);
+	    ps.setString(1, c.getNome());
+	    
+	    System.out.println(c.getNome());
+	    
+	    
+	    ps.setString(2, c.getCognome());
+	    
+	    if (c.getAnno_nascita() == null) {
+	      ps.setDate(3, null);
+	    } else {
+	      ps.setDate(3, Date.valueOf(c.getAnno_nascita()));
+	    } 
+	    
+	    ps.setInt(4, c.getEta());
+	    ps.setString(5, c.getResidenza());
+	    ps.setString(6, c.getTelefono());
+	    ps.setString(7, c.getEmail());
+	    ps.setString(8, c.getTitolo_studio());
+	    ps.setString(9, c.getVoto());
+	    ps.setString(10, c.getFormazione());
+	    
+	    if (c.getData_candidatura() == null) {
+	      ps.setDate(11, null);
+	    } else {
+	      ps.setDate(11, Date.valueOf(c.getData_candidatura()));
+	    } 
+	    
+	    if (c.getData_colloquio() == null) {
+	      ps.setDate(12, null);
+	    } else {
+	      ps.setDate(12, Date.valueOf(c.getData_colloquio()));
+	    } 
+	    
+	    ps.setString(13, c.getNote());
+	    ps.setString(14, c.getEsito());
+	    ps.setString(15, c.getGreenpass());
+	    
+	    ps.executeUpdate();
+	    
+	  }
+  
+  
+  public void updateCestino(Candidatura c) throws SQLException {
+	    Connection conn = Connessione.getConnessione();
+	    String Sql = "UPDATE candidatura_cestino SET nome=?, cognome=?, anno_nascita=?, residenza=?, telefono=?, email=?, titolo_studio=?, voto=?, formazione=?, data_candidatura=?, data_colloquio=?, note=?, esito=?, greenpass=?, eta=? WHERE id=?";
+	    PreparedStatement ps = conn.prepareStatement(Sql);
+	    
+	    ps.setString(1, c.getNome());
+	    ps.setString(2, c.getCognome());
+	    ps.setDate(3, Date.valueOf(c.getAnno_nascita()));
+	    ps.setString(4, c.getResidenza());
+	    ps.setString(5, c.getTelefono());
+	    ps.setString(6, c.getEmail());
+	    ps.setString(7, c.getTitolo_studio());
+	    ps.setString(8, c.getVoto());
+	    ps.setString(9, c.getFormazione());
+	    
+	    if(c.getData_candidatura() != null) {
+	    	ps.setDate(10, Date.valueOf(c.getData_candidatura()));
+	    }else{
+	    	ps.setDate(10, null);
+	    }
+	    
+	    if(c.getData_colloquio() != null) {
+	    	ps.setDate(11, Date.valueOf(c.getData_colloquio()));
+	    }else {
+	    	ps.setDate(11, null);
+	    }
+
+	    ps.setString(12, c.getNote());
+	    ps.setString(13, c.getEsito());
+	    ps.setString(14, c.getGreenpass());
+	    ps.setInt(15, c.getEta());
+	    ps.setInt(16, c.getId());
+	    
+	    ps.executeUpdate();
 	  }
 
   
