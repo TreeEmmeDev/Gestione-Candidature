@@ -1,5 +1,7 @@
 # Gestione-Candidature
 
+![GitHub language count](https://img.shields.io/github/languages/count/TreeEmmeDev/Gestione-Candidature?color=%23eb5a1c&label=Linguaggi&style=for-the-badge) 
+
 App creata con servlet e jsp per la gestione delle candidature in modo dettagliato
 
 ## Importare in Eclipse
