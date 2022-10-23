@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Ott 20, 2022 alle 19:38
+-- Creato il: Ott 23, 2022 alle 14:11
 -- Versione del server: 8.0.27
 -- Versione PHP: 8.0.5
 
@@ -33,25 +33,19 @@ CREATE TABLE `candidatura` (
   `cognome` varchar(50) NOT NULL,
   `anno_nascita` date NOT NULL,
   `eta` int NOT NULL,
-  `residenza` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
-  `telefono` varchar(20) CHARACTER SET utf8mb4  DEFAULT NULL,
+  `residenza` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `telefono` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `email` varchar(100) NOT NULL,
-  `titolo_studio` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
-  `voto` varchar(20) CHARACTER SET utf8mb4 DEFAULT NULL,
-  `formazione` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `titolo_studio` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `voto` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `formazione` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `data_candidatura` date DEFAULT NULL,
   `data_colloquio` date DEFAULT NULL,
-  `note` varchar(2000) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `note` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `esito` varchar(1000) NOT NULL,
-  `greenpass` varchar(20) CHARACTER SET utf8mb4 DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dump dei dati per la tabella `candidatura`
---
-
-INSERT INTO `candidatura` (`id`, `nome`, `cognome`, `anno_nascita`, `eta`, `residenza`, `telefono`, `email`, `titolo_studio`, `voto`, `formazione`, `data_candidatura`, `data_colloquio`, `note`, `esito`, `greenpass`) VALUES
-(2, 'Test', 'Test', '2003-05-29', 19, 'vai bella 73', '2222222222', 'mail@mail.com', 'Diploma', '66', 'nulla', '2022-10-18', NULL, '', 'Idoneo', 'si');
+  `greenpass` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `file` longtext
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Indici per le tabelle scaricate
@@ -71,7 +65,7 @@ ALTER TABLE `candidatura`
 -- AUTO_INCREMENT per la tabella `candidatura`
 --
 ALTER TABLE `candidatura`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

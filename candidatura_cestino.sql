@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Ott 23, 2022 alle 10:31
+-- Creato il: Ott 23, 2022 alle 14:12
 -- Versione del server: 8.0.27
 -- Versione PHP: 8.0.5
 
@@ -43,15 +43,9 @@ CREATE TABLE `candidatura_cestino` (
   `data_colloquio` date DEFAULT NULL,
   `note` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `esito` varchar(1000) NOT NULL,
-  `greenpass` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
+  `greenpass` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `file` longtext
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dump dei dati per la tabella `candidatura_cestino`
---
-
-INSERT INTO `candidatura_cestino` (`id`, `nome`, `cognome`, `anno_nascita`, `eta`, `residenza`, `telefono`, `email`, `titolo_studio`, `voto`, `formazione`, `data_candidatura`, `data_colloquio`, `note`, `esito`, `greenpass`) VALUES
-(2, 'Test', 'Test', '2003-05-29', 19, 'vai bella 73', '2222222222', 'mail@mail.com', 'Diploma', '66', 'nulla', '2022-10-18', NULL, '', 'Idoneo', 'si');
 
 --
 -- Indici per le tabelle scaricate
@@ -71,7 +65,7 @@ ALTER TABLE `candidatura_cestino`
 -- AUTO_INCREMENT per la tabella `candidatura_cestino`
 --
 ALTER TABLE `candidatura_cestino`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
