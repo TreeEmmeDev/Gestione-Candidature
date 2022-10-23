@@ -28,6 +28,10 @@ function palla(){
 	if(palla=="Da ricontattare"){
 		document.getElementById("esitoPalla").style.backgroundColor = "blue";
 	}
+	
+	if(localStorage.getItem("file") == ""){
+		document.getElementById("fileDiv").classList.add("hidden");
+	}
 }
 </script>
 <style>
@@ -60,6 +64,10 @@ function palla(){
 	bottom: 20px;
 	right: 20px;
   }
+  
+  .hidden {
+            display: none;
+        }
 </style>
 
 
@@ -151,7 +159,11 @@ function palla(){
         
         <label for="exampleFormControlTextarea1" class="form-label">Note</label>
         <textarea style="height:150px" type="text" name="note" class="form-control" id="exampleFormControlTextarea1" rows="3" readonly>${c.note}</textarea>
-                     
+        
+        <div id="fileDiv">
+        	<label for="exampleFormControlInput1" class="form-label">File: </label>
+        	<button onclick="apri()" type="button" id="exampleFormControlInput1" class="form-control">File Caricato</button>
+        </div>
       </div>
 
       <button type="submit" class="btn btn-primary">Modifica</button>
@@ -163,6 +175,20 @@ function palla(){
 	<i class="fa-solid fa-circle-info"></i>
 </button>
 
+
+<script>
+
+function apri(){
+	var file = localStorage.getItem("file");
+	var iframe = "<title>GESTIONE CANDIDATURE - File Caricato</title><iframe style='position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;' src='" + file + "'></iframe>"
+	var x = window.open();
+	x.document.open();
+	x.document.write(iframe);
+	x.document.close();
+	
+}
+
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/c2b8bef5f3.js" crossorigin="anonymous"></script>

@@ -34,6 +34,8 @@ public class Candidatura {
 	private String esito;
 
 	private String greenpass;
+	
+	private String file;
 
 	public int getId() {
 		return this.id;
@@ -162,6 +164,14 @@ public class Candidatura {
 	public void setGreenpass(String greenpass) {
 		this.greenpass = greenpass;
 	}
+	
+	public String getFile() {
+		return file;
+	}
+
+	public void setFile(String file) {
+		this.file = file;
+	}
 
 	public String toString() {
 		return "Candidatura [id=" + this.id + ", nome=" + this.nome + ", cognome=" + this.cognome + ", anno_nascita="
@@ -192,6 +202,8 @@ public class Candidatura {
 	public Candidatura() {
 		super();
 	}
+
+	
 	
 	
 	

@@ -11,20 +11,25 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class CandidaturaDao {
 	
 	
   public void insert(Candidatura c) throws SQLException {
     Connection conn = Connessione.getConnessione();
-    String sql = "INSERT INTO candidatura (nome,cognome,anno_nascita,eta,residenza,telefono,email,titolo_studio,voto,formazione,data_candidatura,data_colloquio,note,esito,greenpass) "
-    		+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    String sql = "INSERT INTO candidatura (nome,cognome,anno_nascita,eta,residenza,telefono,email,titolo_studio,voto,formazione,data_candidatura,data_colloquio,note,esito,greenpass,file) "
+    		+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     
+    
+    
+    String fileByte = null;
+    if(c.getFile() != null) {
+    	fileByte = c.getFile();
+    }
+
     PreparedStatement ps = conn.prepareStatement(sql);
-    ps.setString(1, c.getNome());
     
-    System.out.println(c.getNome());
-    
-    
+    ps.setString(1, c.getNome()); 
     ps.setString(2, c.getCognome());
     
     if (c.getAnno_nascita() == null) {
@@ -56,6 +61,7 @@ public class CandidaturaDao {
     ps.setString(13, c.getNote());
     ps.setString(14, c.getEsito());
     ps.setString(15, c.getGreenpass());
+    ps.setString(16, fileByte);
     
     ps.executeUpdate();
     
@@ -92,8 +98,13 @@ public class CandidaturaDao {
       if(rs.getDate("data_colloquio") != null) {
     	  data_colloquiolocal = Instant.ofEpochMilli(rs.getDate("data_colloquio").getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
       }
-      
       p.setData_colloquio(data_colloquiolocal);
+      
+      
+      if(rs.getString("file") != null) {
+    	  p.setFile(rs.getString("file"));
+      }
+      
       
       p.setResidenza(rs.getString("residenza"));
       p.setTelefono(rs.getString("telefono"));
@@ -204,6 +215,10 @@ public class CandidaturaDao {
 	      }
 	      p.setData_colloquio(data_colloquiolocal);
 	      
+	      if(rs.getString("file") != null) {
+	    	  p.setFile(rs.getString("file"));
+	      }
+	      
 	      p.setResidenza(rs.getString("residenza"));
 	      p.setTelefono(rs.getString("telefono"));
 	      p.setEmail(rs.getString("email"));
@@ -268,6 +283,11 @@ public class CandidaturaDao {
 	      p.setEta(Integer.parseInt(rs.getString("eta")));
 	      p.setId(rs.getInt("id"));
 	      
+	      if(rs.getString("file") != null) {
+	    	  p.setFile(rs.getString("file"));
+	      }
+	      
+	      
 	      lista.add(p);
 	    }
 	    
@@ -277,13 +297,16 @@ public class CandidaturaDao {
   
   public void insertCestino(Candidatura c) throws SQLException {
 	    Connection conn = Connessione.getConnessione();
-	    String sql = "INSERT INTO candidatura_cestino (nome,cognome,anno_nascita,eta,residenza,telefono,email,titolo_studio,voto,formazione,data_candidatura,data_colloquio,note,esito,greenpass) "
-	    		+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	    String sql = "INSERT INTO candidatura_cestino (nome,cognome,anno_nascita,eta,residenza,telefono,email,titolo_studio,voto,formazione,data_candidatura,data_colloquio,note,esito,greenpass,file) "
+	    		+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	    
+	    String fileByte = null;
+	    if(c.getFile() != null) {
+	    	fileByte = c.getFile();
+	    }
 	    
 	    PreparedStatement ps = conn.prepareStatement(sql);
 	    ps.setString(1, c.getNome());
-	    
-	    System.out.println(c.getNome());
 	    
 	    
 	    ps.setString(2, c.getCognome());
@@ -317,6 +340,7 @@ public class CandidaturaDao {
 	    ps.setString(13, c.getNote());
 	    ps.setString(14, c.getEsito());
 	    ps.setString(15, c.getGreenpass());
+	    ps.setString(16, fileByte);
 	    
 	    ps.executeUpdate();
 	    

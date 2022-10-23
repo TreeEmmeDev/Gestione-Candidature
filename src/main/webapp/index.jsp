@@ -128,7 +128,7 @@
         
         <form action="Insert" method="POST" style="z-index:999">
             <div class="container" style="margin-top: 30px;">
-                <div class="alert alert-dark" style="background-color: rgba(0, 101, 184, 0.952); border: 2px solid rgba(0, 101, 184, 0.952);padding: 10px; border-radius: 15px; height: 1195px;">
+                <div class="alert alert-dark" style="background-color: rgba(0, 101, 184, 0.952); border: 2px solid rgba(0, 101, 184, 0.952);padding: 10px; border-radius: 15px; height: 1300px;">
                     <div class="mb-3" style="color:whitesmoke">
                         <label for="exampleFormControlInput1" class="form-label">Nome:</label>
                         <input onkeyup="validaN()" type="text" class="form-control" name="nome" id="nome" placeholder="Nome" required>
@@ -185,6 +185,12 @@
 							<option value="Da ricontattare">Da ricontattare</option>
 						</select>
                         <br>
+                        
+						<div class="mb-3">
+						  <label for="formFile" class="form-label">FIle:</label>
+						  <input class="form-control" type="file" id="file" onchange="convertToBase64(document.getElementById('file').files[0]);">
+						  <textarea hidden name="file" class="form-control" id="out"></textarea>
+						</div>
 
                         <label for="exampleFormControlTextarea1" class="form-label">Note:</label>
                         <textarea style="height:150px" type="text" name="note" class="form-control" id="exampleFormControlTextarea1" rows="3" onclick="popup_note()"> </textarea>
@@ -214,6 +220,43 @@
     <script>
         // Get the video
         var video = document.getElementById("myVideo2");
+        
+        
+        function convertToBase64(file){
+        try
+        {
+
+        // FOCUSING THE OUT TEXTAREA
+        document.getElementById("out").focus();
+
+        
+
+        // CREATING THE FILE READER
+        var filereader = new FileReader();
+        filereader.file_name = file.name;
+        filereader.onload = function()
+        {
+        // GETTING THE FILE CONTENT
+        var content = this.result;
+
+        // INSERTING THE FILE AS A BASE64 STRING IN THE TEXTAREA
+        document.getElementById("out").value = content;
+
+        };
+
+        // READING THE FILE
+        filereader.readAsDataURL(file);
+
+
+        }
+        catch(err)
+        {
+        console.log(err);
+        }
+        }
+        
+        
+        
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>

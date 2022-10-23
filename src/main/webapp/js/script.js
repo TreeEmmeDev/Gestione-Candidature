@@ -97,3 +97,11 @@ function filtraEsito(){
 		window.open("Select?esito=DaRicontattare", "_self");
 	}
 }
+
+
+
+
+
+
+
+			

@@ -18,7 +18,7 @@
     <title>GESTIONE CANDIDATURE - Visualizza Candidati</title>
 </head>
 
-<body style="background-color: white;">
+<body style="background-color: white;" onload="localStorage.setItem('file','');">
 
     <nav class="navbar navbar-expand-lg" style="background-color: rgba(0, 101, 184, 0.952); color: white;">
         <div class="container-fluid">
@@ -173,7 +173,7 @@
 							<td data-title="Esito"><span class="dot" id="esitoPalla" style="background-color: blue"></span></td>
 						</c:if>
 	                    
-	                    <td data-title="Dettagli"><a href="Dettagli?id=${listacandidati.id}&nome=${listacandidati.nome}&cognome=${listacandidati.cognome}&anno_nascita=${listacandidati.anno_nascita}&eta=${listacandidati.eta}&residenza=${listacandidati.residenza}&telefono=${listacandidati.telefono}&email=${listacandidati.email}&titolo_studio=${listacandidati.titolo_studio}&voto=${listacandidati.voto}&formazione=${listacandidati.formazione}&data_candidatura=${listacandidati.data_candidatura}&data_colloquio=${listacandidati.data_colloquio}&note=${listacandidati.note}&esito=${listacandidati.esito}&greenpass=${listacandidati.greenpass}">
+	                    <td data-title="Dettagli"><a onclick="localStorage.setItem('file','${listacandidati.file}');" href="Dettagli?id=${listacandidati.id}&nome=${listacandidati.nome}&cognome=${listacandidati.cognome}&anno_nascita=${listacandidati.anno_nascita}&eta=${listacandidati.eta}&residenza=${listacandidati.residenza}&telefono=${listacandidati.telefono}&email=${listacandidati.email}&titolo_studio=${listacandidati.titolo_studio}&voto=${listacandidati.voto}&formazione=${listacandidati.formazione}&data_candidatura=${listacandidati.data_candidatura}&data_colloquio=${listacandidati.data_colloquio}&note=${listacandidati.note}&esito=${listacandidati.esito}&greenpass=${listacandidati.greenpass}">
 	                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ModeButton">Dettagli</button>
 	                        </a>
 	                    </td>
@@ -213,7 +213,15 @@
                 window.open("Delete?id=" + id, "_self");	
             }
           })
-}
+	}
+    
+
+    function setCookie(cname, cvalue, exdays) {
+      const d = new Date();
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      let expires = "expires="+ d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
         
     </script>
                 

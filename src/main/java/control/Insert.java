@@ -1,8 +1,11 @@
 package control;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.Base64;
+
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -27,6 +30,9 @@ public class Insert extends HttpServlet {
     LocalDate data_candidaturaC = null;
     LocalDate data_colloquioC = null;
     LocalDate anno_nascitaC = null;
+    String file = request.getParameter("file");
+    
+
     
     if (!request.getParameter("data_candidatura").equalsIgnoreCase(""))
       data_candidaturaC = LocalDate.parse(request.getParameter("data_candidatura")); 
@@ -45,11 +51,16 @@ public class Insert extends HttpServlet {
     	c.setData_colloquio(data_colloquioC);
     }if(anno_nascitaC != null) {
     	c.setEta(CandidatureUtils.calculateAge(anno_nascitaC));
+    }if(file != null) {
+    	c.setFile(file);
     }
     
     
     CandidaturaDao cdao = new CandidaturaDao();
     
+    
+    
+   
     
     try {
       cdao.insert(c);
