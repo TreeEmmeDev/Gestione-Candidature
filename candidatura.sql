@@ -33,19 +33,19 @@ CREATE TABLE `candidatura` (
   `cognome` varchar(50) NOT NULL,
   `anno_nascita` date NOT NULL,
   `eta` int NOT NULL,
-  `residenza` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `telefono` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `residenza` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `telefono` varchar(20) CHARACTER SET utf8mb4 DEFAULT NULL,
   `email` varchar(100) NOT NULL,
-  `titolo_studio` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `voto` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `formazione` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `titolo_studio` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `voto` varchar(20) CHARACTER SET utf8mb4  DEFAULT NULL,
+  `formazione` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL,
   `data_candidatura` date DEFAULT NULL,
   `data_colloquio` date DEFAULT NULL,
-  `note` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `note` varchar(2000) CHARACTER SET utf8mb4 DEFAULT NULL,
   `esito` varchar(1000) NOT NULL,
-  `greenpass` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `file` longtext
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `greenpass` varchar(20) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `file` longtext DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indici per le tabelle scaricate
