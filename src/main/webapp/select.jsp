@@ -184,7 +184,7 @@
 	                    </td>
 	                        
 	                        <td data-title="Modifica"><a href="Update?id=${listacandidati.id}&nome=${listacandidati.nome}&cognome=${listacandidati.cognome}&anno_nascita=${listacandidati.anno_nascita}&eta=${listacandidati.eta}&residenza=${listacandidati.residenza}&telefono=${listacandidati.telefono}&email=${listacandidati.email}&titolo_studio=${listacandidati.titolo_studio}&voto=${listacandidati.voto}&formazione=${listacandidati.formazione}&data_candidatura=${listacandidati.data_candidatura}&data_colloquio=${listacandidati.data_colloquio}&note=${listacandidati.note}&esito=${listacandidati.esito}&greenpass=${listacandidati.greenpass}">
-	                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModeButton">Modifica</button>
+	                                <button type="button" class="btn btn-primary" data-toggle="modal" onclick="localStorage.setItem('file','${listacandidati.file}');" data-target="#ModeButton">Modifica</button>
 	                            </a>
 	                        </td>
 	                </tr>

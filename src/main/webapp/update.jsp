@@ -38,7 +38,7 @@
 	}
 </style>
 
-<body style="background-color: rgb(160, 198, 212)" onload="controllotitolo(); setValue(${c.voto});">
+<body style="background-color: rgb(160, 198, 212)" onload="controllotitolo(); setValue(${c.voto}); getFile();">
 
 	<nav class="navbar navbar-expand-lg" style="background-color: rgba(0, 101, 184, 0.952); color: white;">
 		<div class="container-fluid">
@@ -178,6 +178,17 @@
 							<option value="In attesa">In attesa</option>
 						</select>
 					</c:if>
+					
+					<div class="mb-3">
+						<label for="formFile" class="form-label">FIle:</label>
+						<input class="form-control" type="file" id="file" onchange="convertToBase64(document.getElementById('file').files[0]);">
+						<textarea hidden name="file" class="form-control" id="out"></textarea>
+						
+						<div id="fileDiv">
+				        	<label for="exampleFormControlInput1" class="form-label">File Caricato: </label>
+				        	<button onclick="apri()" type="button" id="exampleFormControlInput1" class="form-control">File Caricato</button>
+				        </div>
+					</div>
 
 					<label for="exampleFormControlTextarea1" class="form-label">Note</label> 
 					<textarea style="height:150px" type="text" name="note" class="form-control" id="exampleFormControlTextarea1" rows="3" onclick="popup_note()">${c.note}</textarea>
@@ -213,6 +224,57 @@
         function popup_note() {
             document.getElementById("note").style.display ="block";
         }
+        
+        function getFile(){
+        	if(localStorage.getItem("file") != ""){
+        		var out = document.getElementById("out");	
+        		out.value = localStorage.getItem("file");
+        	}
+        	
+        	if(localStorage.getItem("file") == ""){
+        		document.getElementById("fileDiv").classList.add("hidden");
+        	}
+        }
+        
+        function convertToBase64(file){
+            try
+            {
+
+            // FOCUSING THE OUT TEXTAREA
+            document.getElementById("out").focus();
+
+            
+
+            // CREATING THE FILE READER
+            var filereader = new FileReader();
+            filereader.file_name = file.name;
+            filereader.onload = function()
+            {
+            // GETTING THE FILE CONTENT
+            var content = this.result;
+
+            // INSERTING THE FILE AS A BASE64 STRING IN THE TEXTAREA
+            document.getElementById("out").value = content;
+
+            };
+
+            // READING THE FILE
+            filereader.readAsDataURL(file);
+
+
+            }
+            catch(err)
+            {
+            console.log(err);
+            }
+            }
+        
+        function apri(){
+        	window.open("file.html");
+        	
+        }
+        
+        
     
 	</script>
 

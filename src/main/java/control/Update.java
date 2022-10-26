@@ -24,7 +24,6 @@ public class Update extends HttpServlet {
 	  	String data_candidatura = request.getParameter("data_candidatura");
 	    String anno_nascita = request.getParameter("anno_nascita");
 	    String data_colloquio = request.getParameter("data_colloquio");
-
 	    
 	    
 	    Candidatura c = new Candidatura(request.getParameter("nome"), request.getParameter("cognome"), LocalDate.parse(anno_nascita), request.getParameter("residenza"), request.getParameter("telefono"), 
@@ -52,6 +51,8 @@ public class Update extends HttpServlet {
     LocalDate data_candidaturaC = null;
     LocalDate data_colloquioC = null;
     LocalDate anno_nascitaC = null;
+    String file = request.getParameter("file");
+
     
     if (!request.getParameter("data_candidatura").equalsIgnoreCase(""))
       data_candidaturaC = LocalDate.parse(request.getParameter("data_candidatura")); 
@@ -71,6 +72,8 @@ public class Update extends HttpServlet {
     	c.setData_colloquio(data_colloquioC);
     }if(anno_nascitaC != null) {
     	c.setEta(CandidatureUtils.calculateAge(anno_nascitaC));
+    }if(file != null) {
+    	c.setFile(file);
     }
     
     CandidaturaDao cdao = new CandidaturaDao();

@@ -138,6 +138,10 @@ public class CandidaturaDao {
   public void update(Candidatura c) throws SQLException {
     Connection conn = Connessione.getConnessione();
     String Sql = "UPDATE candidatura SET nome=?, cognome=?, anno_nascita=?, residenza=?, telefono=?, email=?, titolo_studio=?, voto=?, formazione=?, data_candidatura=?, data_colloquio=?, note=?, esito=?, greenpass=?, eta=? WHERE id=?";
+    if(c.getFile() != null) {
+       Sql = "UPDATE candidatura SET nome=?, cognome=?, anno_nascita=?, residenza=?, telefono=?, email=?, titolo_studio=?, voto=?, formazione=?, data_candidatura=?, data_colloquio=?, note=?, esito=?, greenpass=?, eta=?, file=? WHERE id=?";
+    }
+    
     PreparedStatement ps = conn.prepareStatement(Sql);
     
     ps.setString(1, c.getNome());
@@ -161,12 +165,19 @@ public class CandidaturaDao {
     }else {
     	ps.setDate(11, null);
     }
+    
+    if(c.getFile() != null) {
+    	ps.setString(16, c.getFile());
+    	ps.setInt(17, c.getId());
+    }else {
+    	ps.setInt(16, c.getId());
+    }
 
     ps.setString(12, c.getNote());
     ps.setString(13, c.getEsito());
     ps.setString(14, c.getGreenpass());
     ps.setInt(15, c.getEta());
-    ps.setInt(16, c.getId());
+   
     
     ps.executeUpdate();
     
