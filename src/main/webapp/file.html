@@ -16,18 +16,45 @@
 
 <body onload="carica()">
 
+	<div id="caricamento" class="loader">
+		<img src="img/loader.gif" style=" display: block; margin-left: auto; margin-right: auto; width: 50%;">
+	</div>
+
     <iframe id="frame"
-        style='position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999; background: url("img/file-downloaded.png"); background-repeat:no-repeat; background-position: center;'
+        style='position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:9999; background: url("img/file-downloaded.png"); background-repeat:no-repeat; background-position: center;'
     ></iframe>
         
         
         <script src="package/jquery-1.11.1.min.js"></script>
         <script>
         	function carica(){
+        		
+        		setTimeout(function() {
+        		    $('#caricamento').fadeOut('fast');
+        		}, 2500);
         		var x = document.getElementById("frame");
         		x.src = localStorage.getItem("file");
         	}
         </script>
+        
+        
+        <style>
+	        .hidden {
+	            display: none;
+	        }
+	        
+	        .loader{
+	        	position:fixed;
+			    padding:0;
+			    margin:0;
+			    top:0;
+			    left:0;
+	        	z-index: 999999;
+	        	width:100%; 
+	        	height:100%;
+	        	background-color: #0065b8; 
+	        }
+        </style>
 
 
 </body>

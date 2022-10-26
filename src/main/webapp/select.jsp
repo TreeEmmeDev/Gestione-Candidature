@@ -129,13 +129,18 @@
 		  bottom: 20px;
 		  right: 20px;
 		}
+		
+		.dark-mode {
+		  background-color: black !important;
+		  color: white !important;
+		}
     </style>
 </head>
 
 <body>
                 	
 	 <div id="no-more-tables" class="container text-center" style="margin-top: 30px;">
-	    <table class="table col-sm-12 table-bordered table-striped table-condensed cf">
+	    <table class="table col-sm-12 table-bordered table-striped table-condensed cf" id="tabella">
 	        <thead>
 	            <tr>
 	                <th scope="col">Nome</th>
@@ -151,11 +156,11 @@
 	        
 	        <tbody>
 	            <c:forEach items="${listacandidati}" var="listacandidati">
-	                <tr>
-	                    <td data-title="Nome">${listacandidati.nome}</td>
-	                    <td data-title="Cognome">${listacandidati.cognome}</td>
-	                    <td data-title="Eta">${listacandidati.eta}</td>
-	                    <td data-title="Candidatura">${listacandidati.data_candidatura}</td>
+	                <tr id="tabellaRighe">
+	                    <td data-title="Nome" class="rig">${listacandidati.nome}</td>
+	                    <td data-title="Cognome" class="rig">${listacandidati.cognome}</td>
+	                    <td data-title="Eta" class="rig">${listacandidati.eta}</td>
+	                    <td data-title="Candidatura" class="rig">${listacandidati.data_candidatura}</td>
 	                    
 	                    <c:if test="${listacandidati.esito == 'Idoneo'}">
 							<td data-title="Esito"><span class="dot" id="esitoPalla" style="background-color: green"></span></td>
@@ -222,12 +227,14 @@
       let expires = "expires="+ d.toUTCString();
       document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
-        
+    
+
     </script>
                 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/c2b8bef5f3.js" crossorigin="anonymous"></script>
     <script src="js/sweetalert2.all.js"></script>
     <script src="js/script.js"></script>
+    <script src="package/jquery-1.11.1.min.js"></script>
 </body>
 </html>
