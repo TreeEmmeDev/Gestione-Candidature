@@ -216,10 +216,10 @@
 	<script src="js/script.js"></script>
 	
 	<script>
-		function setValue(data){
-			var voto = document.getElementById("voto");
-			voto.value = data;
-		}
+	function setValue(data){
+		var voto = document.getElementById("voto");
+		voto.value = data;
+	}
 		
         function popup_note() {
             document.getElementById("note").style.display ="block";
@@ -236,38 +236,24 @@
         	}
         }
         
-        function convertToBase64(file){
-            try
-            {
-
-            // FOCUSING THE OUT TEXTAREA
-            document.getElementById("out").focus();
-
-            
-
-            // CREATING THE FILE READER
-            var filereader = new FileReader();
-            filereader.file_name = file.name;
-            filereader.onload = function()
-            {
-            // GETTING THE FILE CONTENT
-            var content = this.result;
-
-            // INSERTING THE FILE AS A BASE64 STRING IN THE TEXTAREA
-            document.getElementById("out").value = content;
-
-            };
-
-            // READING THE FILE
-            filereader.readAsDataURL(file);
-
-
-            }
-            catch(err)
-            {
-            console.log(err);
-            }
-            }
+       function convertToBase64(file){
+            try{
+            	document.getElementById("out").focus();
+	            var filereader = new FileReader();
+	            filereader.file_name = file.name;
+	            filereader.onload = function(){
+		            var content = this.result;
+		            document.getElementById("out").value = content;
+	            };
+	
+	            filereader.readAsDataURL(file);
+	
+	
+	        }
+	        catch(err){
+	            	console.log(err);
+	        }
+        }
         
         function apri(){
         	window.open("file.html");
