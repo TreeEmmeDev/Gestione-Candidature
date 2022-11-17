@@ -71,6 +71,15 @@
 			<div class="alert alert-dark" style="background-color: rgba(0, 101, 184, 0.952); border: 2px solid rgba(0, 101, 184, 0.952); padding: 10px; border-radius: 15px;">
 				<div class="mb-3" style="color: white;">
 
+					<label for="exampleFormControlInput1" class="form-label">Ambito</label>
+					<c:if test="${c.ambito == 'Informatica'}">
+						<select name="ambito" class="custom-select" id="ambito">
+							<option value="Informatica">Informatica</option>
+							<option value="Automazione">Automazione</option>
+						</select>
+						<br>
+					</c:if>
+
 					<input name="id" type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="Nome" value="${c.id}">
 
 					<label for="exampleFormControlInput1" class="form-label">Nome</label>
@@ -91,28 +100,11 @@
 					<label for="exampleFormControlInput1" class="form-label">Email</label> 
 					<input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" value="${c.email}" required> 
 					
-					<label for="exampleFormControlInput1" class="form-label">Titolo di studio</label>
-					<c:if test="${c.titolo_studio == 'Diploma'}">
-						<select name="titolo_studio" class="custom-select" onchange="controllotitolo()" id="titolodistudio">
-							<option value="Diploma">Diploma</option>
-							<option value="Laurea">Laurea</option>
-						</select>
-						<br>
-					</c:if>
-
-					<c:if test="${c.titolo_studio == 'Laurea'}">
-						<select name="titolo_studio" class="custom-select" onchange="controllotitolo()" id="titolodistudio">
-							<option value="Laurea">Laurea</option>
-							<option value="Diploma">Diploma</option>
-						</select>
-						<br>
-					</c:if>
+					<label for="exampleFormControlInput1" class="form-label">Titolo di studio</label> 
+					<input name="titolodistudio" type="text" class="form-control" id="titolodistudio" placeholder="Titolo di studio" required> 
 
 					<label for="exampleFormControlInput1" class="form-label">Voto</label>
 					<input name="voto" type="number" value="${c.voto}" class="form-control" id="voto" placeholder="Voto" min="60">
-
-
-
 
 					<label for="exampleFormControlInput1" class="form-label">Formazione</label>
 					<input name="formazione" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Formazione" value ="${c.formazione}"> 
@@ -122,24 +114,6 @@
 						
 					<label for="exampleFormControlInput1" class="form-label">Data di colloquio</label> 
 					<input name="data_colloquio" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di colloquio" value="${c.data_colloquio}"> 
-						
-					<label for="greenpass">Certificazione Verde: </label>
-					<c:if test="${c.greenpass == 'si'}">
-						<select name="greenpass" class="custom-select">
-							<option value="si">Si</option>
-							<option value="no">No</option>
-						</select>
-						<br>
-					</c:if>
-
-					<c:if test="${c.greenpass == 'no'}">
-						<select name="greenpass" class="custom-select">
-							<option value="no">No</option>
-							<option value="si">Si</option>
-						</select>
-						<br>
-					</c:if>
-				</div>
 
 				<div class="mb-3" style="color: white;">
 					<label for="esito">Esito:</label>

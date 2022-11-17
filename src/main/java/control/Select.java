@@ -23,6 +23,7 @@ public class Select extends HttpServlet {
     CandidaturaDao cdao= new CandidaturaDao();
     List<Candidatura> listacandidati = new ArrayList<>();
     
+	String ambito = request.getParameter("ambito");
     String nome = request.getParameter("nome");
     String cognome = request.getParameter("cognome");
     String esito = request.getParameter("esito");

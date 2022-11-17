@@ -5,6 +5,8 @@ import java.time.LocalDate;
 public class Candidatura {
 	private int id;
 
+	private String ambito;
+
 	private String nome;
 
 	private String cognome;
@@ -32,8 +34,6 @@ public class Candidatura {
 	private String note;
 
 	private String esito;
-
-	private String greenpass;
 	
 	private String file;
 
@@ -157,12 +157,12 @@ public class Candidatura {
 		this.esito = esito;
 	}
 
-	public String getGreenpass() {
-		return this.greenpass;
+	public String getAmbito() {
+		return this.ambito;
 	}
 
-	public void setGreenpass(String greenpass) {
-		this.greenpass = greenpass;
+	public void setAmbito(String ambito) {
+		this.ambito = ambito;
 	}
 	
 	public String getFile() {
@@ -179,12 +179,14 @@ public class Candidatura {
 				+ this.telefono + ", email=" + this.email + ", titolo_studio=" + this.titolo_studio + ", voto="
 				+ this.voto + ", formazione=" + this.formazione + ", data_candidatura=" + this.data_candidatura
 				+ ", data_colloquio=" + this.data_colloquio + ", note=" + this.note + ", esito=" + this.esito
-				+ ", greenpass=" + this.greenpass + "]";
+				+ ", ambito=" + this.ambito + "]";
 	}
 
-	public Candidatura(String nome, String cognome, LocalDate anno_nascita, String residenza, String telefono,
+	public Candidatura(String ambito, String nome, String cognome, LocalDate anno_nascita, String residenza, String telefono,
 			String email, String titolo_studio, String voto, String formazione, 
-			String note, String esito, String greenpass) {
+			String note, String esito) {
+				
+		this.ambito = ambito;
 		this.nome = nome;
 		this.cognome = cognome;
 		this.anno_nascita = anno_nascita;
@@ -196,7 +198,6 @@ public class Candidatura {
 		this.formazione = formazione;
 		this.note = note;
 		this.esito = esito;
-		this.greenpass = greenpass;
 	}
 
 	public Candidatura() {

@@ -61,9 +61,8 @@ public class Update extends HttpServlet {
     if (!request.getParameter("anno_nascita").equalsIgnoreCase(""))
       anno_nascitaC = LocalDate.parse(request.getParameter("anno_nascita"));
     
-    Candidatura c = new Candidatura(request.getParameter("nome"), request.getParameter("cognome"), anno_nascitaC ,request.getParameter("residenza"),  request.getParameter("telefono"), 
+    Candidatura c = new Candidatura(request.getParameter("ambito"), request.getParameter("nome"), request.getParameter("cognome"), anno_nascitaC ,request.getParameter("residenza"),  request.getParameter("telefono"), 
     		request.getParameter("email"), request.getParameter("titolo_studio"), request.getParameter("voto"), request.getParameter("formazione"), 
-    		request.getParameter("note"), request.getParameter("esito"), request.getParameter("greenpass"));
     c.setId(idC);
     
     if(data_candidaturaC != null) {
