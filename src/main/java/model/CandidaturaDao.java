@@ -17,7 +17,7 @@ public class CandidaturaDao {
 	
   public void insert(Candidatura c) throws SQLException {
     Connection conn = Connessione.getConnessione();
-    String sql = "INSERT INTO candidatura (nome,cognome,anno_nascita,eta,residenza,telefono,email,titolo_studio,voto,formazione,data_candidatura,data_colloquio,note,esito,greenpass,file) "
+    String sql = "INSERT INTO candidatura (ambito,nome,cognome,anno_nascita,eta,residenza,telefono,email,titolo_studio,voto,formazione,data_candidatura,data_colloquio,note,esito,file) "
     		+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     
     
@@ -29,38 +29,38 @@ public class CandidaturaDao {
 
     PreparedStatement ps = conn.prepareStatement(sql);
     
-    ps.setString(1, c.getNome()); 
-    ps.setString(2, c.getCognome());
+	ps.setString(1, c.getAmbito()); 
+    ps.setString(2, c.getNome()); 
+    ps.setString(3, c.getCognome());
     
     if (c.getAnno_nascita() == null) {
-      ps.setDate(3, null);
+      ps.setDate(4, null);
     } else {
-      ps.setDate(3, Date.valueOf(c.getAnno_nascita()));
+      ps.setDate(4, Date.valueOf(c.getAnno_nascita()));
     } 
     
-    ps.setInt(4, c.getEta());
-    ps.setString(5, c.getResidenza());
-    ps.setString(6, c.getTelefono());
-    ps.setString(7, c.getEmail());
-    ps.setString(8, c.getTitolo_studio());
-    ps.setString(9, c.getVoto());
-    ps.setString(10, c.getFormazione());
+    ps.setInt(5, c.getEta());
+    ps.setString(6, c.getResidenza());
+    ps.setString(7, c.getTelefono());
+    ps.setString(8, c.getEmail());
+    ps.setString(9, c.getTitolo_studio());
+    ps.setString(10, c.getVoto());
+    ps.setString(11, c.getFormazione());
     
     if (c.getData_candidatura() == null) {
-      ps.setDate(11, null);
+      ps.setDate(12, null);
     } else {
-      ps.setDate(11, Date.valueOf(c.getData_candidatura()));
+      ps.setDate(12, Date.valueOf(c.getData_candidatura()));
     } 
     
     if (c.getData_colloquio() == null) {
-      ps.setDate(12, null);
+      ps.setDate(13, null);
     } else {
-      ps.setDate(12, Date.valueOf(c.getData_colloquio()));
+      ps.setDate(13, Date.valueOf(c.getData_colloquio()));
     } 
     
-    ps.setString(13, c.getNote());
-    ps.setString(14, c.getEsito());
-    ps.setString(15, c.getGreenpass());
+    ps.setString(14, c.getNote());
+    ps.setString(15, c.getEsito());
     ps.setString(16, fileByte);
     
     ps.executeUpdate();
@@ -79,7 +79,8 @@ public class CandidaturaDao {
     
     while (rs.next()) {
       Candidatura p = new Candidatura();
-      
+
+	  p.setAmbito(rs.getString("ambito"));
       p.setNome(rs.getString("nome"));
       p.setCognome(rs.getString("cognome"));
       
@@ -114,7 +115,6 @@ public class CandidaturaDao {
       p.setFormazione(rs.getString("formazione"));
       p.setNote(rs.getString("note"));
       p.setEsito(rs.getString("esito"));
-      p.setGreenpass(rs.getString("greenpass"));
       p.setEta(Integer.parseInt(rs.getString("eta")));
       p.setId(rs.getInt("id"));
       
@@ -137,33 +137,34 @@ public class CandidaturaDao {
   
   public void update(Candidatura c) throws SQLException {
     Connection conn = Connessione.getConnessione();
-    String Sql = "UPDATE candidatura SET nome=?, cognome=?, anno_nascita=?, residenza=?, telefono=?, email=?, titolo_studio=?, voto=?, formazione=?, data_candidatura=?, data_colloquio=?, note=?, esito=?, greenpass=?, eta=? WHERE id=?";
+    String Sql = "UPDATE candidatura SET ambito=?, nome=?, cognome=?, anno_nascita=?, residenza=?, telefono=?, email=?, titolo_studio=?, voto=?, formazione=?, data_candidatura=?, data_colloquio=?, note=?, esito=?, eta=? WHERE id=?";
     if(c.getFile() != null) {
-       Sql = "UPDATE candidatura SET nome=?, cognome=?, anno_nascita=?, residenza=?, telefono=?, email=?, titolo_studio=?, voto=?, formazione=?, data_candidatura=?, data_colloquio=?, note=?, esito=?, greenpass=?, eta=?, file=? WHERE id=?";
+       Sql = "UPDATE candidatura SET ambito=?, nome=?, cognome=?, anno_nascita=?, residenza=?, telefono=?, email=?, titolo_studio=?, voto=?, formazione=?, data_candidatura=?, data_colloquio=?, note=?, esito=?, eta=?, file=? WHERE id=?";
     }
     
     PreparedStatement ps = conn.prepareStatement(Sql);
     
-    ps.setString(1, c.getNome());
-    ps.setString(2, c.getCognome());
-    ps.setDate(3, Date.valueOf(c.getAnno_nascita()));
-    ps.setString(4, c.getResidenza());
-    ps.setString(5, c.getTelefono());
-    ps.setString(6, c.getEmail());
-    ps.setString(7, c.getTitolo_studio());
-    ps.setString(8, c.getVoto());
-    ps.setString(9, c.getFormazione());
+	ps.setString(1, c.getAmbito());
+    ps.setString(2, c.getNome());
+    ps.setString(3, c.getCognome());
+    ps.setDate(4, Date.valueOf(c.getAnno_nascita()));
+    ps.setString(5, c.getResidenza());
+    ps.setString(6, c.getTelefono());
+    ps.setString(7, c.getEmail());
+    ps.setString(8, c.getTitolo_studio());
+    ps.setString(9, c.getVoto());
+    ps.setString(10, c.getFormazione());
     
     if(c.getData_candidatura() != null) {
-    	ps.setDate(10, Date.valueOf(c.getData_candidatura()));
+    	ps.setDate(11, Date.valueOf(c.getData_candidatura()));
     }else{
-    	ps.setDate(10, null);
+    	ps.setDate(11, null);
     }
     
     if(c.getData_colloquio() != null) {
-    	ps.setDate(11, Date.valueOf(c.getData_colloquio()));
+    	ps.setDate(12, Date.valueOf(c.getData_colloquio()));
     }else {
-    	ps.setDate(11, null);
+    	ps.setDate(12, null);
     }
     
     if(c.getFile() != null) {
@@ -173,9 +174,8 @@ public class CandidaturaDao {
     	ps.setInt(16, c.getId());
     }
 
-    ps.setString(12, c.getNote());
-    ps.setString(13, c.getEsito());
-    ps.setString(14, c.getGreenpass());
+    ps.setString(13, c.getNote());
+    ps.setString(14, c.getEsito());
     ps.setInt(15, c.getEta());
    
     
@@ -183,9 +183,6 @@ public class CandidaturaDao {
     
     updateCestino(c);
   }
-  
-  
-  
   
   public List<Candidatura> letturaRicerca(String operazione, String nome, String cognome) throws SQLException {
 	    Connection conn = Connessione.getConnessione();
@@ -207,6 +204,7 @@ public class CandidaturaDao {
 	    while (rs.next()) {
 	      Candidatura p = new Candidatura();
 	      
+		  p.setAmbito(rs.getString("ambito"));
 	      p.setNome(rs.getString("nome"));
 	      p.setCognome(rs.getString("cognome"));
 	      
@@ -238,7 +236,6 @@ public class CandidaturaDao {
 	      p.setFormazione(rs.getString("formazione"));
 	      p.setNote(rs.getString("note"));
 	      p.setEsito(rs.getString("esito"));
-	      p.setGreenpass(rs.getString("greenpass"));
 	      p.setEta(Integer.parseInt(rs.getString("eta")));
 	      p.setId(rs.getInt("id"));
 	      
@@ -249,11 +246,9 @@ public class CandidaturaDao {
 	  }
 
 
-  
-  
-  public List<Candidatura> filtriRicerca(String esito) throws SQLException {
+	  public List<Candidatura> filtriAmbito(String ambito) throws SQLException {
 	    Connection conn = Connessione.getConnessione();
-	    String Sql = "SELECT * FROM candidatura WHERE esito = '" + esito + "'";
+	    String Sql = "SELECT * FROM candidatura WHERE ambito = '" + ambito + "'";
 	    
 	    
 	    List<Candidatura> lista = new ArrayList<>();
@@ -263,6 +258,7 @@ public class CandidaturaDao {
 	    while (rs.next()) {
 	      Candidatura p = new Candidatura();
 	      
+		  p.setAmbito(rs.getString("ambito"));
 	      p.setNome(rs.getString("nome"));
 	      p.setCognome(rs.getString("cognome"));
 	      
@@ -290,7 +286,60 @@ public class CandidaturaDao {
 	      p.setFormazione(rs.getString("formazione"));
 	      p.setNote(rs.getString("note"));
 	      p.setEsito(rs.getString("esito"));
-	      p.setGreenpass(rs.getString("greenpass"));
+	      p.setEta(Integer.parseInt(rs.getString("eta")));
+	      p.setId(rs.getInt("id"));
+	      
+	      if(rs.getString("file") != null) {
+	    	  p.setFile(rs.getString("file"));
+	      }
+	      
+	      
+	      lista.add(p);
+	    }
+	    
+	    return lista;
+	  }
+  
+  public List<Candidatura> filtriRicerca(String esito) throws SQLException {
+	    Connection conn = Connessione.getConnessione();
+	    String Sql = "SELECT * FROM candidatura WHERE esito = '" + esito + "'";
+	    
+	    
+	    List<Candidatura> lista = new ArrayList<>();
+	    PreparedStatement ps = conn.prepareStatement(Sql);
+	    ResultSet rs = ps.executeQuery();
+	    
+	    while (rs.next()) {
+	      Candidatura p = new Candidatura();
+	      
+		  p.setAmbito(rs.getString("ambito"));
+	      p.setNome(rs.getString("nome"));
+	      p.setCognome(rs.getString("cognome"));
+	      
+	      LocalDate localanno = Instant.ofEpochMilli(rs.getDate("anno_nascita").getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+	      p.setAnno_nascita(localanno);
+	      
+	      LocalDate data_candidaturalocal = null;
+	      if(rs.getDate("data_candidatura") != null) {
+	    	  data_candidaturalocal = Instant.ofEpochMilli(rs.getDate("data_candidatura").getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+	      }
+	      p.setData_candidatura(data_candidaturalocal);
+	      
+	      LocalDate data_colloquiolocal = null;
+	      
+	      if(rs.getDate("data_colloquio") != null) {
+	    	  data_colloquiolocal = Instant.ofEpochMilli(rs.getDate("data_colloquio").getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+	      }
+	      p.setData_colloquio(data_colloquiolocal);
+	      
+	      p.setResidenza(rs.getString("residenza"));
+	      p.setTelefono(rs.getString("telefono"));
+	      p.setEmail(rs.getString("email"));
+	      p.setTitolo_studio(rs.getString("titolo_studio"));
+	      p.setVoto(rs.getString("voto"));
+	      p.setFormazione(rs.getString("formazione"));
+	      p.setNote(rs.getString("note"));
+	      p.setEsito(rs.getString("esito"));
 	      p.setEta(Integer.parseInt(rs.getString("eta")));
 	      p.setId(rs.getInt("id"));
 	      
@@ -308,7 +357,7 @@ public class CandidaturaDao {
   
   public void insertCestino(Candidatura c) throws SQLException {
 	    Connection conn = Connessione.getConnessione();
-	    String sql = "INSERT INTO candidatura_cestino (nome,cognome,anno_nascita,eta,residenza,telefono,email,titolo_studio,voto,formazione,data_candidatura,data_colloquio,note,esito,greenpass,file) "
+	    String sql = "INSERT INTO candidatura_cestino (ambito,nome,cognome,anno_nascita,eta,residenza,telefono,email,titolo_studio,voto,formazione,data_candidatura,data_colloquio,note,esito,file) "
 	    		+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	    
 	    String fileByte = null;
@@ -317,40 +366,40 @@ public class CandidaturaDao {
 	    }
 	    
 	    PreparedStatement ps = conn.prepareStatement(sql);
-	    ps.setString(1, c.getNome());
-	    
-	    
-	    ps.setString(2, c.getCognome());
+
+	    ps.setString(1, c.getAmbito());
+
+	    ps.setString(2, c.getNome());
+	    ps.setString(3, c.getCognome());
 	    
 	    if (c.getAnno_nascita() == null) {
-	      ps.setDate(3, null);
+	      ps.setDate(4, null);
 	    } else {
-	      ps.setDate(3, Date.valueOf(c.getAnno_nascita()));
+	      ps.setDate(4, Date.valueOf(c.getAnno_nascita()));
 	    } 
 	    
-	    ps.setInt(4, c.getEta());
-	    ps.setString(5, c.getResidenza());
-	    ps.setString(6, c.getTelefono());
-	    ps.setString(7, c.getEmail());
-	    ps.setString(8, c.getTitolo_studio());
-	    ps.setString(9, c.getVoto());
-	    ps.setString(10, c.getFormazione());
+	    ps.setInt(5, c.getEta());
+	    ps.setString(6, c.getResidenza());
+	    ps.setString(7, c.getTelefono());
+	    ps.setString(8, c.getEmail());
+	    ps.setString(9, c.getTitolo_studio());
+	    ps.setString(10, c.getVoto());
+	    ps.setString(11, c.getFormazione());
 	    
 	    if (c.getData_candidatura() == null) {
-	      ps.setDate(11, null);
+	      ps.setDate(12, null);
 	    } else {
-	      ps.setDate(11, Date.valueOf(c.getData_candidatura()));
+	      ps.setDate(12, Date.valueOf(c.getData_candidatura()));
 	    } 
 	    
 	    if (c.getData_colloquio() == null) {
-	      ps.setDate(12, null);
+	      ps.setDate(13, null);
 	    } else {
-	      ps.setDate(12, Date.valueOf(c.getData_colloquio()));
+	      ps.setDate(13, Date.valueOf(c.getData_colloquio()));
 	    } 
 	    
-	    ps.setString(13, c.getNote());
-	    ps.setString(14, c.getEsito());
-	    ps.setString(15, c.getGreenpass());
+	    ps.setString(14, c.getNote());
+	    ps.setString(15, c.getEsito());
 	    ps.setString(16, fileByte);
 	    
 	    ps.executeUpdate();
@@ -362,32 +411,33 @@ public class CandidaturaDao {
 	    Connection conn = Connessione.getConnessione();
 	    String Sql = "UPDATE candidatura_cestino SET nome=?, cognome=?, anno_nascita=?, residenza=?, telefono=?, email=?, titolo_studio=?, voto=?, formazione=?, data_candidatura=?, data_colloquio=?, note=?, esito=?, greenpass=?, eta=? WHERE id=?";
 	    PreparedStatement ps = conn.prepareStatement(Sql);
-	    
-	    ps.setString(1, c.getNome());
-	    ps.setString(2, c.getCognome());
-	    ps.setDate(3, Date.valueOf(c.getAnno_nascita()));
-	    ps.setString(4, c.getResidenza());
-	    ps.setString(5, c.getTelefono());
-	    ps.setString(6, c.getEmail());
-	    ps.setString(7, c.getTitolo_studio());
-	    ps.setString(8, c.getVoto());
-	    ps.setString(9, c.getFormazione());
+
+		ps.setString(1, c.getAmbito());
+
+	    ps.setString(2, c.getNome());
+	    ps.setString(3, c.getCognome());
+	    ps.setDate(4, Date.valueOf(c.getAnno_nascita()));
+	    ps.setString(5, c.getResidenza());
+	    ps.setString(6, c.getTelefono());
+	    ps.setString(7, c.getEmail());
+	    ps.setString(8, c.getTitolo_studio());
+	    ps.setString(9, c.getVoto());
+	    ps.setString(10, c.getFormazione());
 	    
 	    if(c.getData_candidatura() != null) {
-	    	ps.setDate(10, Date.valueOf(c.getData_candidatura()));
+	    	ps.setDate(11, Date.valueOf(c.getData_candidatura()));
 	    }else{
-	    	ps.setDate(10, null);
+	    	ps.setDate(11, null);
 	    }
 	    
 	    if(c.getData_colloquio() != null) {
 	    	ps.setDate(11, Date.valueOf(c.getData_colloquio()));
 	    }else {
-	    	ps.setDate(11, null);
+	    	ps.setDate(12, null);
 	    }
 
-	    ps.setString(12, c.getNote());
-	    ps.setString(13, c.getEsito());
-	    ps.setString(14, c.getGreenpass());
+	    ps.setString(13, c.getNote());
+	    ps.setString(14, c.getEsito());
 	    ps.setInt(15, c.getEta());
 	    ps.setInt(16, c.getId());
 	    
