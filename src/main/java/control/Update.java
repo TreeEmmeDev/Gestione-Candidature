@@ -25,6 +25,8 @@ public class Update extends HttpServlet {
 	    String anno_nascita = request.getParameter("anno_nascita");
 	    String data_colloquio = request.getParameter("data_colloquio");
 	    
+	    System.out.println(anno_nascita);
+	    
 	    
 	    Candidatura c = new Candidatura(request.getParameter("ambito"), request.getParameter("nome"), request.getParameter("cognome"), LocalDate.parse(anno_nascita), request.getParameter("residenza"), request.getParameter("telefono"), 
 	    		request.getParameter("email"), request.getParameter("titolo_studio"), request.getParameter("voto"), request.getParameter("formazione"), 

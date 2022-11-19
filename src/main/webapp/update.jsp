@@ -79,6 +79,13 @@
 						</select>
 						<br>
 					</c:if>
+					<c:if test="${c.ambito == 'Automazione'}">
+						<select name="ambito" class="custom-select" id="ambito">
+							<option value="Automazione">Automazione</option>
+							<option value="Informatica">Informatica</option>
+						</select>
+						<br>
+					</c:if>
 
 					<input name="id" type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="Nome" value="${c.id}">
 
@@ -101,7 +108,7 @@
 					<input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" value="${c.email}" required> 
 					
 					<label for="exampleFormControlInput1" class="form-label">Titolo di studio</label> 
-					<input name="titolodistudio" type="text" class="form-control" id="titolodistudio" placeholder="Titolo di studio" required> 
+					<input name="titolo_studio" type="text" class="form-control" id="titolodistudio" placeholder="Titolo di studio" value="${c.titolo_studio}"> 
 
 					<label for="exampleFormControlInput1" class="form-label">Voto</label>
 					<input name="voto" type="number" value="${c.voto}" class="form-control" id="voto" placeholder="Voto" min="60">
@@ -155,8 +162,7 @@
 					
 					<div class="mb-3">
 						<label for="formFile" class="form-label">FIle:</label>
-						<input class="form-control" type="file" id="file" onchange="convertToBase64(document.getElementById('file').files[0]);">
-						<textarea hidden name="file" class="form-control" id="out"></textarea>
+						<input class="form-control" type="file" id="file" name="file" onchange="uploadFile()">
 						
 						<div id="fileDiv">
 				        	<label for="exampleFormControlInput1" class="form-label">File Caricato: </label>
@@ -210,33 +216,28 @@
         	}
         }
         
-       function convertToBase64(file){
-            try{
-            	document.getElementById("out").focus();
-	            var filereader = new FileReader();
-	            filereader.file_name = file.name;
-	            filereader.onload = function(){
-		            var content = this.result;
-		            document.getElementById("out").value = content;
-	            };
-	
-	            filereader.readAsDataURL(file);
-	
-	
-	        }
-	        catch(err){
-	            	console.log(err);
-	        }
-        }
+      
         
         function apri(){
-        	window.open("file.html");
+        	window.open("C:/curriculum-candidati/" + localStorage.getItem("file"), '_blank');
         	
         }
         
         
     
 	</script>
+	
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>   
+     <script>
+		  async function uploadFile() {
+		    let formData = new FormData(); 
+		    formData.append("file", file.files[0]);
+		    await fetch('FileUpload', {
+		      method: "POST", 
+		      body: formData
+		    }); 
+		  }
+  </script>
 
 </body>
 </html>

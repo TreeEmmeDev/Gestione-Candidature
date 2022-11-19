@@ -126,19 +126,17 @@
             <h2 style="font-weight: bold; font-family: 'Dela Gothic One'; text-align: center; color: rgb(255, 255, 255); filter: drop-shadow(5px 5px 2px #696969)"> INSERIMENTO CANDIDATO:</h2>
         </div>
         
-        <form action="Update" method="POST">
+        <form action="Insert" method="POST">
             <div class="container" style="margin-top: 30px;">
                 <div class="alert alert-dark" style="background-color: rgba(0, 101, 184, 0.952); border: 2px solid rgba(0, 101, 184, 0.952); padding: 10px; border-radius: 15px;">
                     <div class="mb-3" style="color: white;">
     
                         <label for="exampleFormControlInput1" class="form-label">Ambito</label>
-                        <c:if test="${c.ambito == 'Informatica'}">
                             <select name="ambito" class="custom-select" id="ambito">
                                 <option value="Informatica">Informatica</option>
                                 <option value="Automazione">Automazione</option>
                             </select>
                             <br>
-                        </c:if>
     
                         <input name="id" type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="Nome" value="${c.id}">
     
@@ -161,7 +159,7 @@
                         <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" value="${c.email}" required> 
                         
                         <label for="exampleFormControlInput1" class="form-label">Titolo di studio</label> 
-                        <input name="titolodistudio" type="text" class="form-control" id="titolodistudio" placeholder="Titolo di studio" required> 
+                        <input name="titolo_studio" type="text" class="form-control" id="titolodistudio" placeholder="Titolo di studio"> 
     
                         <label for="exampleFormControlInput1" class="form-label">Voto</label>
                         <input name="voto" type="number" value="${c.voto}" class="form-control" id="voto" placeholder="Voto" min="60">
@@ -177,58 +175,32 @@
     
                     <div class="mb-3" style="color: white;">
                         <label for="esito">Esito:</label>
-                        <c:if test="${c.esito == 'Idoneo'}">
+                        
                             <select name="esito" id="esito" class="custom-select">
                                 <option value="Idoneo">Idoneo</option>
                                 <option value="Non Idoneo">Non Idoneo</option>
                                 <option value="In attesa">In attesa</option>
                                 <option value="Da ricontattare">Da ricontattare</option>
                             </select>
-                        </c:if>
+
     
-                        <c:if test="${c.esito == 'Non Idoneo'}">
-                            <select name="esito" id="esito" class="custom-select">
-                                <option value="Non Idoneo">Non Idoneo</option>
-                                <option value="Idoneo">Idoneo</option>
-                                <option value="In attesa">In attesa</option>
-                                <option value="Da ricontattare">Da ricontattare</option>
-                            </select>
-                        </c:if>
-    
-                        <c:if test="${c.esito == 'In attesa'}">
-                            <select name="esito" id="esito" class="custom-select">
-                                <option value="In attesa">In attesa</option>
-                                <option value="Idoneo">Idoneo</option>
-                                <option value="Non Idoneo">Non Idoneo</option>
-                                <option value="Da ricontattare">Da ricontattare</option>
-                            </select>
-                        </c:if>
-    
-                        <c:if test="${c.esito == 'Da ricontattare'}">
-                            <select name="esito" id="esito" class="custom-select">
-                                <option value="Da ricontattare">Da ricontattare</option>
-                                <option value="Idoneo">Idoneo</option>
-                                <option value="Non Idoneo">Non Idoneo</option>
-                                <option value="In attesa">In attesa</option>
-                            </select>
-                        </c:if>
+                      
                         
                         <div class="mb-3">
                             <label for="formFile" class="form-label">FIle:</label>
-                            <input class="form-control" type="file" id="file" onchange="convertToBase64(document.getElementById('file').files[0]);">
+                            <!-- <input class="form-control" type="file" id="file" name="pdf" onchange="convertToBase64(document.getElementById('file').files[0]);">
                             <textarea hidden name="file" class="form-control" id="out"></textarea>
-                            
-                            <div id="fileDiv">
-                                <label for="exampleFormControlInput1" class="form-label">File Caricato: </label>
-                                <button onclick="apri()" type="button" id="exampleFormControlInput1" class="form-control">File Caricato</button>
-                            </div>
+                             -->
+                             
+                            <input class="form-control" type="file" id="file" name="file" onchange="uploadFile()">
+                        
                         </div>
     
                         <label for="exampleFormControlTextarea1" class="form-label">Note</label> 
                         <textarea style="height:150px" type="text" name="note" class="form-control" id="exampleFormControlTextarea1" rows="3" onclick="popup_note()">${c.note}</textarea>
                         <p style="display: none; color: white;" id="note">Lunghezza massima 1000 caratteri</p>
                     </div>
-                    <button type="submit" class="btn btn-primary" id="submit" onclick="risultato()">Salva Modifiche</button>
+                    <button type="submit" class="btn btn-primary" id="submit" onclick="localStorage.setItem('inserimento', 1)">Inserisci Candidato</button>
                 </div>
             </div>
         </form>
@@ -251,30 +223,22 @@
     <script>
         var video = document.getElementById("myVideo2");
         
-        function convertToBase64(file){
-	        try{
-		        document.getElementById("out").focus();
-		
-		        var filereader = new FileReader();
-		        filereader.file_name = file.name;
-		        filereader.onload = function(){
-		        	
-		        	var content = this.result;
-		        	document.getElementById("out").value = content;
-		        };
-		
-		        filereader.readAsDataURL(file);
-	        }
-	        catch(err){
-	        	console.log(err);
-	        }
-        }
+        
                 
     </script>
         
         
-        
-    </script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>   
+     <script>
+		  async function uploadFile() {
+		    let formData = new FormData(); 
+		    formData.append("file", file.files[0]);
+		    await fetch('FileUpload', {
+		      method: "POST", 
+		      body: formData
+		    }); 
+		  }
+  </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/c2b8bef5f3.js" crossorigin="anonymous"></script>

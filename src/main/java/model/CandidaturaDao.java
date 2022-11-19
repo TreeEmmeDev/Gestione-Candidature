@@ -355,6 +355,10 @@ public class CandidaturaDao {
 	  }
   
   
+  
+  
+  
+  
   public void insertCestino(Candidatura c) throws SQLException {
 	    Connection conn = Connessione.getConnessione();
 	    String sql = "INSERT INTO candidatura_cestino (ambito,nome,cognome,anno_nascita,eta,residenza,telefono,email,titolo_studio,voto,formazione,data_candidatura,data_colloquio,note,esito,file) "
@@ -409,7 +413,7 @@ public class CandidaturaDao {
   
   public void updateCestino(Candidatura c) throws SQLException {
 	    Connection conn = Connessione.getConnessione();
-	    String Sql = "UPDATE candidatura_cestino SET nome=?, cognome=?, anno_nascita=?, residenza=?, telefono=?, email=?, titolo_studio=?, voto=?, formazione=?, data_candidatura=?, data_colloquio=?, note=?, esito=?, greenpass=?, eta=? WHERE id=?";
+	    String Sql = "UPDATE candidatura_cestino SET ambito=?, nome=?, cognome=?, anno_nascita=?, residenza=?, telefono=?, email=?, titolo_studio=?, voto=?, formazione=?, data_candidatura=?, data_colloquio=?, note=?, esito=?, eta=? WHERE id=?";
 	    PreparedStatement ps = conn.prepareStatement(Sql);
 
 		ps.setString(1, c.getAmbito());

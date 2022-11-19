@@ -9,10 +9,13 @@ import java.util.Base64;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+
 import model.Candidatura;
 import model.CandidaturaDao;
 import utils.CandidatureUtils;
@@ -31,6 +34,8 @@ public class Insert extends HttpServlet {
     LocalDate data_colloquioC = null;
     LocalDate anno_nascitaC = null;
     String file = request.getParameter("file");
+
+
     
 
     
@@ -42,7 +47,7 @@ public class Insert extends HttpServlet {
       anno_nascitaC = LocalDate.parse(request.getParameter("anno_nascita")); 
     
     Candidatura c = new Candidatura(request.getParameter("ambito"), request.getParameter("nome"), request.getParameter("cognome"), anno_nascitaC, request.getParameter("residenza"), request.getParameter("telefono"), 
-    		request.getParameter("email"), request.getParameter("titolo_studio"), request.getParameter("voto"), request.getParameter("formazione"), 
+    		request.getParameter("email"), request.getParameter("titolodistudio"), request.getParameter("voto"), request.getParameter("formazione"), 
     		request.getParameter("note"), request.getParameter("esito"));
     
     if(data_candidaturaC != null) {
@@ -55,6 +60,7 @@ public class Insert extends HttpServlet {
     	c.setFile(file);
     }
     
+    System.out.println(file);
     
     CandidaturaDao cdao = new CandidaturaDao();
     

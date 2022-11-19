@@ -106,109 +106,71 @@ function palla(){
   	<h2 style="font-weight: bold; font-family: 'Dela Gothic One'; text-align: center; color: rgb(255, 255, 255); filter: drop-shadow(5px 5px 2px #696969)"> DETTAGLI CANDIDATO:</h2>
   </div>
   
-  <form action="Update" method="POST">
+  <form action="Update" method="GET">
 		<div class="container" style="margin-top: 30px;">
 			<div class="alert alert-dark" style="background-color: rgba(0, 101, 184, 0.952); border: 2px solid rgba(0, 101, 184, 0.952); padding: 10px; border-radius: 15px;">
 				<div class="mb-3" style="color: white;">
 
 					<label for="exampleFormControlInput1" class="form-label">Ambito</label>
-					<c:if test="${c.ambito == 'Informatica'}">
-						<select name="ambito" class="custom-select" id="ambito">
-							<option value="Informatica">Informatica</option>
-							<option value="Automazione">Automazione</option>
-						</select>
-						<br>
-					</c:if>
+					<input type="text" value="${c.ambito}" id="exampleFormControlInput1"  class="form-control" name="ambito" >
+
 
 					<input name="id" type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="Nome" value="${c.id}">
 
 					<label for="exampleFormControlInput1" class="form-label">Nome</label>
-					<input name="nome" onkeyup="validaN()" type="text" class="form-control" id="nome" placeholder="Nome" value="${c.nome}" required>
+					<input name="nome" onkeyup="validaN()" type="text" class="form-control" id="nome" placeholder="Nome" value="${c.nome}" >
 					
 					<label for="exampleFormControlInput1" class="form-label">Cognome</label>
-					<input name="cognome" onkeyup="validaC()" type="text" class="form-control" id="cognome" placeholder="Cognome" value="${c.cognome}" required> 
+					<input name="cognome" onkeyup="validaC()" type="text" class="form-control" id="cognome" placeholder="Cognome" value="${c.cognome}" > 
 						
 					<label for="exampleFormControlInput1" class="form-label">Data di nascita</label> 
-					<input name="anno_nascita" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di nascita" value="${c.anno_nascita}" required>
+					<input name="anno_nascita" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di nascita" value="${c.anno_nascita}" >
 
 					<label for="exampleFormControlInput1" class="form-label">Residenza</label>
-					<input name="residenza" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Residenza" value="${c.residenza}"> 
+					<input name="residenza" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Residenza" value="${c.residenza}" > 
 						
 					<label for="exampleFormControlInput1" class="form-label">Numero di telefono</label> 
-					<input name="telefono" type="tel" class="form-control" id="exampleFormControlInput1" placeholder="3398569667" pattern="[0-9]{10}" value="${c.telefono}" required> 
+					<input name="telefono" type="tel" class="form-control" id="exampleFormControlInput1" placeholder="3398569667" pattern="[0-9]{10}" value="${c.telefono}" > 
 						
 					<label for="exampleFormControlInput1" class="form-label">Email</label> 
-					<input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" value="${c.email}" required> 
+					<input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" value="${c.email}" > 
 					
 					<label for="exampleFormControlInput1" class="form-label">Titolo di studio</label> 
-					<input name="titolodistudio" type="text" class="form-control" id="titolodistudio" placeholder="Titolo di studio" required> 
+					<input name="titolo_studio" type="text" class="form-control" id="titolodistudio" placeholder="Titolo di studio" value="${c.titolo_studio}"> 
 
 					<label for="exampleFormControlInput1" class="form-label">Voto</label>
-					<input name="voto" type="number" value="${c.voto}" class="form-control" id="voto" placeholder="Voto" min="60">
+					<input name="voto" type="number" value="${c.voto}" class="form-control" id="voto" placeholder="Voto" min="60" >
 
 					<label for="exampleFormControlInput1" class="form-label">Formazione</label>
-					<input name="formazione" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Formazione" value ="${c.formazione}"> 
+					<input name="formazione" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Formazione" value ="${c.formazione}" > 
 						
 					<label for="exampleFormControlInput1" class="form-label">Data di candidatura</label> 
-					<input name="data_candidatura" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di candidatura" value="${c.data_candidatura}"	> 
+					<input name="data_candidatura" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di candidatura" value="${c.data_candidatura}" > 
 						
 					<label for="exampleFormControlInput1" class="form-label">Data di colloquio</label> 
-					<input name="data_colloquio" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di colloquio" value="${c.data_colloquio}"> 
+					<input name="data_colloquio" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di colloquio" value="${c.data_colloquio}" > 
 
 				<div class="mb-3" style="color: white;">
-					<label for="esito">Esito:</label>
-					<c:if test="${c.esito == 'Idoneo'}">
-						<select name="esito" id="esito" class="custom-select">
-							<option value="Idoneo">Idoneo</option>
-							<option value="Non Idoneo">Non Idoneo</option>
-							<option value="In attesa">In attesa</option>
-							<option value="Da ricontattare">Da ricontattare</option>
-						</select>
-					</c:if>
-
-					<c:if test="${c.esito == 'Non Idoneo'}">
-						<select name="esito" id="esito" class="custom-select">
-							<option value="Non Idoneo">Non Idoneo</option>
-							<option value="Idoneo">Idoneo</option>
-							<option value="In attesa">In attesa</option>
-							<option value="Da ricontattare">Da ricontattare</option>
-						</select>
-					</c:if>
-
-					<c:if test="${c.esito == 'In attesa'}">
-						<select name="esito" id="esito" class="custom-select">
-							<option value="In attesa">In attesa</option>
-							<option value="Idoneo">Idoneo</option>
-							<option value="Non Idoneo">Non Idoneo</option>
-							<option value="Da ricontattare">Da ricontattare</option>
-						</select>
-					</c:if>
-
-					<c:if test="${c.esito == 'Da ricontattare'}">
-						<select name="esito" id="esito" class="custom-select">
-							<option value="Da ricontattare">Da ricontattare</option>
-							<option value="Idoneo">Idoneo</option>
-							<option value="Non Idoneo">Non Idoneo</option>
-							<option value="In attesa">In attesa</option>
-						</select>
-					</c:if>
+					<label for="esito">Esito:</label><br>
+					<input type="hidden" value="${c.esito}" id="esito" name="esito">
+					<span class="dot" id="esitoPalla"></span>
 					
 					<div class="mb-3">
 						<label for="formFile" class="form-label">FIle:</label>
-						<input class="form-control" type="file" id="file" onchange="convertToBase64(document.getElementById('file').files[0]);">
+						<input class="form-control" type="file" id="file" onchange="convertToBase64(document.getElementById('file').files[0]);" >
 						<textarea hidden name="file" class="form-control" id="out"></textarea>
 						
 						<div id="fileDiv">
-				        	<label for="exampleFormControlInput1" class="form-label">File Caricato: </label>
-				        	<button onclick="apri()" type="button" id="exampleFormControlInput1" class="form-control">File Caricato</button>
+				        	<label for="exampleFormControlInput1" class="form-label" id="fileDivLabel">File Caricato: </label>
+				        	<button onclick="apri()" type="button" id="fileDiv" class="form-control">File Caricato</button>
 				        </div>
 					</div>
 
 					<label for="exampleFormControlTextarea1" class="form-label">Note</label> 
-					<textarea style="height:150px" type="text" name="note" class="form-control" id="exampleFormControlTextarea1" rows="3" onclick="popup_note()">${c.note}</textarea>
+					<textarea  style="height:150px" type="text" name="note" class="form-control" id="exampleFormControlTextarea1" rows="3" onclick="popup_note()">${c.note}</textarea>
 					<p style="display: none; color: white;" id="note">Lunghezza massima 1000 caratteri</p>
 				</div>
-				<button type="submit" class="btn btn-primary" id="submit" onclick="risultato()">Salva Modifiche</button>
+				<button type="submit" class="btn btn-primary" id="submit" onclick="risultato()">Modifica</button>
 			</div>
 		</div>
 	</form>
