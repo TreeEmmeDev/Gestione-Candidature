@@ -169,7 +169,6 @@
 				        	<button onclick="apri()" type="button" id="exampleFormControlInput1" class="form-control">File Caricato</button>
 				        </div>
 					</div>
-
 					<label for="exampleFormControlTextarea1" class="form-label">Note</label> 
 					<textarea style="height:150px" type="text" name="note" class="form-control" id="exampleFormControlTextarea1" rows="3" onclick="popup_note()">${c.note}</textarea>
 					<p style="display: none; color: white;" id="note">Lunghezza massima 1000 caratteri</p>
@@ -219,7 +218,7 @@
       
         
         function apri(){
-        	window.open("C:/curriculum-candidati/" + localStorage.getItem("file"), '_blank');
+        	window.open("FileUpload?file=" + localStorage.getItem("file"), '_blank');
         	
         }
         

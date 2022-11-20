@@ -183,7 +183,7 @@ function palla(){
 <script>
 
 function apri(){
-	window.open("file.html");
+	window.open("FileUpload?file=" + localStorage.getItem("file"), "_blank");
 	
 }
 
