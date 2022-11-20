@@ -43,14 +43,23 @@
                     </li> -->
                 </ul>
                 <form class="d-flex position-absolute end-0" id="operazioni" role="search" action="Select" method="GET" style="margin-right:5px;">
+
+                    <select class="form-select me-2" aria-label="Default select example" id="ambito" onchange="filtraAmbito()">
+                        <option selected>Ambito</option>
+                        <option value="Informatica">Informatica</option>
+                        <option value="Automazione">Automazione</option>
+                        <option value="">Reset Filtri</option>
+                      </select>
+
                 	<select class="form-select me-2" aria-label="Default select example" id="esitoSelezione" onchange="filtraEsito()">
 					  <option selected>Esito</option>
 					  <option value="Idoneo">Idoneo</option>
 					  <option value="Non Idoneo">Non Idoneo</option>
 					  <option value="In Attesa">In Attesa</option>
 					  <option value="Da ricontattare">Da Ricontattare</option>
-					  <option value="">Reset FIltri</option>
+					  <option value="">Reset Filtri</option>
 					</select>
+
       				<input class="form-control me-2" name="nome" type="search" placeholder="Nome" aria-label="Search">
       				<input class="form-control me-2" name="cognome" type="search" placeholder="Cognome" aria-label="Search">
       				<button class="btn btn-outline-light" type="submit">Cerca</button>
@@ -143,6 +152,7 @@
 	    <table class="table col-sm-12 table-bordered table-striped table-condensed cf" id="tabella">
 	        <thead>
 	            <tr>
+	            	<th scope="col">Ambito</th>
 	                <th scope="col">Nome</th>
 	                <th scope="col">Cognome</th>
 	                <th scope="col">Eta</th>
@@ -157,6 +167,7 @@
 	        <tbody>
 	            <c:forEach items="${listacandidati}" var="listacandidati">
 	                <tr id="tabellaRighe">
+	                	<td data-title="Nome" class="rig">${listacandidati.ambito}</td>
 	                    <td data-title="Nome" class="rig">${listacandidati.nome}</td>
 	                    <td data-title="Cognome" class="rig">${listacandidati.cognome}</td>
 	                    <td data-title="Eta" class="rig">${listacandidati.eta}</td>
@@ -178,7 +189,7 @@
 							<td data-title="Esito"><span class="dot" id="esitoPalla" style="background-color: blue"></span></td>
 						</c:if>
 	                    
-	                    <td data-title="Dettagli"><a onclick="localStorage.setItem('file','${listacandidati.file}');" href="Dettagli?id=${listacandidati.id}&nome=${listacandidati.nome}&cognome=${listacandidati.cognome}&anno_nascita=${listacandidati.anno_nascita}&eta=${listacandidati.eta}&residenza=${listacandidati.residenza}&telefono=${listacandidati.telefono}&email=${listacandidati.email}&titolo_studio=${listacandidati.titolo_studio}&voto=${listacandidati.voto}&formazione=${listacandidati.formazione}&data_candidatura=${listacandidati.data_candidatura}&data_colloquio=${listacandidati.data_colloquio}&note=${listacandidati.note}&esito=${listacandidati.esito}&greenpass=${listacandidati.greenpass}">
+	                    <td data-title="Dettagli"><a onclick="localStorage.setItem('file','${listacandidati.file}');" href="Dettagli?id=${listacandidati.id}&ambito=${listacandidati.ambito}&nome=${listacandidati.nome}&cognome=${listacandidati.cognome}&anno_nascita=${listacandidati.anno_nascita}&eta=${listacandidati.eta}&residenza=${listacandidati.residenza}&telefono=${listacandidati.telefono}&email=${listacandidati.email}&titolo_studio=${listacandidati.titolo_studio}&voto=${listacandidati.voto}&formazione=${listacandidati.formazione}&data_candidatura=${listacandidati.data_candidatura}&data_colloquio=${listacandidati.data_colloquio}&note=${listacandidati.note}&esito=${listacandidati.esito}">
 	                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ModeButton">Dettagli</button>
 	                        </a>
 	                    </td>
@@ -188,7 +199,7 @@
 	                    
 	                    </td>
 	                        
-	                        <td data-title="Modifica"><a href="Update?id=${listacandidati.id}&nome=${listacandidati.nome}&cognome=${listacandidati.cognome}&anno_nascita=${listacandidati.anno_nascita}&eta=${listacandidati.eta}&residenza=${listacandidati.residenza}&telefono=${listacandidati.telefono}&email=${listacandidati.email}&titolo_studio=${listacandidati.titolo_studio}&voto=${listacandidati.voto}&formazione=${listacandidati.formazione}&data_candidatura=${listacandidati.data_candidatura}&data_colloquio=${listacandidati.data_colloquio}&note=${listacandidati.note}&esito=${listacandidati.esito}&greenpass=${listacandidati.greenpass}">
+	                        <td data-title="Modifica"><a href="Update?id=${listacandidati.id}&ambito=${listacandidati.ambito}&nome=${listacandidati.nome}&cognome=${listacandidati.cognome}&anno_nascita=${listacandidati.anno_nascita}&eta=${listacandidati.eta}&residenza=${listacandidati.residenza}&telefono=${listacandidati.telefono}&email=${listacandidati.email}&titolo_studio=${listacandidati.titolo_studio}&voto=${listacandidati.voto}&formazione=${listacandidati.formazione}&data_candidatura=${listacandidati.data_candidatura}&data_colloquio=${listacandidati.data_colloquio}&note=${listacandidati.note}&esito=${listacandidati.esito}">
 	                                <button type="button" class="btn btn-primary" data-toggle="modal" onclick="localStorage.setItem('file','${listacandidati.file}');" data-target="#ModeButton">Modifica</button>
 	                            </a>
 	                        </td>
@@ -228,6 +239,19 @@
       document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
     
+
+    function filtraAmbito(){
+    	var selettore = document.getElementById("ambito");
+    	console.log(selettore.value)
+    	
+    	if(selettore.value == ""){
+    		window.open("Select", "_self");	
+    	}else if(selettore.value == "Informatica"){
+    		window.open("Select?ambito=Informatica", "_self");
+    	}else if(selettore.value == "Automazione"){
+    		window.open("Select?ambito=Automazione", "_self");
+    	}
+    }
 
     </script>
                 

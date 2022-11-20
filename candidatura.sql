@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `candidatura` (
   `id` int NOT NULL,
+  `ambito` varchar(50) NOT NULL,
   `nome` varchar(50) NOT NULL,
   `cognome` varchar(50) NOT NULL,
   `anno_nascita` date NOT NULL,
@@ -43,7 +44,6 @@ CREATE TABLE `candidatura` (
   `data_colloquio` date DEFAULT NULL,
   `note` varchar(2000) CHARACTER SET utf8mb4 DEFAULT NULL,
   `esito` varchar(1000) NOT NULL,
-  `greenpass` varchar(20) CHARACTER SET utf8mb4 DEFAULT NULL,
   `file` longtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

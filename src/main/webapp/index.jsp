@@ -126,78 +126,81 @@
             <h2 style="font-weight: bold; font-family: 'Dela Gothic One'; text-align: center; color: rgb(255, 255, 255); filter: drop-shadow(5px 5px 2px #696969)"> INSERIMENTO CANDIDATO:</h2>
         </div>
         
-        <form action="Insert" method="POST" style="z-index:999">
+        <form action="Insert" method="POST">
             <div class="container" style="margin-top: 30px;">
-                <div class="alert alert-dark" style="background-color: rgba(0, 101, 184, 0.952); border: 2px solid rgba(0, 101, 184, 0.952);padding: 10px; border-radius: 15px; height: 1300px;">
-                    <div class="mb-3" style="color:whitesmoke">
-                        <label for="exampleFormControlInput1" class="form-label">Nome:</label>
-                        <input onkeyup="validaN()" type="text" class="form-control" name="nome" id="nome" placeholder="Nome" required>
-
-                        <label for="exampleFormControlInput1" class="form-label">Cognome:</label>
-                        <input onkeyup="validaC()" name="cognome" type="text" class="form-control" id="cognome" placeholder="Cognome" required>
-
-                        <label for="exampleFormControlInput1" class="form-label">Data di Nascita:</label>
-                        <input name="anno_nascita" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di nascita" required>
-
-                        <label for="exampleFormControlInput1" class="form-label">Residenza:</label>
-                        <input name="residenza" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Residenza">
-
-                        <label for="exampleFormControlInput1" class="form-label">Numero di telefono:</label>
-                        <input name="telefono" type="tel" placeholder="Numero di telefono" pattern="[0-9]{10}" class="form-control" id="exampleFormControlInput1" id="numero" required>
-
-                        <label for="exampleFormControlInput1" class="form-label">Email:</label>
-                        <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required>
-
-                        <label for="exampleFormControlInput1" class="form-label">Titolo di studio:</label>
-                        <select name="titolo_studio" onchange="controllotitolo()" id="titolodistudio" class="custom-select">
-							<option value="Diploma">Diploma</option>
-							<option value="Laurea">Laurea</option>
-                    	</select> <br>
-
-                        <label for="exampleFormControlInput1" class="form-label">Voto:</label>
-                        <input name="voto" type="number" class="form-control" id="voto" placeholder="Voto" min="60" max="100">
-
-                        <label for="exampleFormControlInput1" class="form-label">Formazione:</label>
-                        <input name="formazione" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Formazione">
-
-                        <label for="exampleFormControlInput1" class="form-label">Data di candidatura:</label>
-                        <input name="data_candidatura" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di candidatura">
-
-                        <label for="exampleFormControlInput1" class="form-label">Data di colloquio:</label>
-                        <input name="data_colloquio" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di colloquio">
-
-                        <div class="mb-3">
-                            <label for="greenpass">Certificazione Verde: </label>
-                            <select name="greenpass" class="custom-select">
-								<option value="si">Si</option>
-								<option value="no">No</option>
-							</select>
+                <div class="alert alert-dark" style="background-color: rgba(0, 101, 184, 0.952); border: 2px solid rgba(0, 101, 184, 0.952); padding: 10px; border-radius: 15px;">
+                    <div class="mb-3" style="color: white;">
+    
+                        <label for="exampleFormControlInput1" class="form-label">Ambito</label>
+                            <select name="ambito" class="custom-select" id="ambito">
+                                <option value="Informatica">Informatica</option>
+                                <option value="Automazione">Automazione</option>
+                            </select>
                             <br>
-                        </div>
-                    </div>
-
-                    <div class="mb-3" style="color:whitesmoke">
-                        <label for="esito">Esito:</label>
-                        <select name="esito" class="custom-select">
-							<option value="Idoneo">Idoneo</option>
-							<option value="Non Idoneo">Non Idoneo</option>
-							<option value="In attesa">In attesa</option>
-							<option value="Da ricontattare">Da ricontattare</option>
-						</select>
-                        <br>
+    
+                        <input name="id" type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="Nome" value="${c.id}">
+    
+                        <label for="exampleFormControlInput1" class="form-label">Nome</label>
+                        <input name="nome" onkeyup="validaN()" type="text" class="form-control" id="nome" placeholder="Nome" value="${c.nome}" required>
                         
-						<div class="mb-3">
-						  <label for="formFile" class="form-label">FIle:</label>
-						  <input class="form-control" type="file" id="file" onchange="convertToBase64(document.getElementById('file').files[0]);">
-						  <textarea hidden name="file" class="form-control" id="out"></textarea>
-						</div>
+                        <label for="exampleFormControlInput1" class="form-label">Cognome</label>
+                        <input name="cognome" onkeyup="validaC()" type="text" class="form-control" id="cognome" placeholder="Cognome" value="${c.cognome}" required> 
+                            
+                        <label for="exampleFormControlInput1" class="form-label">Data di nascita</label> 
+                        <input name="anno_nascita" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di nascita" value="${c.anno_nascita}" required>
+    
+                        <label for="exampleFormControlInput1" class="form-label">Residenza</label>
+                        <input name="residenza" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Residenza" value="${c.residenza}"> 
+                            
+                        <label for="exampleFormControlInput1" class="form-label">Numero di telefono</label> 
+                        <input name="telefono" type="tel" class="form-control" id="exampleFormControlInput1" placeholder="3398569667" pattern="[0-9]{10}" value="${c.telefono}" required> 
+                            
+                        <label for="exampleFormControlInput1" class="form-label">Email</label> 
+                        <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" value="${c.email}" required> 
+                        
+                        <label for="exampleFormControlInput1" class="form-label">Titolo di studio</label> 
+                        <input name="titolo_studio" type="text" class="form-control" id="titolodistudio" placeholder="Titolo di studio"> 
+    
+                        <label for="exampleFormControlInput1" class="form-label">Voto</label>
+                        <input name="voto" type="number" value="${c.voto}" class="form-control" id="voto" placeholder="Voto" min="60">
+    
+                        <label for="exampleFormControlInput1" class="form-label">Formazione</label>
+                        <input name="formazione" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Formazione" value ="${c.formazione}"> 
+                            
+                        <label for="exampleFormControlInput1" class="form-label">Data di candidatura</label> 
+                        <input name="data_candidatura" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di candidatura" value="${c.data_candidatura}"	> 
+                            
+                        <label for="exampleFormControlInput1" class="form-label">Data di colloquio</label> 
+                        <input name="data_colloquio" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Data di colloquio" value="${c.data_colloquio}"> 
+    
+                    <div class="mb-3" style="color: white;">
+                        <label for="esito">Esito:</label>
+                        
+                            <select name="esito" id="esito" class="custom-select">
+                                <option value="Idoneo">Idoneo</option>
+                                <option value="Non Idoneo">Non Idoneo</option>
+                                <option value="In attesa">In attesa</option>
+                                <option value="Da ricontattare">Da ricontattare</option>
+                            </select>
 
-                        <label for="exampleFormControlTextarea1" class="form-label">Note:</label>
-                        <textarea style="height:150px" type="text" name="note" class="form-control" id="exampleFormControlTextarea1" rows="3" onclick="popup_note()"> </textarea>
+    
+                      
+                        
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">FIle:</label>
+                            <!-- <input class="form-control" type="file" id="file" name="pdf" onchange="convertToBase64(document.getElementById('file').files[0]);">
+                            <textarea hidden name="file" class="form-control" id="out"></textarea>
+                             -->
+                             
+                            <input class="form-control" type="file" id="file" name="file" onchange="uploadFile()">
+                        
+                        </div>
+    
+                        <label for="exampleFormControlTextarea1" class="form-label">Note</label> 
+                        <textarea style="height:150px" type="text" name="note" class="form-control" id="exampleFormControlTextarea1" rows="3" onclick="popup_note()">${c.note}</textarea>
                         <p style="display: none; color: white;" id="note">Lunghezza massima 1000 caratteri</p>
                     </div>
-
-                    <button style="margin-top:15px; position: absolute;left: 50%; transform: translate(-50%, -50%); background-color:rgb(42, 56, 253);" type="submit" class="btn btn-primary" id="submit" onclick="localStorage.setItem('inserimento', 1);">Invio</button>
+                    <button type="submit" class="btn btn-primary" id="submit" onclick="localStorage.setItem('inserimento', 1)">Inserisci Candidato</button>
                 </div>
             </div>
         </form>
@@ -220,30 +223,22 @@
     <script>
         var video = document.getElementById("myVideo2");
         
-        function convertToBase64(file){
-	        try{
-		        document.getElementById("out").focus();
-		
-		        var filereader = new FileReader();
-		        filereader.file_name = file.name;
-		        filereader.onload = function(){
-		        	
-		        	var content = this.result;
-		        	document.getElementById("out").value = content;
-		        };
-		
-		        filereader.readAsDataURL(file);
-	        }
-	        catch(err){
-	        	console.log(err);
-	        }
-        }
+        
                 
     </script>
         
         
-        
-    </script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>   
+     <script>
+		  async function uploadFile() {
+		    let formData = new FormData(); 
+		    formData.append("file", file.files[0]);
+		    await fetch('FileUpload', {
+		      method: "POST", 
+		      body: formData
+		    }); 
+		  }
+  </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/c2b8bef5f3.js" crossorigin="anonymous"></script>

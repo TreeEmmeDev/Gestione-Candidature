@@ -23,6 +23,7 @@ public class Select extends HttpServlet {
     CandidaturaDao cdao= new CandidaturaDao();
     List<Candidatura> listacandidati = new ArrayList<>();
     
+	String ambito = request.getParameter("ambito");
     String nome = request.getParameter("nome");
     String cognome = request.getParameter("cognome");
     String esito = request.getParameter("esito");
@@ -49,6 +50,16 @@ public class Select extends HttpServlet {
 			listacandidati = cdao.letturaRicerca("cognomeenome", nome, cognome);
 		}
 	    
+	    if(ambito == null) {
+	    	listacandidati = cdao.lettura();	
+	    }else if(ambito.equals("Informatica")) {
+	    	listacandidati = cdao.filtriAmbito("informatica");
+	    }else if(ambito.equals("Automazione")) {
+	    	listacandidati = cdao.filtriAmbito("Automazione");
+	    }else {
+	    	listacandidati = cdao.lettura();
+	    }
+	    
 	    
 	    
     } catch (SQLException e) {
@@ -57,7 +68,7 @@ public class Select extends HttpServlet {
 
     
     request.setAttribute("listacandidati", listacandidati);
-    request.getRequestDispatcher("select.jsp").forward((ServletRequest)request, (ServletResponse)response);
+    request.getRequestDispatcher("select.jsp").forward(request, response);
   }
   
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

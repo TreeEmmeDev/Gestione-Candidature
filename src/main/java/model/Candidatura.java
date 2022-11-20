@@ -5,6 +5,8 @@ import java.time.LocalDate;
 public class Candidatura {
 	private int id;
 
+	private String ambito;
+
 	private String nome;
 
 	private String cognome;
@@ -32,10 +34,16 @@ public class Candidatura {
 	private String note;
 
 	private String esito;
-
-	private String greenpass;
 	
 	private String file;
+
+	public String getAmbito() {
+		return this.ambito;
+	}
+
+	public void setAmbito(String ambito) {
+		this.ambito = ambito;
+	}
 
 	public int getId() {
 		return this.id;
@@ -156,14 +164,6 @@ public class Candidatura {
 	public void setEsito(String esito) {
 		this.esito = esito;
 	}
-
-	public String getGreenpass() {
-		return this.greenpass;
-	}
-
-	public void setGreenpass(String greenpass) {
-		this.greenpass = greenpass;
-	}
 	
 	public String getFile() {
 		return file;
@@ -174,17 +174,16 @@ public class Candidatura {
 	}
 
 	public String toString() {
-		return "Candidatura [id=" + this.id + ", nome=" + this.nome + ", cognome=" + this.cognome + ", anno_nascita="
+		return "Candidatura [id=" + this.id + ", ambito=" + this.ambito + ", nome=" + this.nome + ", cognome=" + this.cognome + ", anno_nascita="
 				+ this.anno_nascita + ", eta=" + this.eta + ", residenza=" + this.residenza + ", telefono="
 				+ this.telefono + ", email=" + this.email + ", titolo_studio=" + this.titolo_studio + ", voto="
 				+ this.voto + ", formazione=" + this.formazione + ", data_candidatura=" + this.data_candidatura
-				+ ", data_colloquio=" + this.data_colloquio + ", note=" + this.note + ", esito=" + this.esito
-				+ ", greenpass=" + this.greenpass + "]";
+				+ ", data_colloquio=" + this.data_colloquio + ", note=" + this.note + ", esito=" + this.esito + "]";
 	}
 
-	public Candidatura(String nome, String cognome, LocalDate anno_nascita, String residenza, String telefono,
-			String email, String titolo_studio, String voto, String formazione, 
-			String note, String esito, String greenpass) {
+	public Candidatura(String ambito, String nome, String cognome, LocalDate anno_nascita, String residenza, String telefono, String email, String titolo_studio, String voto, String formazione, String note, String esito) {
+
+		this.ambito = ambito;
 		this.nome = nome;
 		this.cognome = cognome;
 		this.anno_nascita = anno_nascita;
@@ -196,7 +195,6 @@ public class Candidatura {
 		this.formazione = formazione;
 		this.note = note;
 		this.esito = esito;
-		this.greenpass = greenpass;
 	}
 
 	public Candidatura() {
